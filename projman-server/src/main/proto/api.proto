@@ -1,0 +1,179 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ru.unn.supersoft.pm.api";
+option java_outer_classname = "PmApi";
+option csharp_namespace = "Projman.Server";
+
+service Auth {
+    rpc login (LoginRequest) returns (LoginResult);
+    rpc logout (LogoutRequest) returns (LogoutResult);
+}
+
+message LoginRequest {
+    string login = 1;
+    string password = 2;
+}
+message LoginResult {
+    string error = 1;
+    string token = 2;
+}
+
+message LogoutRequest {
+    string token = 1;
+}
+message LogoutResult {
+    string error = 1;
+}
+
+
+service Projects {
+    rpc getProjects (GetProjectsRequest) returns (GetProjectsResult);
+    rpc getProject (GetProjectRequest) returns (GetProjectResult);
+    rpc saveProject (SaveProjectRequest) returns (SaveProjectResult);
+}
+
+message Project {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    int64 startDate = 4;
+    int64 endDate = 5;
+    int64 closedWhen = 6;
+    Status status = 7;
+
+    enum Status {
+        OPEN = 0;
+        CLOSED = 1;
+    }
+}
+
+message GetProjectsRequest {
+    string token = 1;
+}
+message GetProjectsResult {
+    string error = 1;
+    repeated Project projects = 2;
+}
+
+message GetProjectRequest {
+    string token = 1;
+    string id = 2;
+}
+message GetProjectResult {
+    string error = 1;
+    Project project = 2;
+}
+
+message SaveProjectRequest {
+    string token = 1;
+    Project project = 2;
+}
+message SaveProjectResult {
+    string error = 1;
+    Project project = 2;
+}
+
+
+service Tasks {
+    rpc getTasks (GetTasksRequest) returns (GetTasksResult);
+    rpc getTask (GetTaskRequest) returns (GetTaskResult);
+    rpc saveTask (SaveTaskRequest) returns (SaveTaskResult);
+}
+
+message Task {
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    int64 createdDate = 4;
+    int64 startDate = 5;
+    int64 endDate = 6;
+    int64 assignedDate = 7;
+    int64 closeDate = 8;
+    string projectId = 9;
+    string createdByUserId = 10;
+    string assigneeUserId = 11;
+    Status status = 12;
+
+    enum Status {
+        CREATED = 0;
+        ASSIGNED = 1;
+        CLOSED = 2;
+    }
+}
+
+message GetTasksRequest {
+    string token = 1;
+}
+message GetTasksResult {
+    string error = 1;
+    repeated Task tasks = 2;
+}
+
+message GetTaskRequest {
+    string token = 1;
+    string id = 2;
+}
+message GetTaskResult {
+    string error = 1;
+    Task task = 2;
+}
+
+message SaveTaskRequest {
+    string token = 1;
+    Task task = 2;
+}
+message SaveTaskResult {
+    string error = 1;
+    Task task = 2;
+}
+
+
+service Users {
+    rpc getUsers (GetUsersRequest) returns (GetUsersResult);
+    rpc getUser (GetUserRequest) returns (GetUserResult);
+    rpc saveUser (SaveUserRequest) returns (SaveUserResult);
+}
+
+message User {
+    string id = 1;
+    string firstName = 2;
+    string lastName = 3;
+    string login = 4;
+    string password = 5;
+    Role role = 6;
+
+    enum Role {
+        ADMIN = 0;
+        MANAGER = 1;
+        USER = 2;
+    }
+}
+
+message GetUsersRequest {
+    string token = 1;
+}
+message GetUsersResult {
+    string error = 1;
+    repeated User users = 2;
+}
+
+message GetUserRequest {
+    string token = 1;
+    string id = 2;
+}
+message GetUserResult {
+    string error = 1;
+    User user = 2;
+}
+
+message SaveUserRequest {
+    string token = 1;
+    User user = 2;
+}
+message SaveUserResult {
+    string error = 1;
+    User user = 2;
+}
+
+
