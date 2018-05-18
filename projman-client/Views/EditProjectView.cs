@@ -15,14 +15,12 @@ namespace projman_client
     {
         private Project _currentProject;
         private EditProjectPresenter _presenter;
+        //TODO need discard logic!
         public EditProjectView(Project project)
         {
-            
-            
             InitializeComponent();
             _presenter = new EditProjectPresenter(this, project);
-
-
+            
         }
 
         
