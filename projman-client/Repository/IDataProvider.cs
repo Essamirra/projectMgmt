@@ -16,6 +16,7 @@ namespace projman_client
             void saveTask(Task task);
             List<User> getUsers();
             User getUser(string id);
+            void saveUser(User user);
         }
 
 }

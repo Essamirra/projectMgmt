@@ -15,6 +15,33 @@ namespace projman_client
         public EditUserView(User user)
         {
             InitializeComponent();
+            presenter_ = new EditUserPresenter(this, user);
         }
+
+        public void ShowData(User user)
+        {
+            current_user_ = user;
+            property_grid.SelectedObject = user;
+            Refresh();
+        }
+
+        public void NavigateToUserView(User user)
+        {
+            navigate(new UsersListView());
+        }
+
+        private void _saveButton_Click(object sender, EventArgs e)
+        {
+            presenter_.OnSaveClick(current_user_);
+        }
+
+        private void _cancelButton_Click(object sender, EventArgs e)
+        {
+            presenter_.OnDiscardClick(current_user_);
+        }
+
+
+        private User current_user_;
+        private EditUserPresenter presenter_;
     }
 }

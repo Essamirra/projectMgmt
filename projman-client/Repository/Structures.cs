@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace projman_client
@@ -48,11 +49,17 @@ namespace projman_client
 
     public class User
     {
+        [DisplayName("Id"), ReadOnly(true)]
         public string id { get; set; } = "stub_id";
+        [DisplayName("Имя")]
         public string firstName { get; set; } = "stub_firstName";
+        [DisplayName("Фамилия")]
         public string lastName { get; set; } = "stub_lastName";
+        [DisplayName("Логин")]
         public string login { get; set; } = "stub_login";
+        [DisplayName("Пароль")]
         public string password { get; set; } = "stub_password";
+        [DisplayName("Роль")]
         public Role role { get; set; } = Role.USER;
     }
 
