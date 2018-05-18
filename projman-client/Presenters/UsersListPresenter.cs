@@ -25,7 +25,7 @@ namespace projman_client
 
         public void updateUsersList()
         {
-            var users = DataProvider.Instance.getUsers();
+            var users = DataProviderFactory.getDataProvider().getUsers();
             view_.showUsers(users);
         }
 

@@ -8,19 +8,20 @@ namespace projman_client
 {
     class ProjectsListPresenter
     {
+        private IDataProvider _provider = DataProviderFactory.getDataProvider();
         public ProjectsListPresenter(ProjectsListView view)
         {
             view_ = view;
         }
 
-        public void onProjectClick(Project project)
+        public void OnProjectClick(Project project)
         {
-            view_.navigateToProject("");
+            view_.navigateToProject(project);
         }
 
-        public void updateProjectsList()
+        public void UpdateProjectsList()
         {
-            var projects = DataProvider.Instance.getProjects();
+            var projects = _provider.getProjects();
             view_.showProjects(projects);
         }
 

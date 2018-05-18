@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace projman_client
 {
-    class DataProvider
+    
+    class DataProvider : IDataProvider
     {
         private static readonly DataProvider instance = new DataProvider();
-        private DataProvider() { }
-        public static DataProvider Instance
-        {
-            get { return instance; }
-        }
-
+        List<Project> _projects = new List<Project>() { new Project(), new Project(), new Project() };
+       
         public void login(string login, string password)
         {
 
@@ -24,15 +21,9 @@ namespace projman_client
 
         }
 
-
-
         public List<Project> getProjects()
         {
-            List<Project> projects = new List<Project>();
-            projects.Add(new Project());
-            projects.Add(new Project());
-            projects.Add(new Project());
-            return projects;
+            return _projects;
         }
 
         public Project getProject(string id)
@@ -41,10 +32,14 @@ namespace projman_client
         }
 
         public void saveProject(Project project)
-        { }
+        {
+           
+        }
 
         public void getProjectStatistics(string projectId)
-        { }
+        {
+
+        }
 
 
 
@@ -69,9 +64,9 @@ namespace projman_client
         public List<User> getUsers()
         {
             List<User> users = new List<User>();
-            users.Add(new User());
-            users.Add(new User());
-            users.Add(new User());
+            users.Add(new User() {firstName = "ADMIN", id = "1", lastName = "Admin", login = "adm", password = "adm", role = Role.ADMIN});
+            users.Add(new User() { firstName = "mngr", id = "2", lastName = "nd", login = "mgr", password = "mgr", role = Role.MANAGER });
+            users.Add(new User() { firstName = "usr", id = "3", lastName = "usr", login = "usr", password = "usr", role = Role.USER });
             users.Add(new User());
             users.Add(new User());
             return users;

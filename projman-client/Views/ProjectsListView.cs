@@ -12,17 +12,18 @@ namespace projman_client
 {
     public partial class ProjectsListView : IBaseView
     {
+        private ProjectsListPresenter _presenter;
         public ProjectsListView()
         {
             InitializeComponent();
-            presenter_ = new ProjectsListPresenter(this);
-            presenter_.updateProjectsList();
+            _presenter = new ProjectsListPresenter(this);
+            _presenter.UpdateProjectsList();
         }
 
-        public void navigateToProject(string id)
+        public void navigateToProject(Project id)
         {
-            var project = DataProvider.Instance.getProject(id);
-            navigate(new ProjectView(project));
+           
+            navigate(new ProjectView(id));
         }
 
         public void showProjects(List<Project> projects)
@@ -42,11 +43,11 @@ namespace projman_client
             if (row >= 0)
             {
                 var project = (grid.DataSource as List<Project>)[row];
-                presenter_.onProjectClick(project);
+                _presenter.OnProjectClick(project);
             }
         }
 
 
-        private ProjectsListPresenter presenter_;
+        
     }
 }

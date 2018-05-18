@@ -31,7 +31,7 @@ namespace projman_client
 
         public void updateTasks()
         {
-            var tasks = DataProvider.Instance.getTasks(project_.id);
+            var tasks = DataProviderFactory.getDataProvider().getTasks(project_.id);
             view_.showData(project_, tasks);
         }
 

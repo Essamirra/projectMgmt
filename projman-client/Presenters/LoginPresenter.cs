@@ -15,7 +15,7 @@ namespace projman_client
 
         public void login(string login, string password)
         {
-            DataProvider.Instance.login(login, password);
+           DataProviderFactory.getDataProvider().login(login, password);
             view_.navigateToDashboard();
         }
 

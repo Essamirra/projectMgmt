@@ -46,103 +46,105 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DashboardPresenter.cs" />
-    <Compile Include="DashboardView.cs">
+    <Compile Include="Presenters\DashboardPresenter.cs" />
+    <Compile Include="Repository\DataProviderFactory.cs" />
+    <Compile Include="Views\DashboardView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DashboardView.Designer.cs">
+    <Compile Include="Views\DashboardView.Designer.cs">
       <DependentUpon>DashboardView.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataProvider.cs" />
-    <Compile Include="EditUserPresenter.cs" />
-    <Compile Include="EditTaskPresenter.cs" />
-    <Compile Include="EditProjectPresenter.cs" />
-    <Compile Include="EditUserView.cs">
+    <Compile Include="Repository\FakeDataProvider.cs" />
+    <Compile Include="Presenters\EditUserPresenter.cs" />
+    <Compile Include="Presenters\EditTaskPresenter.cs" />
+    <Compile Include="Presenters\EditProjectPresenter.cs" />
+    <Compile Include="Views\EditUserView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EditUserView.Designer.cs">
+    <Compile Include="Views\EditUserView.Designer.cs">
       <DependentUpon>EditUserView.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditTaskView.cs">
+    <Compile Include="Views\EditTaskView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EditTaskView.Designer.cs">
+    <Compile Include="Views\EditTaskView.Designer.cs">
       <DependentUpon>EditTaskView.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditProjectView.cs">
+    <Compile Include="Views\EditProjectView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EditProjectView.Designer.cs">
+    <Compile Include="Views\EditProjectView.Designer.cs">
       <DependentUpon>EditProjectView.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginPresenter.cs" />
-    <Compile Include="LoginView.cs">
+    <Compile Include="Repository\IDataProvider.cs" />
+    <Compile Include="Presenters\LoginPresenter.cs" />
+    <Compile Include="Views\LoginView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LoginView.Designer.cs">
+    <Compile Include="Views\LoginView.Designer.cs">
       <DependentUpon>LoginView.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectPresenter.cs" />
-    <Compile Include="ProjectsListPresenter.cs" />
-    <Compile Include="ProjectView.cs">
+    <Compile Include="Presenters\ProjectPresenter.cs" />
+    <Compile Include="Presenters\ProjectsListPresenter.cs" />
+    <Compile Include="Views\ProjectView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ProjectView.Designer.cs">
+    <Compile Include="Views\ProjectView.Designer.cs">
       <DependentUpon>ProjectView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsersListView.cs">
+    <Compile Include="Views\UsersListView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UsersListView.Designer.cs">
+    <Compile Include="Views\UsersListView.Designer.cs">
       <DependentUpon>UsersListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProjectsListView.cs">
+    <Compile Include="Views\ProjectsListView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ProjectsListView.Designer.cs">
+    <Compile Include="Views\ProjectsListView.Designer.cs">
       <DependentUpon>ProjectsListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsersListPresenter.cs" />
-    <Compile Include="StackBaseView.cs">
+    <Compile Include="Presenters\UsersListPresenter.cs" />
+    <Compile Include="Views\StackBaseView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StackBaseView.Designer.cs">
+    <Compile Include="Views\StackBaseView.Designer.cs">
       <DependentUpon>StackBaseView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Structures.cs" />
+    <Compile Include="Repository\Structures.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DashboardView.resx">
+    <EmbeddedResource Include="Views\DashboardView.resx">
       <DependentUpon>DashboardView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditUserView.resx">
+    <EmbeddedResource Include="Views\EditUserView.resx">
       <DependentUpon>EditUserView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditTaskView.resx">
+    <EmbeddedResource Include="Views\EditTaskView.resx">
       <DependentUpon>EditTaskView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditProjectView.resx">
+    <EmbeddedResource Include="Views\EditProjectView.resx">
       <DependentUpon>EditProjectView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginView.resx">
+    <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectView.resx">
+    <EmbeddedResource Include="Views\ProjectView.resx">
       <DependentUpon>ProjectView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsersListView.resx">
+    <EmbeddedResource Include="Views\UsersListView.resx">
       <DependentUpon>UsersListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectsListView.resx">
+    <EmbeddedResource Include="Views\ProjectsListView.resx">
       <DependentUpon>ProjectsListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -154,7 +156,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="StackBaseView.resx">
+    <EmbeddedResource Include="Views\StackBaseView.resx">
       <DependentUpon>StackBaseView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
