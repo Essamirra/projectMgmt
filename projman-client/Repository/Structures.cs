@@ -24,7 +24,12 @@ namespace projman_client
         {
             WantOpenView?.Invoke(this, new BaseViewArgs(view));
         }
+        protected void back()
+        {
+            WantBack?.Invoke(this, new EventArgs());
+        }
         public event EventHandler<BaseViewArgs> WantOpenView;
+        public event EventHandler<EventArgs> WantBack;
     }
 
 

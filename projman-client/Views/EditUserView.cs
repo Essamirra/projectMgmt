@@ -27,7 +27,7 @@ namespace projman_client
 
         public void NavigateToUserView(User user)
         {
-            navigate(new UsersListView());
+            back();
         }
 
         private void _saveButton_Click(object sender, EventArgs e)

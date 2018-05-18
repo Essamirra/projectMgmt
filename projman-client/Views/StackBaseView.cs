@@ -19,6 +19,7 @@ namespace projman_client
         {
             InitializeComponent();
             stack_.Push(init_view);
+            stack_.Peek().WantBack += back_button_Click;
             stack_.Peek().WantOpenView += navigate;
             updateBaseView();
         }
@@ -26,7 +27,9 @@ namespace projman_client
         private void navigate(object sender, BaseViewArgs args)
         {
             stack_.Peek().WantOpenView -= navigate;
+            stack_.Peek().WantBack -= back_button_Click;
             stack_.Push(args.View);
+            stack_.Peek().WantBack += back_button_Click;
             stack_.Peek().WantOpenView += navigate;
             updateBaseView();
         }
