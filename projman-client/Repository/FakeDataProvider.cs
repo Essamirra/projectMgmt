@@ -7,11 +7,28 @@ using System.Threading.Tasks;
 namespace projman_client
 {
     
-    class DataProvider : IDataProvider
+    class FakeDataProvider : IDataProvider
     {
-        private static readonly DataProvider instance = new DataProvider();
-        List<Project> _projects = new List<Project>() { new Project(), new Project(), new Project() };
-       
+        private static readonly FakeDataProvider instance = new FakeDataProvider();
+        private Dictionary<string, Project> _projects = new Dictionary<string, Project>();
+        private Dictionary<string, Task> _tasks = new Dictionary<string, Task>();
+        public FakeDataProvider()
+        {
+            var p1 = new Project();
+            _projects.Add(p1.id, p1);
+            var p2 = new Project(){id = Guid.NewGuid().ToString()};
+            var p3 = new Project() { id = Guid.NewGuid().ToString() };
+            _projects.Add(p2.id, p2);
+            _projects.Add(p3.id, p3);
+
+            var task = new Task() {projectId = p1.id};
+            _tasks.Add(task.id, task);
+            var task1 = new Task() {id = Guid.NewGuid().ToString(), projectId = p2.id};
+            _tasks.Add(task1.id, task1);
+            
+
+
+        }
         public void login(string login, string password)
         {
 
@@ -23,17 +40,17 @@ namespace projman_client
 
         public List<Project> getProjects()
         {
-            return _projects;
+            return _projects.Values.ToList();
         }
 
         public Project getProject(string id)
         {
-            return new Project();
+            return _projects[id];
         }
 
         public void saveProject(Project project)
         {
-           
+            _projects[project.id] = project;
         }
 
         public void getProjectStatistics(string projectId)
@@ -45,19 +62,18 @@ namespace projman_client
 
         public List<Task> getTasks(string projectId)
         {
-            List<Task> tasks = new List<Task>();
-            tasks.Add(new Task());
-            tasks.Add(new Task());
-            return tasks;
+            return _tasks.Values.Where(t => t.projectId == projectId).ToList();
         }
 
         public Task getTask(string id)
         {
-            return new Task();
+            return _tasks[id];
         }
 
         public void saveTask(Task task)
-        { }
+        {
+            _tasks[task.id] = task;
+        }
 
 
 

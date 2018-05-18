@@ -65,7 +65,11 @@ namespace projman_client
 
     public class Task
     {
+        [Browsable(false)]
+        public string projectId { get; set; }
+        [Browsable(false)]
         public string id { get; set; } = "stub_id";
+        
         public string title { get; set; } = "stub_title";
         public string description { get; set; } = "stub_description";
     }
