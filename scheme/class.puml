@@ -1,0 +1,193 @@
+@startuml
+scale 0.8
+
+package "Common" {
+    class User {
+        + String id
+        + String firstName
+        + String lastName
+        + String login
+        + String password
+        + Role role
+    }
+    enum Role {
+        ADMIN
+        MANAGER
+        USER
+    }
+
+    class Task {
+        + String id
+        + String title
+        + String description
+        + Date createdDate
+        + Date startDate
+        + Date assignedDate
+        + Date closeDate
+        + int duration
+        + String projectId
+        + String createdByUserId
+        + String assigneeUserId
+        + Status status
+    }
+    class Project {
+        + String id
+        + String name
+        + String description
+        + Date startDate
+        + Date endDate
+        + bool isActive
+        + Date closedWhen
+    }
+    class ProjectStatistics
+
+    enum Status {
+        CREATED
+        ASSIGNED
+        CLOSED
+    }
+
+    interface DataProvider {
+        .. Auth ..
+        + login(String login, String password)
+        + logout()
+        .. Projects  ..
+        + List<Project> getProjects()
+        + Project getProject(String id)
+        + void saveProject(Project project)
+        + ProjectStatistics getProjectStatistics(String projectId)
+        .. Tasks ..
+        + List<Task> getTasks(String projectId)
+        + Task getTask(String id)
+        + void saveTask(Task task)
+        .. Users ..
+        + List<User> getUsers()
+        + User getUser(String id)
+        + void saveUser(User user)
+    }
+}
+
+package "Client" {
+    interface IBaseView {
+        + showError(String message)
+    }
+
+    class DataProviderClient {
+        ...
+    }
+
+    class LoginView {
+        + navigateToDashboard()
+    }
+    class LoginPresenter {
+        + login(login, password)
+    }
+    class DashboardView {
+        + navigateToProjectsList()
+        + navigateToUsersList()
+    }
+    class DashboardPresenter {
+        + onProjectsListClick()
+        + onUsersListClick()
+    }
+    class ProjectsListView {
+        + navigateToProject(String id)
+        + showProjects(List<Project> projects)
+    }
+    class ProjectsListPresenter {
+        + onProjectClick(Project project)
+    }
+    class ProjectView {
+        + navigateToEditTask(Task task)
+        + navigateToEditProject(Project project)
+        + showData(Project project, List<Task> tasks)
+    }
+    class ProjectPresenter {
+        + onNewTaskClick()
+        + onEditProjectClick()
+    }
+    class EditTaskView {
+        + showTask(Task task)
+        + showTaskInEditMode(Task task)
+    }
+    class EditTaskPresenter {
+        + onEditTaskClick()
+        + onSaveTaskClick()
+        + onDiscardChangesClick()
+    }
+    class EditProjectView {
+        + showData(Project project)
+        + navigateToProjectView(Project project)
+    }
+    class EditProjectPresenter {
+        + onSaveClick()
+        + onDiscardClick()
+    }
+    class ProjectStatisticsView {
+        + showGanttDiagramm (ProjectStatistics stat)
+    }
+    class ProjectStatisticsPresenter
+    class UsersListView {
+        + showUsers(List<User> users)
+        + navigateToEditUser(User user)
+    }
+    class UsersListPresenter {
+        + onNewUserClick()
+        + onEditUserClick(User user)
+    }
+    class EditUserView {
+        + showData(User user)
+    }
+    class EditUserPresenter {
+        + onSaveClick()
+        + onDiscardClick()
+    }
+}
+
+package "Server" {
+    class DataProviderServer {
+        ...
+    }
+}
+
+Task o-- Status
+User o-- Role
+
+DataProvider -- User
+DataProvider -- Task
+DataProvider -- Project
+DataProvider -- ProjectStatistics
+DataProviderClient --|> DataProvider
+DataProviderServer -|> DataProvider
+
+IBaseView <|-- LoginView
+IBaseView <|-- DashboardView
+IBaseView <|-- ProjectsListView
+IBaseView <|-- ProjectView
+IBaseView <|-- EditTaskView
+IBaseView <|-- EditProjectView
+IBaseView <|-- ProjectStatisticsView
+IBaseView <|-- UsersListView
+IBaseView <|-- EditUserView
+
+LoginView -- LoginPresenter
+DashboardView -- DashboardPresenter
+ProjectsListView -- ProjectsListPresenter
+ProjectView -- ProjectPresenter
+EditTaskView -- EditTaskPresenter
+EditProjectView -- EditProjectPresenter
+ProjectStatisticsView -- ProjectStatisticsPresenter
+UsersListView -- UsersListPresenter
+EditUserView -- EditUserPresenter
+
+LoginPresenter -- DataProviderClient
+DashboardPresenter -- DataProviderClient
+ProjectsListPresenter -- DataProviderClient
+ProjectPresenter -- DataProviderClient
+EditTaskPresenter -- DataProviderClient
+EditProjectPresenter -- DataProviderClient
+ProjectStatisticsPresenter -- DataProviderClient
+UsersListPresenter -- DataProviderClient
+EditUserPresenter -- DataProviderClient
+
+@enduml
