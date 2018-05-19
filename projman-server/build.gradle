@@ -29,6 +29,8 @@ dependencies {
     compile 'io.grpc:grpc-netty:1.11.0'
     compile 'io.grpc:grpc-protobuf:1.11.0'
     compile 'io.grpc:grpc-stub:1.11.0'
+
+    compile 'org.xerial:sqlite-jdbc:3.8.11.2'
 }
 
 protobuf {

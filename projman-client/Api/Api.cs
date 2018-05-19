@@ -26,86 +26,80 @@ namespace Projman.Server {
           string.Concat(
             "Cidwcm9qbWFuLXNlcnZlci9zcmMvbWFpbi9wcm90by9hcGkucHJvdG8iLwoM",
             "TG9naW5SZXF1ZXN0Eg0KBWxvZ2luGAEgASgJEhAKCHBhc3N3b3JkGAIgASgJ",
-            "IisKC0xvZ2luUmVzdWx0Eg0KBWVycm9yGAEgASgJEg0KBXRva2VuGAIgASgJ",
-            "Ih4KDUxvZ291dFJlcXVlc3QSDQoFdG9rZW4YASABKAkiHQoMTG9nb3V0UmVz",
-            "dWx0Eg0KBWVycm9yGAEgASgJIrEBCgdQcm9qZWN0EgoKAmlkGAEgASgJEgwK",
-            "BG5hbWUYAiABKAkSEwoLZGVzY3JpcHRpb24YAyABKAkSEQoJc3RhcnREYXRl",
-            "GAQgASgDEg8KB2VuZERhdGUYBSABKAMSEgoKY2xvc2VkV2hlbhgGIAEoAxIf",
-            "CgZzdGF0dXMYByABKA4yDy5Qcm9qZWN0LlN0YXR1cyIeCgZTdGF0dXMSCAoE",
-            "T1BFThAAEgoKBkNMT1NFRBABIiMKEkdldFByb2plY3RzUmVxdWVzdBINCgV0",
-            "b2tlbhgBIAEoCSI+ChFHZXRQcm9qZWN0c1Jlc3VsdBINCgVlcnJvchgBIAEo",
-            "CRIaCghwcm9qZWN0cxgCIAMoCzIILlByb2plY3QiLgoRR2V0UHJvamVjdFJl",
-            "cXVlc3QSDQoFdG9rZW4YASABKAkSCgoCaWQYAiABKAkiPAoQR2V0UHJvamVj",
-            "dFJlc3VsdBINCgVlcnJvchgBIAEoCRIZCgdwcm9qZWN0GAIgASgLMgguUHJv",
-            "amVjdCI+ChJTYXZlUHJvamVjdFJlcXVlc3QSDQoFdG9rZW4YASABKAkSGQoH",
-            "cHJvamVjdBgCIAEoCzIILlByb2plY3QiPQoRU2F2ZVByb2plY3RSZXN1bHQS",
-            "DQoFZXJyb3IYASABKAkSGQoHcHJvamVjdBgCIAEoCzIILlByb2plY3QiqwIK",
-            "BFRhc2sSCgoCaWQYASABKAkSDQoFdGl0bGUYAiABKAkSEwoLZGVzY3JpcHRp",
-            "b24YAyABKAkSEwoLY3JlYXRlZERhdGUYBCABKAMSEQoJc3RhcnREYXRlGAUg",
-            "ASgDEg8KB2VuZERhdGUYBiABKAMSFAoMYXNzaWduZWREYXRlGAcgASgDEhEK",
-            "CWNsb3NlRGF0ZRgIIAEoAxIRCglwcm9qZWN0SWQYCSABKAkSFwoPY3JlYXRl",
-            "ZEJ5VXNlcklkGAogASgJEhYKDmFzc2lnbmVlVXNlcklkGAsgASgJEhwKBnN0",
-            "YXR1cxgMIAEoDjIMLlRhc2suU3RhdHVzIi8KBlN0YXR1cxILCgdDUkVBVEVE",
-            "EAASDAoIQVNTSUdORUQQARIKCgZDTE9TRUQQAiIgCg9HZXRUYXNrc1JlcXVl",
-            "c3QSDQoFdG9rZW4YASABKAkiNQoOR2V0VGFza3NSZXN1bHQSDQoFZXJyb3IY",
-            "ASABKAkSFAoFdGFza3MYAiADKAsyBS5UYXNrIisKDkdldFRhc2tSZXF1ZXN0",
-            "Eg0KBXRva2VuGAEgASgJEgoKAmlkGAIgASgJIjMKDUdldFRhc2tSZXN1bHQS",
-            "DQoFZXJyb3IYASABKAkSEwoEdGFzaxgCIAEoCzIFLlRhc2siNQoPU2F2ZVRh",
-            "c2tSZXF1ZXN0Eg0KBXRva2VuGAEgASgJEhMKBHRhc2sYAiABKAsyBS5UYXNr",
-            "IjQKDlNhdmVUYXNrUmVzdWx0Eg0KBWVycm9yGAEgASgJEhMKBHRhc2sYAiAB",
-            "KAsyBS5UYXNrIpwBCgRVc2VyEgoKAmlkGAEgASgJEhEKCWZpcnN0TmFtZRgC",
-            "IAEoCRIQCghsYXN0TmFtZRgDIAEoCRINCgVsb2dpbhgEIAEoCRIQCghwYXNz",
-            "d29yZBgFIAEoCRIYCgRyb2xlGAYgASgOMgouVXNlci5Sb2xlIigKBFJvbGUS",
-            "CQoFQURNSU4QABILCgdNQU5BR0VSEAESCAoEVVNFUhACIiAKD0dldFVzZXJz",
-            "UmVxdWVzdBINCgV0b2tlbhgBIAEoCSI1Cg5HZXRVc2Vyc1Jlc3VsdBINCgVl",
-            "cnJvchgBIAEoCRIUCgV1c2VycxgCIAMoCzIFLlVzZXIiKwoOR2V0VXNlclJl",
-            "cXVlc3QSDQoFdG9rZW4YASABKAkSCgoCaWQYAiABKAkiMwoNR2V0VXNlclJl",
-            "c3VsdBINCgVlcnJvchgBIAEoCRITCgR1c2VyGAIgASgLMgUuVXNlciI1Cg9T",
-            "YXZlVXNlclJlcXVlc3QSDQoFdG9rZW4YASABKAkSEwoEdXNlchgCIAEoCzIF",
-            "LlVzZXIiNAoOU2F2ZVVzZXJSZXN1bHQSDQoFZXJyb3IYASABKAkSEwoEdXNl",
-            "chgCIAEoCzIFLlVzZXIyVQoEQXV0aBIkCgVsb2dpbhINLkxvZ2luUmVxdWVz",
-            "dBoMLkxvZ2luUmVzdWx0EicKBmxvZ291dBIOLkxvZ291dFJlcXVlc3QaDS5M",
-            "b2dvdXRSZXN1bHQyrwEKCFByb2plY3RzEjYKC2dldFByb2plY3RzEhMuR2V0",
-            "UHJvamVjdHNSZXF1ZXN0GhIuR2V0UHJvamVjdHNSZXN1bHQSMwoKZ2V0UHJv",
-            "amVjdBISLkdldFByb2plY3RSZXF1ZXN0GhEuR2V0UHJvamVjdFJlc3VsdBI2",
-            "CgtzYXZlUHJvamVjdBITLlNhdmVQcm9qZWN0UmVxdWVzdBoSLlNhdmVQcm9q",
-            "ZWN0UmVzdWx0MpEBCgVUYXNrcxItCghnZXRUYXNrcxIQLkdldFRhc2tzUmVx",
-            "dWVzdBoPLkdldFRhc2tzUmVzdWx0EioKB2dldFRhc2sSDy5HZXRUYXNrUmVx",
-            "dWVzdBoOLkdldFRhc2tSZXN1bHQSLQoIc2F2ZVRhc2sSEC5TYXZlVGFza1Jl",
-            "cXVlc3QaDy5TYXZlVGFza1Jlc3VsdDKRAQoFVXNlcnMSLQoIZ2V0VXNlcnMS",
-            "EC5HZXRVc2Vyc1JlcXVlc3QaDy5HZXRVc2Vyc1Jlc3VsdBIqCgdnZXRVc2Vy",
-            "Eg8uR2V0VXNlclJlcXVlc3QaDi5HZXRVc2VyUmVzdWx0Ei0KCHNhdmVVc2Vy",
-            "EhAuU2F2ZVVzZXJSZXF1ZXN0Gg8uU2F2ZVVzZXJSZXN1bHRCMwoXcnUudW5u",
-            "LnN1cGVyc29mdC5wbS5hcGlCBVBtQXBpUAGqAg5Qcm9qbWFuLlNlcnZlcmIG",
-            "cHJvdG8z"));
+            "IhwKC0xvZ2luUmVzdWx0Eg0KBXRva2VuGAEgASgJIh4KDUxvZ291dFJlcXVl",
+            "c3QSDQoFdG9rZW4YASABKAkiDgoMTG9nb3V0UmVzdWx0IrEBCgdQcm9qZWN0",
+            "EgoKAmlkGAEgASgDEgwKBG5hbWUYAiABKAkSEwoLZGVzY3JpcHRpb24YAyAB",
+            "KAkSEQoJc3RhcnREYXRlGAQgASgDEg8KB2VuZERhdGUYBSABKAMSEgoKY2xv",
+            "c2VkV2hlbhgGIAEoAxIfCgZzdGF0dXMYByABKA4yDy5Qcm9qZWN0LlN0YXR1",
+            "cyIeCgZTdGF0dXMSCAoET1BFThAAEgoKBkNMT1NFRBABIiMKEkdldFByb2pl",
+            "Y3RzUmVxdWVzdBINCgV0b2tlbhgBIAEoCSIvChFHZXRQcm9qZWN0c1Jlc3Vs",
+            "dBIaCghwcm9qZWN0cxgBIAMoCzIILlByb2plY3QiLgoRR2V0UHJvamVjdFJl",
+            "cXVlc3QSDQoFdG9rZW4YASABKAkSCgoCaWQYAiABKAMiLQoQR2V0UHJvamVj",
+            "dFJlc3VsdBIZCgdwcm9qZWN0GAEgASgLMgguUHJvamVjdCI+ChJTYXZlUHJv",
+            "amVjdFJlcXVlc3QSDQoFdG9rZW4YASABKAkSGQoHcHJvamVjdBgCIAEoCzII",
+            "LlByb2plY3QiEwoRU2F2ZVByb2plY3RSZXN1bHQiqwIKBFRhc2sSCgoCaWQY",
+            "ASABKAMSDQoFdGl0bGUYAiABKAkSEwoLZGVzY3JpcHRpb24YAyABKAkSEwoL",
+            "Y3JlYXRlZERhdGUYBCABKAMSEQoJc3RhcnREYXRlGAUgASgDEg8KB2VuZERh",
+            "dGUYBiABKAMSFAoMYXNzaWduZWREYXRlGAcgASgDEhEKCWNsb3NlRGF0ZRgI",
+            "IAEoAxIRCglwcm9qZWN0SWQYCSABKAMSFwoPY3JlYXRlZEJ5VXNlcklkGAog",
+            "ASgDEhYKDmFzc2lnbmVlVXNlcklkGAsgASgDEhwKBnN0YXR1cxgMIAEoDjIM",
+            "LlRhc2suU3RhdHVzIi8KBlN0YXR1cxILCgdDUkVBVEVEEAASDAoIQVNTSUdO",
+            "RUQQARIKCgZDTE9TRUQQAiIgCg9HZXRUYXNrc1JlcXVlc3QSDQoFdG9rZW4Y",
+            "ASABKAkiJgoOR2V0VGFza3NSZXN1bHQSFAoFdGFza3MYASADKAsyBS5UYXNr",
+            "IisKDkdldFRhc2tSZXF1ZXN0Eg0KBXRva2VuGAEgASgJEgoKAmlkGAIgASgD",
+            "IiQKDUdldFRhc2tSZXN1bHQSEwoEdGFzaxgBIAEoCzIFLlRhc2siNQoPU2F2",
+            "ZVRhc2tSZXF1ZXN0Eg0KBXRva2VuGAEgASgJEhMKBHRhc2sYAiABKAsyBS5U",
+            "YXNrIhAKDlNhdmVUYXNrUmVzdWx0IpwBCgRVc2VyEgoKAmlkGAEgASgDEhEK",
+            "CWZpcnN0TmFtZRgCIAEoCRIQCghsYXN0TmFtZRgDIAEoCRINCgVsb2dpbhgE",
+            "IAEoCRIQCghwYXNzd29yZBgFIAEoCRIYCgRyb2xlGAYgASgOMgouVXNlci5S",
+            "b2xlIigKBFJvbGUSCAoEVVNFUhAAEgsKB01BTkFHRVIQARIJCgVBRE1JThAC",
+            "IiAKD0dldFVzZXJzUmVxdWVzdBINCgV0b2tlbhgBIAEoCSImCg5HZXRVc2Vy",
+            "c1Jlc3VsdBIUCgV1c2VycxgBIAMoCzIFLlVzZXIiKwoOR2V0VXNlclJlcXVl",
+            "c3QSDQoFdG9rZW4YASABKAkSCgoCaWQYAiABKAMiJAoNR2V0VXNlclJlc3Vs",
+            "dBITCgR1c2VyGAEgASgLMgUuVXNlciI1Cg9TYXZlVXNlclJlcXVlc3QSDQoF",
+            "dG9rZW4YASABKAkSEwoEdXNlchgCIAEoCzIFLlVzZXIiEAoOU2F2ZVVzZXJS",
+            "ZXN1bHQyVQoEQXV0aBIkCgVsb2dpbhINLkxvZ2luUmVxdWVzdBoMLkxvZ2lu",
+            "UmVzdWx0EicKBmxvZ291dBIOLkxvZ291dFJlcXVlc3QaDS5Mb2dvdXRSZXN1",
+            "bHQyrwEKCFByb2plY3RzEjYKC2dldFByb2plY3RzEhMuR2V0UHJvamVjdHNS",
+            "ZXF1ZXN0GhIuR2V0UHJvamVjdHNSZXN1bHQSMwoKZ2V0UHJvamVjdBISLkdl",
+            "dFByb2plY3RSZXF1ZXN0GhEuR2V0UHJvamVjdFJlc3VsdBI2CgtzYXZlUHJv",
+            "amVjdBITLlNhdmVQcm9qZWN0UmVxdWVzdBoSLlNhdmVQcm9qZWN0UmVzdWx0",
+            "MpEBCgVUYXNrcxItCghnZXRUYXNrcxIQLkdldFRhc2tzUmVxdWVzdBoPLkdl",
+            "dFRhc2tzUmVzdWx0EioKB2dldFRhc2sSDy5HZXRUYXNrUmVxdWVzdBoOLkdl",
+            "dFRhc2tSZXN1bHQSLQoIc2F2ZVRhc2sSEC5TYXZlVGFza1JlcXVlc3QaDy5T",
+            "YXZlVGFza1Jlc3VsdDKRAQoFVXNlcnMSLQoIZ2V0VXNlcnMSEC5HZXRVc2Vy",
+            "c1JlcXVlc3QaDy5HZXRVc2Vyc1Jlc3VsdBIqCgdnZXRVc2VyEg8uR2V0VXNl",
+            "clJlcXVlc3QaDi5HZXRVc2VyUmVzdWx0Ei0KCHNhdmVVc2VyEhAuU2F2ZVVz",
+            "ZXJSZXF1ZXN0Gg8uU2F2ZVVzZXJSZXN1bHRCMwoXcnUudW5uLnN1cGVyc29m",
+            "dC5wbS5hcGlCBVBtQXBpUAGqAg5Qcm9qbWFuLlNlcnZlcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.LoginRequest), global::Projman.Server.LoginRequest.Parser, new[]{ "Login", "Password" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.LoginResult), global::Projman.Server.LoginResult.Parser, new[]{ "Error", "Token" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.LoginResult), global::Projman.Server.LoginResult.Parser, new[]{ "Token" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.LogoutRequest), global::Projman.Server.LogoutRequest.Parser, new[]{ "Token" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.LogoutResult), global::Projman.Server.LogoutResult.Parser, new[]{ "Error" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.LogoutResult), global::Projman.Server.LogoutResult.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.Project), global::Projman.Server.Project.Parser, new[]{ "Id", "Name", "Description", "StartDate", "EndDate", "ClosedWhen", "Status" }, null, new[]{ typeof(global::Projman.Server.Project.Types.Status) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetProjectsRequest), global::Projman.Server.GetProjectsRequest.Parser, new[]{ "Token" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetProjectsResult), global::Projman.Server.GetProjectsResult.Parser, new[]{ "Error", "Projects" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetProjectsResult), global::Projman.Server.GetProjectsResult.Parser, new[]{ "Projects" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetProjectRequest), global::Projman.Server.GetProjectRequest.Parser, new[]{ "Token", "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetProjectResult), global::Projman.Server.GetProjectResult.Parser, new[]{ "Error", "Project" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetProjectResult), global::Projman.Server.GetProjectResult.Parser, new[]{ "Project" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveProjectRequest), global::Projman.Server.SaveProjectRequest.Parser, new[]{ "Token", "Project" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveProjectResult), global::Projman.Server.SaveProjectResult.Parser, new[]{ "Error", "Project" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveProjectResult), global::Projman.Server.SaveProjectResult.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.Task), global::Projman.Server.Task.Parser, new[]{ "Id", "Title", "Description", "CreatedDate", "StartDate", "EndDate", "AssignedDate", "CloseDate", "ProjectId", "CreatedByUserId", "AssigneeUserId", "Status" }, null, new[]{ typeof(global::Projman.Server.Task.Types.Status) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetTasksRequest), global::Projman.Server.GetTasksRequest.Parser, new[]{ "Token" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetTasksResult), global::Projman.Server.GetTasksResult.Parser, new[]{ "Error", "Tasks" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetTasksResult), global::Projman.Server.GetTasksResult.Parser, new[]{ "Tasks" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetTaskRequest), global::Projman.Server.GetTaskRequest.Parser, new[]{ "Token", "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetTaskResult), global::Projman.Server.GetTaskResult.Parser, new[]{ "Error", "Task" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetTaskResult), global::Projman.Server.GetTaskResult.Parser, new[]{ "Task" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveTaskRequest), global::Projman.Server.SaveTaskRequest.Parser, new[]{ "Token", "Task" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveTaskResult), global::Projman.Server.SaveTaskResult.Parser, new[]{ "Error", "Task" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveTaskResult), global::Projman.Server.SaveTaskResult.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.User), global::Projman.Server.User.Parser, new[]{ "Id", "FirstName", "LastName", "Login", "Password", "Role" }, null, new[]{ typeof(global::Projman.Server.User.Types.Role) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetUsersRequest), global::Projman.Server.GetUsersRequest.Parser, new[]{ "Token" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetUsersResult), global::Projman.Server.GetUsersResult.Parser, new[]{ "Error", "Users" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetUsersResult), global::Projman.Server.GetUsersResult.Parser, new[]{ "Users" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetUserRequest), global::Projman.Server.GetUserRequest.Parser, new[]{ "Token", "Id" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetUserResult), global::Projman.Server.GetUserResult.Parser, new[]{ "Error", "User" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetUserResult), global::Projman.Server.GetUserResult.Parser, new[]{ "User" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveUserRequest), global::Projman.Server.SaveUserRequest.Parser, new[]{ "Token", "User" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveUserResult), global::Projman.Server.SaveUserResult.Parser, new[]{ "Error", "User" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveUserResult), global::Projman.Server.SaveUserResult.Parser, null, null, null, null)
           }));
     }
     #endregion
@@ -294,7 +288,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public LoginResult(LoginResult other) : this() {
-      error_ = other.error_;
       token_ = other.token_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -304,19 +297,8 @@ namespace Projman.Server {
       return new LoginResult(this);
     }
 
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "token" field.</summary>
-    public const int TokenFieldNumber = 2;
+    public const int TokenFieldNumber = 1;
     private string token_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Token {
@@ -339,7 +321,6 @@ namespace Projman.Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Error != other.Error) return false;
       if (Token != other.Token) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -347,7 +328,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (Token.Length != 0) hash ^= Token.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -362,12 +342,8 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Error.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Error);
-      }
       if (Token.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(10);
         output.WriteString(Token);
       }
       if (_unknownFields != null) {
@@ -378,9 +354,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
       if (Token.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
       }
@@ -394,9 +367,6 @@ namespace Projman.Server {
     public void MergeFrom(LoginResult other) {
       if (other == null) {
         return;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
       }
       if (other.Token.Length != 0) {
         Token = other.Token;
@@ -413,10 +383,6 @@ namespace Projman.Server {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Error = input.ReadString();
-            break;
-          }
-          case 18: {
             Token = input.ReadString();
             break;
           }
@@ -580,24 +546,12 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public LogoutResult(LogoutResult other) : this() {
-      error_ = other.error_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public LogoutResult Clone() {
       return new LogoutResult(this);
-    }
-
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -613,14 +567,12 @@ namespace Projman.Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Error != other.Error) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -634,10 +586,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Error.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Error);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -646,9 +594,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -659,9 +604,6 @@ namespace Projman.Server {
     public void MergeFrom(LogoutResult other) {
       if (other == null) {
         return;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -674,10 +616,6 @@ namespace Projman.Server {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Error = input.ReadString();
-            break;
-          }
         }
       }
     }
@@ -726,12 +664,12 @@ namespace Projman.Server {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private string id_ = "";
+    private long id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
+    public long Id {
       get { return id_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
@@ -827,7 +765,7 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (Id != 0L) hash ^= Id.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Description.Length != 0) hash ^= Description.GetHashCode();
       if (StartDate != 0L) hash ^= StartDate.GetHashCode();
@@ -847,9 +785,9 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Id);
+      if (Id != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Id);
       }
       if (Name.Length != 0) {
         output.WriteRawTag(18);
@@ -883,8 +821,8 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (Id != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
       }
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
@@ -915,7 +853,7 @@ namespace Projman.Server {
       if (other == null) {
         return;
       }
-      if (other.Id.Length != 0) {
+      if (other.Id != 0L) {
         Id = other.Id;
       }
       if (other.Name.Length != 0) {
@@ -947,8 +885,8 @@ namespace Projman.Server {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Id = input.ReadString();
+          case 8: {
+            Id = input.ReadInt64();
             break;
           }
           case 18: {
@@ -1147,7 +1085,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GetProjectsResult(GetProjectsResult other) : this() {
-      error_ = other.error_;
       projects_ = other.projects_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1157,21 +1094,10 @@ namespace Projman.Server {
       return new GetProjectsResult(this);
     }
 
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "projects" field.</summary>
-    public const int ProjectsFieldNumber = 2;
+    public const int ProjectsFieldNumber = 1;
     private static readonly pb::FieldCodec<global::Projman.Server.Project> _repeated_projects_codec
-        = pb::FieldCodec.ForMessage(18, global::Projman.Server.Project.Parser);
+        = pb::FieldCodec.ForMessage(10, global::Projman.Server.Project.Parser);
     private readonly pbc::RepeatedField<global::Projman.Server.Project> projects_ = new pbc::RepeatedField<global::Projman.Server.Project>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Projman.Server.Project> Projects {
@@ -1191,7 +1117,6 @@ namespace Projman.Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Error != other.Error) return false;
       if(!projects_.Equals(other.projects_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1199,7 +1124,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
       hash ^= projects_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1214,10 +1138,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Error.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Error);
-      }
       projects_.WriteTo(output, _repeated_projects_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1227,9 +1147,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
       size += projects_.CalculateSize(_repeated_projects_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1241,9 +1158,6 @@ namespace Projman.Server {
     public void MergeFrom(GetProjectsResult other) {
       if (other == null) {
         return;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
       }
       projects_.Add(other.projects_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1258,10 +1172,6 @@ namespace Projman.Server {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Error = input.ReadString();
-            break;
-          }
-          case 18: {
             projects_.AddEntriesFrom(input, _repeated_projects_codec);
             break;
           }
@@ -1319,12 +1229,12 @@ namespace Projman.Server {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 2;
-    private string id_ = "";
+    private long id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
+    public long Id {
       get { return id_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
@@ -1350,7 +1260,7 @@ namespace Projman.Server {
     public override int GetHashCode() {
       int hash = 1;
       if (Token.Length != 0) hash ^= Token.GetHashCode();
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (Id != 0L) hash ^= Id.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1368,9 +1278,9 @@ namespace Projman.Server {
         output.WriteRawTag(10);
         output.WriteString(Token);
       }
-      if (Id.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Id);
+      if (Id != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Id);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1383,8 +1293,8 @@ namespace Projman.Server {
       if (Token.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
       }
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (Id != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1400,7 +1310,7 @@ namespace Projman.Server {
       if (other.Token.Length != 0) {
         Token = other.Token;
       }
-      if (other.Id.Length != 0) {
+      if (other.Id != 0L) {
         Id = other.Id;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1418,8 +1328,8 @@ namespace Projman.Server {
             Token = input.ReadString();
             break;
           }
-          case 18: {
-            Id = input.ReadString();
+          case 16: {
+            Id = input.ReadInt64();
             break;
           }
         }
@@ -1453,7 +1363,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GetProjectResult(GetProjectResult other) : this() {
-      error_ = other.error_;
       Project = other.project_ != null ? other.Project.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1463,19 +1372,8 @@ namespace Projman.Server {
       return new GetProjectResult(this);
     }
 
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "project" field.</summary>
-    public const int ProjectFieldNumber = 2;
+    public const int ProjectFieldNumber = 1;
     private global::Projman.Server.Project project_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Projman.Server.Project Project {
@@ -1498,7 +1396,6 @@ namespace Projman.Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Error != other.Error) return false;
       if (!object.Equals(Project, other.Project)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1506,7 +1403,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (project_ != null) hash ^= Project.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1521,12 +1417,8 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Error.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Error);
-      }
       if (project_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(10);
         output.WriteMessage(Project);
       }
       if (_unknownFields != null) {
@@ -1537,9 +1429,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
       if (project_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Project);
       }
@@ -1553,9 +1442,6 @@ namespace Projman.Server {
     public void MergeFrom(GetProjectResult other) {
       if (other == null) {
         return;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
       }
       if (other.project_ != null) {
         if (project_ == null) {
@@ -1575,10 +1461,6 @@ namespace Projman.Server {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Error = input.ReadString();
-            break;
-          }
-          case 18: {
             if (project_ == null) {
               project_ = new global::Projman.Server.Project();
             }
@@ -1779,36 +1661,12 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SaveProjectResult(SaveProjectResult other) : this() {
-      error_ = other.error_;
-      Project = other.project_ != null ? other.Project.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SaveProjectResult Clone() {
       return new SaveProjectResult(this);
-    }
-
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "project" field.</summary>
-    public const int ProjectFieldNumber = 2;
-    private global::Projman.Server.Project project_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Projman.Server.Project Project {
-      get { return project_; }
-      set {
-        project_ = value;
-      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1824,16 +1682,12 @@ namespace Projman.Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Error != other.Error) return false;
-      if (!object.Equals(Project, other.Project)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
-      if (project_ != null) hash ^= Project.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1847,14 +1701,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Error.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Error);
-      }
-      if (project_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Project);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1863,12 +1709,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
-      if (project_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Project);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1879,15 +1719,6 @@ namespace Projman.Server {
     public void MergeFrom(SaveProjectResult other) {
       if (other == null) {
         return;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
-      }
-      if (other.project_ != null) {
-        if (project_ == null) {
-          project_ = new global::Projman.Server.Project();
-        }
-        Project.MergeFrom(other.Project);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1900,17 +1731,6 @@ namespace Projman.Server {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Error = input.ReadString();
-            break;
-          }
-          case 18: {
-            if (project_ == null) {
-              project_ = new global::Projman.Server.Project();
-            }
-            input.ReadMessage(project_);
-            break;
-          }
         }
       }
     }
@@ -1964,12 +1784,12 @@ namespace Projman.Server {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private string id_ = "";
+    private long id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
+    public long Id {
       get { return id_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
@@ -2052,34 +1872,34 @@ namespace Projman.Server {
 
     /// <summary>Field number for the "projectId" field.</summary>
     public const int ProjectIdFieldNumber = 9;
-    private string projectId_ = "";
+    private long projectId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string ProjectId {
+    public long ProjectId {
       get { return projectId_; }
       set {
-        projectId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        projectId_ = value;
       }
     }
 
     /// <summary>Field number for the "createdByUserId" field.</summary>
     public const int CreatedByUserIdFieldNumber = 10;
-    private string createdByUserId_ = "";
+    private long createdByUserId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string CreatedByUserId {
+    public long CreatedByUserId {
       get { return createdByUserId_; }
       set {
-        createdByUserId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        createdByUserId_ = value;
       }
     }
 
     /// <summary>Field number for the "assigneeUserId" field.</summary>
     public const int AssigneeUserIdFieldNumber = 11;
-    private string assigneeUserId_ = "";
+    private long assigneeUserId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string AssigneeUserId {
+    public long AssigneeUserId {
       get { return assigneeUserId_; }
       set {
-        assigneeUserId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        assigneeUserId_ = value;
       }
     }
 
@@ -2125,7 +1945,7 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (Id != 0L) hash ^= Id.GetHashCode();
       if (Title.Length != 0) hash ^= Title.GetHashCode();
       if (Description.Length != 0) hash ^= Description.GetHashCode();
       if (CreatedDate != 0L) hash ^= CreatedDate.GetHashCode();
@@ -2133,9 +1953,9 @@ namespace Projman.Server {
       if (EndDate != 0L) hash ^= EndDate.GetHashCode();
       if (AssignedDate != 0L) hash ^= AssignedDate.GetHashCode();
       if (CloseDate != 0L) hash ^= CloseDate.GetHashCode();
-      if (ProjectId.Length != 0) hash ^= ProjectId.GetHashCode();
-      if (CreatedByUserId.Length != 0) hash ^= CreatedByUserId.GetHashCode();
-      if (AssigneeUserId.Length != 0) hash ^= AssigneeUserId.GetHashCode();
+      if (ProjectId != 0L) hash ^= ProjectId.GetHashCode();
+      if (CreatedByUserId != 0L) hash ^= CreatedByUserId.GetHashCode();
+      if (AssigneeUserId != 0L) hash ^= AssigneeUserId.GetHashCode();
       if (Status != 0) hash ^= Status.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2150,9 +1970,9 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Id);
+      if (Id != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Id);
       }
       if (Title.Length != 0) {
         output.WriteRawTag(18);
@@ -2182,17 +2002,17 @@ namespace Projman.Server {
         output.WriteRawTag(64);
         output.WriteInt64(CloseDate);
       }
-      if (ProjectId.Length != 0) {
-        output.WriteRawTag(74);
-        output.WriteString(ProjectId);
+      if (ProjectId != 0L) {
+        output.WriteRawTag(72);
+        output.WriteInt64(ProjectId);
       }
-      if (CreatedByUserId.Length != 0) {
-        output.WriteRawTag(82);
-        output.WriteString(CreatedByUserId);
+      if (CreatedByUserId != 0L) {
+        output.WriteRawTag(80);
+        output.WriteInt64(CreatedByUserId);
       }
-      if (AssigneeUserId.Length != 0) {
-        output.WriteRawTag(90);
-        output.WriteString(AssigneeUserId);
+      if (AssigneeUserId != 0L) {
+        output.WriteRawTag(88);
+        output.WriteInt64(AssigneeUserId);
       }
       if (Status != 0) {
         output.WriteRawTag(96);
@@ -2206,8 +2026,8 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (Id != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
       }
       if (Title.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Title);
@@ -2230,14 +2050,14 @@ namespace Projman.Server {
       if (CloseDate != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(CloseDate);
       }
-      if (ProjectId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ProjectId);
+      if (ProjectId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProjectId);
       }
-      if (CreatedByUserId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(CreatedByUserId);
+      if (CreatedByUserId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(CreatedByUserId);
       }
-      if (AssigneeUserId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(AssigneeUserId);
+      if (AssigneeUserId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(AssigneeUserId);
       }
       if (Status != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
@@ -2253,7 +2073,7 @@ namespace Projman.Server {
       if (other == null) {
         return;
       }
-      if (other.Id.Length != 0) {
+      if (other.Id != 0L) {
         Id = other.Id;
       }
       if (other.Title.Length != 0) {
@@ -2277,13 +2097,13 @@ namespace Projman.Server {
       if (other.CloseDate != 0L) {
         CloseDate = other.CloseDate;
       }
-      if (other.ProjectId.Length != 0) {
+      if (other.ProjectId != 0L) {
         ProjectId = other.ProjectId;
       }
-      if (other.CreatedByUserId.Length != 0) {
+      if (other.CreatedByUserId != 0L) {
         CreatedByUserId = other.CreatedByUserId;
       }
-      if (other.AssigneeUserId.Length != 0) {
+      if (other.AssigneeUserId != 0L) {
         AssigneeUserId = other.AssigneeUserId;
       }
       if (other.Status != 0) {
@@ -2300,8 +2120,8 @@ namespace Projman.Server {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Id = input.ReadString();
+          case 8: {
+            Id = input.ReadInt64();
             break;
           }
           case 18: {
@@ -2332,16 +2152,16 @@ namespace Projman.Server {
             CloseDate = input.ReadInt64();
             break;
           }
-          case 74: {
-            ProjectId = input.ReadString();
+          case 72: {
+            ProjectId = input.ReadInt64();
             break;
           }
-          case 82: {
-            CreatedByUserId = input.ReadString();
+          case 80: {
+            CreatedByUserId = input.ReadInt64();
             break;
           }
-          case 90: {
-            AssigneeUserId = input.ReadString();
+          case 88: {
+            AssigneeUserId = input.ReadInt64();
             break;
           }
           case 96: {
@@ -2521,7 +2341,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GetTasksResult(GetTasksResult other) : this() {
-      error_ = other.error_;
       tasks_ = other.tasks_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -2531,21 +2350,10 @@ namespace Projman.Server {
       return new GetTasksResult(this);
     }
 
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "tasks" field.</summary>
-    public const int TasksFieldNumber = 2;
+    public const int TasksFieldNumber = 1;
     private static readonly pb::FieldCodec<global::Projman.Server.Task> _repeated_tasks_codec
-        = pb::FieldCodec.ForMessage(18, global::Projman.Server.Task.Parser);
+        = pb::FieldCodec.ForMessage(10, global::Projman.Server.Task.Parser);
     private readonly pbc::RepeatedField<global::Projman.Server.Task> tasks_ = new pbc::RepeatedField<global::Projman.Server.Task>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Projman.Server.Task> Tasks {
@@ -2565,7 +2373,6 @@ namespace Projman.Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Error != other.Error) return false;
       if(!tasks_.Equals(other.tasks_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2573,7 +2380,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
       hash ^= tasks_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2588,10 +2394,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Error.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Error);
-      }
       tasks_.WriteTo(output, _repeated_tasks_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2601,9 +2403,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
       size += tasks_.CalculateSize(_repeated_tasks_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2615,9 +2414,6 @@ namespace Projman.Server {
     public void MergeFrom(GetTasksResult other) {
       if (other == null) {
         return;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
       }
       tasks_.Add(other.tasks_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -2632,10 +2428,6 @@ namespace Projman.Server {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Error = input.ReadString();
-            break;
-          }
-          case 18: {
             tasks_.AddEntriesFrom(input, _repeated_tasks_codec);
             break;
           }
@@ -2693,12 +2485,12 @@ namespace Projman.Server {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 2;
-    private string id_ = "";
+    private long id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
+    public long Id {
       get { return id_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
@@ -2724,7 +2516,7 @@ namespace Projman.Server {
     public override int GetHashCode() {
       int hash = 1;
       if (Token.Length != 0) hash ^= Token.GetHashCode();
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (Id != 0L) hash ^= Id.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2742,9 +2534,9 @@ namespace Projman.Server {
         output.WriteRawTag(10);
         output.WriteString(Token);
       }
-      if (Id.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Id);
+      if (Id != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Id);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2757,8 +2549,8 @@ namespace Projman.Server {
       if (Token.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
       }
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (Id != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2774,7 +2566,7 @@ namespace Projman.Server {
       if (other.Token.Length != 0) {
         Token = other.Token;
       }
-      if (other.Id.Length != 0) {
+      if (other.Id != 0L) {
         Id = other.Id;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -2792,8 +2584,8 @@ namespace Projman.Server {
             Token = input.ReadString();
             break;
           }
-          case 18: {
-            Id = input.ReadString();
+          case 16: {
+            Id = input.ReadInt64();
             break;
           }
         }
@@ -2827,7 +2619,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GetTaskResult(GetTaskResult other) : this() {
-      error_ = other.error_;
       Task = other.task_ != null ? other.Task.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -2837,19 +2628,8 @@ namespace Projman.Server {
       return new GetTaskResult(this);
     }
 
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "task" field.</summary>
-    public const int TaskFieldNumber = 2;
+    public const int TaskFieldNumber = 1;
     private global::Projman.Server.Task task_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Projman.Server.Task Task {
@@ -2872,7 +2652,6 @@ namespace Projman.Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Error != other.Error) return false;
       if (!object.Equals(Task, other.Task)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2880,7 +2659,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (task_ != null) hash ^= Task.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2895,12 +2673,8 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Error.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Error);
-      }
       if (task_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(10);
         output.WriteMessage(Task);
       }
       if (_unknownFields != null) {
@@ -2911,9 +2685,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
       if (task_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Task);
       }
@@ -2927,9 +2698,6 @@ namespace Projman.Server {
     public void MergeFrom(GetTaskResult other) {
       if (other == null) {
         return;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
       }
       if (other.task_ != null) {
         if (task_ == null) {
@@ -2949,10 +2717,6 @@ namespace Projman.Server {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Error = input.ReadString();
-            break;
-          }
-          case 18: {
             if (task_ == null) {
               task_ = new global::Projman.Server.Task();
             }
@@ -3153,36 +2917,12 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SaveTaskResult(SaveTaskResult other) : this() {
-      error_ = other.error_;
-      Task = other.task_ != null ? other.Task.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SaveTaskResult Clone() {
       return new SaveTaskResult(this);
-    }
-
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "task" field.</summary>
-    public const int TaskFieldNumber = 2;
-    private global::Projman.Server.Task task_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Projman.Server.Task Task {
-      get { return task_; }
-      set {
-        task_ = value;
-      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3198,16 +2938,12 @@ namespace Projman.Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Error != other.Error) return false;
-      if (!object.Equals(Task, other.Task)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
-      if (task_ != null) hash ^= Task.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3221,14 +2957,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Error.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Error);
-      }
-      if (task_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Task);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3237,12 +2965,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
-      if (task_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Task);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3253,15 +2975,6 @@ namespace Projman.Server {
     public void MergeFrom(SaveTaskResult other) {
       if (other == null) {
         return;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
-      }
-      if (other.task_ != null) {
-        if (task_ == null) {
-          task_ = new global::Projman.Server.Task();
-        }
-        Task.MergeFrom(other.Task);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3274,17 +2987,6 @@ namespace Projman.Server {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Error = input.ReadString();
-            break;
-          }
-          case 18: {
-            if (task_ == null) {
-              task_ = new global::Projman.Server.Task();
-            }
-            input.ReadMessage(task_);
-            break;
-          }
         }
       }
     }
@@ -3332,12 +3034,12 @@ namespace Projman.Server {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private string id_ = "";
+    private long id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
+    public long Id {
       get { return id_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
@@ -3421,7 +3123,7 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (Id != 0L) hash ^= Id.GetHashCode();
       if (FirstName.Length != 0) hash ^= FirstName.GetHashCode();
       if (LastName.Length != 0) hash ^= LastName.GetHashCode();
       if (Login.Length != 0) hash ^= Login.GetHashCode();
@@ -3440,9 +3142,9 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Id);
+      if (Id != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(Id);
       }
       if (FirstName.Length != 0) {
         output.WriteRawTag(18);
@@ -3472,8 +3174,8 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (Id != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
       }
       if (FirstName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(FirstName);
@@ -3501,7 +3203,7 @@ namespace Projman.Server {
       if (other == null) {
         return;
       }
-      if (other.Id.Length != 0) {
+      if (other.Id != 0L) {
         Id = other.Id;
       }
       if (other.FirstName.Length != 0) {
@@ -3530,8 +3232,8 @@ namespace Projman.Server {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Id = input.ReadString();
+          case 8: {
+            Id = input.ReadInt64();
             break;
           }
           case 18: {
@@ -3563,9 +3265,9 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
       public enum Role {
-        [pbr::OriginalName("ADMIN")] Admin = 0,
+        [pbr::OriginalName("USER")] User = 0,
         [pbr::OriginalName("MANAGER")] Manager = 1,
-        [pbr::OriginalName("USER")] User = 2,
+        [pbr::OriginalName("ADMIN")] Admin = 2,
       }
 
     }
@@ -3727,7 +3429,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GetUsersResult(GetUsersResult other) : this() {
-      error_ = other.error_;
       users_ = other.users_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -3737,21 +3438,10 @@ namespace Projman.Server {
       return new GetUsersResult(this);
     }
 
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "users" field.</summary>
-    public const int UsersFieldNumber = 2;
+    public const int UsersFieldNumber = 1;
     private static readonly pb::FieldCodec<global::Projman.Server.User> _repeated_users_codec
-        = pb::FieldCodec.ForMessage(18, global::Projman.Server.User.Parser);
+        = pb::FieldCodec.ForMessage(10, global::Projman.Server.User.Parser);
     private readonly pbc::RepeatedField<global::Projman.Server.User> users_ = new pbc::RepeatedField<global::Projman.Server.User>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Projman.Server.User> Users {
@@ -3771,7 +3461,6 @@ namespace Projman.Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Error != other.Error) return false;
       if(!users_.Equals(other.users_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3779,7 +3468,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
       hash ^= users_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3794,10 +3482,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Error.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Error);
-      }
       users_.WriteTo(output, _repeated_users_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3807,9 +3491,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
       size += users_.CalculateSize(_repeated_users_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3821,9 +3502,6 @@ namespace Projman.Server {
     public void MergeFrom(GetUsersResult other) {
       if (other == null) {
         return;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
       }
       users_.Add(other.users_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -3838,10 +3516,6 @@ namespace Projman.Server {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Error = input.ReadString();
-            break;
-          }
-          case 18: {
             users_.AddEntriesFrom(input, _repeated_users_codec);
             break;
           }
@@ -3899,12 +3573,12 @@ namespace Projman.Server {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 2;
-    private string id_ = "";
+    private long id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
+    public long Id {
       get { return id_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
@@ -3930,7 +3604,7 @@ namespace Projman.Server {
     public override int GetHashCode() {
       int hash = 1;
       if (Token.Length != 0) hash ^= Token.GetHashCode();
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
+      if (Id != 0L) hash ^= Id.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3948,9 +3622,9 @@ namespace Projman.Server {
         output.WriteRawTag(10);
         output.WriteString(Token);
       }
-      if (Id.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Id);
+      if (Id != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Id);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3963,8 +3637,8 @@ namespace Projman.Server {
       if (Token.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
       }
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (Id != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3980,7 +3654,7 @@ namespace Projman.Server {
       if (other.Token.Length != 0) {
         Token = other.Token;
       }
-      if (other.Id.Length != 0) {
+      if (other.Id != 0L) {
         Id = other.Id;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -3998,8 +3672,8 @@ namespace Projman.Server {
             Token = input.ReadString();
             break;
           }
-          case 18: {
-            Id = input.ReadString();
+          case 16: {
+            Id = input.ReadInt64();
             break;
           }
         }
@@ -4033,7 +3707,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GetUserResult(GetUserResult other) : this() {
-      error_ = other.error_;
       User = other.user_ != null ? other.User.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -4043,19 +3716,8 @@ namespace Projman.Server {
       return new GetUserResult(this);
     }
 
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "user" field.</summary>
-    public const int UserFieldNumber = 2;
+    public const int UserFieldNumber = 1;
     private global::Projman.Server.User user_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Projman.Server.User User {
@@ -4078,7 +3740,6 @@ namespace Projman.Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Error != other.Error) return false;
       if (!object.Equals(User, other.User)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -4086,7 +3747,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
       if (user_ != null) hash ^= User.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -4101,12 +3761,8 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Error.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Error);
-      }
       if (user_ != null) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(10);
         output.WriteMessage(User);
       }
       if (_unknownFields != null) {
@@ -4117,9 +3773,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
       if (user_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(User);
       }
@@ -4133,9 +3786,6 @@ namespace Projman.Server {
     public void MergeFrom(GetUserResult other) {
       if (other == null) {
         return;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
       }
       if (other.user_ != null) {
         if (user_ == null) {
@@ -4155,10 +3805,6 @@ namespace Projman.Server {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Error = input.ReadString();
-            break;
-          }
-          case 18: {
             if (user_ == null) {
               user_ = new global::Projman.Server.User();
             }
@@ -4359,36 +4005,12 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SaveUserResult(SaveUserResult other) : this() {
-      error_ = other.error_;
-      User = other.user_ != null ? other.User.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SaveUserResult Clone() {
       return new SaveUserResult(this);
-    }
-
-    /// <summary>Field number for the "error" field.</summary>
-    public const int ErrorFieldNumber = 1;
-    private string error_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Error {
-      get { return error_; }
-      set {
-        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "user" field.</summary>
-    public const int UserFieldNumber = 2;
-    private global::Projman.Server.User user_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Projman.Server.User User {
-      get { return user_; }
-      set {
-        user_ = value;
-      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4404,16 +4026,12 @@ namespace Projman.Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Error != other.Error) return false;
-      if (!object.Equals(User, other.User)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Error.Length != 0) hash ^= Error.GetHashCode();
-      if (user_ != null) hash ^= User.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4427,14 +4045,6 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Error.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Error);
-      }
-      if (user_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(User);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4443,12 +4053,6 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Error.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
-      }
-      if (user_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(User);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -4459,15 +4063,6 @@ namespace Projman.Server {
     public void MergeFrom(SaveUserResult other) {
       if (other == null) {
         return;
-      }
-      if (other.Error.Length != 0) {
-        Error = other.Error;
-      }
-      if (other.user_ != null) {
-        if (user_ == null) {
-          user_ = new global::Projman.Server.User();
-        }
-        User.MergeFrom(other.User);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4480,17 +4075,6 @@ namespace Projman.Server {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Error = input.ReadString();
-            break;
-          }
-          case 18: {
-            if (user_ == null) {
-              user_ = new global::Projman.Server.User();
-            }
-            input.ReadMessage(user_);
-            break;
-          }
         }
       }
     }

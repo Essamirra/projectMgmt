@@ -15,17 +15,14 @@ message LoginRequest {
     string password = 2;
 }
 message LoginResult {
-    string error = 1;
-    string token = 2;
+    string token = 1;
 }
 
 message LogoutRequest {
     string token = 1;
 }
 message LogoutResult {
-    string error = 1;
 }
-
 
 service Projects {
     rpc getProjects (GetProjectsRequest) returns (GetProjectsResult);
@@ -34,7 +31,7 @@ service Projects {
 }
 
 message Project {
-    string id = 1;
+    int64 id = 1;
     string name = 2;
     string description = 3;
     int64 startDate = 4;
@@ -52,17 +49,15 @@ message GetProjectsRequest {
     string token = 1;
 }
 message GetProjectsResult {
-    string error = 1;
-    repeated Project projects = 2;
+    repeated Project projects = 1;
 }
 
 message GetProjectRequest {
     string token = 1;
-    string id = 2;
+    int64 id = 2;
 }
 message GetProjectResult {
-    string error = 1;
-    Project project = 2;
+    Project project = 1;
 }
 
 message SaveProjectRequest {
@@ -70,10 +65,7 @@ message SaveProjectRequest {
     Project project = 2;
 }
 message SaveProjectResult {
-    string error = 1;
-    Project project = 2;
 }
-
 
 service Tasks {
     rpc getTasks (GetTasksRequest) returns (GetTasksResult);
@@ -82,7 +74,7 @@ service Tasks {
 }
 
 message Task {
-    string id = 1;
+    int64 id = 1;
     string title = 2;
     string description = 3;
     int64 createdDate = 4;
@@ -90,9 +82,9 @@ message Task {
     int64 endDate = 6;
     int64 assignedDate = 7;
     int64 closeDate = 8;
-    string projectId = 9;
-    string createdByUserId = 10;
-    string assigneeUserId = 11;
+    int64 projectId = 9;
+    int64 createdByUserId = 10;
+    int64 assigneeUserId = 11;
     Status status = 12;
 
     enum Status {
@@ -106,17 +98,15 @@ message GetTasksRequest {
     string token = 1;
 }
 message GetTasksResult {
-    string error = 1;
-    repeated Task tasks = 2;
+    repeated Task tasks = 1;
 }
 
 message GetTaskRequest {
     string token = 1;
-    string id = 2;
+    int64 id = 2;
 }
 message GetTaskResult {
-    string error = 1;
-    Task task = 2;
+    Task task = 1;
 }
 
 message SaveTaskRequest {
@@ -124,8 +114,6 @@ message SaveTaskRequest {
     Task task = 2;
 }
 message SaveTaskResult {
-    string error = 1;
-    Task task = 2;
 }
 
 
@@ -136,7 +124,7 @@ service Users {
 }
 
 message User {
-    string id = 1;
+    int64 id = 1;
     string firstName = 2;
     string lastName = 3;
     string login = 4;
@@ -144,9 +132,9 @@ message User {
     Role role = 6;
 
     enum Role {
-        ADMIN = 0;
+        USER = 0;
         MANAGER = 1;
-        USER = 2;
+        ADMIN = 2;
     }
 }
 
@@ -154,17 +142,15 @@ message GetUsersRequest {
     string token = 1;
 }
 message GetUsersResult {
-    string error = 1;
-    repeated User users = 2;
+    repeated User users = 1;
 }
 
 message GetUserRequest {
     string token = 1;
-    string id = 2;
+    int64 id = 2;
 }
 message GetUserResult {
-    string error = 1;
-    User user = 2;
+    User user = 1;
 }
 
 message SaveUserRequest {
@@ -172,8 +158,6 @@ message SaveUserRequest {
     User user = 2;
 }
 message SaveUserResult {
-    string error = 1;
-    User user = 2;
 }
 
 

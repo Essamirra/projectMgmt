@@ -2,9 +2,10 @@ package ru.unn.supersoft.pm.server
 
 import io.grpc.Server
 import io.grpc.ServerBuilder
+import io.grpc.Status
+import io.grpc.StatusRuntimeException
 import io.grpc.stub.StreamObserver
 import ru.unn.supersoft.pm.api.*
-import java.util.*
 import java.util.logging.Logger
 
 class PmServer {
@@ -20,6 +21,8 @@ class PmServer {
     }
 
     private var server: Server? = null
+
+    val db = ProjManDb(false)
 
     private fun start() {
         val port = 50051
@@ -46,6 +49,28 @@ class PmServer {
         server?.awaitTermination()
     }
 
+    private fun checkHasRole(token: String,
+                             roles: Set<User.Role>,
+                             onSuccess: (User) -> Unit,
+                             onError: (StatusRuntimeException) -> Unit) {
+        val userId = db.getUserIdForToken(token)
+        if (userId == 0L) {
+            onError(StatusRuntimeException(Status.PERMISSION_DENIED))
+            return
+        }
+        val user = db.getUser(userId)
+        if (user == null) {
+            onError(StatusRuntimeException(Status.PERMISSION_DENIED))
+            return
+        }
+
+        if (roles.contains(user.role)) {
+            onSuccess(user)
+        } else {
+            onError(StatusRuntimeException(Status.PERMISSION_DENIED))
+        }
+    }
+
     private class AuthImpl : AuthGrpc.AuthImplBase() {
         override fun login(request: LoginRequest, responseObserver: StreamObserver<LoginResult>) {
             responseObserver.onNext(LoginResult.newBuilder().setToken("Hello World!").build())
@@ -58,41 +83,49 @@ class PmServer {
         }
     }
 
-    private class ProjectsImpl : ProjectsGrpc.ProjectsImplBase() {
+    private inner class ProjectsImpl : ProjectsGrpc.ProjectsImplBase() {
         override fun getProjects(request: GetProjectsRequest, responseObserver: StreamObserver<GetProjectsResult>) {
-            responseObserver.onNext(GetProjectsResult.newBuilder().addAllProjects(listOf(
-                    Project.newBuilder().apply {
-                        id = "1"
-                        name = "Project 1"
-                        description = "smth"
-                        startDate = Date().time
-                        endDate = Date().time + 100000
-                        status = Project.Status.OPEN
-                    }.build()
-            )).build())
-            responseObserver.onCompleted()
+            try {
+                responseObserver.onNext(GetProjectsResult.newBuilder().addAllProjects(db.getProjects()).build())
+                responseObserver.onCompleted()
+            } catch (e: Exception) {
+                responseObserver.onError(StatusRuntimeException(Status.UNAVAILABLE.withDescription(e.message)))
+            }
         }
 
         override fun getProject(request: GetProjectRequest, responseObserver: StreamObserver<GetProjectResult>) {
-            responseObserver.onNext(GetProjectResult.newBuilder().setProject(
-                    Project.newBuilder().apply {
-                        id = "1"
-                        name = "Project 5"
-                        description = "smth"
-                        startDate = Date().time
-                        endDate = Date().time + 100000
-                        status = Project.Status.OPEN
-                    }.build()
-            ).build())
-            responseObserver.onCompleted()
+            try {
+                val project = db.getProject(request.id)
+                if (project != null) {
+                    responseObserver.onNext(GetProjectResult.newBuilder().setProject(project).build())
+                    responseObserver.onCompleted()
+                } else {
+                    responseObserver.onError(StatusRuntimeException(Status.NOT_FOUND
+                            .withDescription("Project with id = ${request.id} not found")))
+                }
+            } catch (e: Exception) {
+                responseObserver.onError(StatusRuntimeException(Status.INTERNAL.withDescription(e.message)))
+            }
         }
 
         override fun saveProject(request: SaveProjectRequest, responseObserver: StreamObserver<SaveProjectResult>) {
-            responseObserver.onNext(SaveProjectResult.newBuilder().apply {
-                project = request.project.toBuilder().setId("555").build()
-            }.build())
-            responseObserver.onCompleted()
+            try {
+                checkHasRole(request.token, setOf(User.Role.MANAGER, User.Role.ADMIN), {
+                    if (request.project.id == 0L) {
+                        db.insertProject(request.project)
+                    } else {
+                        db.updateProject(request.project)
+                    }
+                    responseObserver.onNext(SaveProjectResult.getDefaultInstance())
+                    responseObserver.onCompleted()
+                }, { e ->
+                    responseObserver.onError(e)
+                })
+            } catch (e: Exception) {
+                responseObserver.onError(StatusRuntimeException(Status.INTERNAL.withDescription(e.message)))
+            }
         }
+
     }
 
     private class TasksImpl : TasksGrpc.TasksImplBase() {
