@@ -17,7 +17,7 @@ namespace projman_client
 
         public RealDataProvider()
         {
-            _channel = new Channel("127.0.0.1:50052", ChannelCredentials.Insecure);
+            _channel = new Channel("127.0.0.1:50051", ChannelCredentials.Insecure);
             _authClient = new Auth.AuthClient(_channel);
             _projectsClient = new Projects.ProjectsClient(_channel);
             _tasksClient = new Tasks.TasksClient(_channel);
