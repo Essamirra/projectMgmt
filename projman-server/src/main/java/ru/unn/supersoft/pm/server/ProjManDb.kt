@@ -99,10 +99,10 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
-    fun createSession(userId: Long, token: String) {
-        insert(TABLE_SESSION, "userId", "token") {
-            setLong("userId", userId)
+    fun createSession(token: String, userId: Long) {
+        insert(TABLE_SESSION, "token", "userId") {
             setString("token", token)
+            setLong("userId", userId)
         }
     }
 
@@ -141,6 +141,14 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
+    fun getUserByLogin(login: String): User? {
+        createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_USER WHERE login = :login").use { statement ->
+            statement.setString("login", login)
+            val resultSet = statement.executeQuery()
+            return if (resultSet.next()) parseUser(resultSet) else null
+        }
+    }
+
     private fun parseSession(resultSet: ResultSet): Session {
         return Session(resultSet.getInt("userId"), resultSet.getString("token"))
     }
@@ -165,8 +173,8 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
                     "status" to "INTEGER"
             )
             createTable(TABLE_SESSION,
-                    "userId" to "INTEGER",
-                    "token" to "STRING"
+                    "token" to "STRING PRIMARY KEY",
+                    "userId" to "INTEGER"
             )
 
             createTable("Task",
@@ -188,7 +196,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
                     "id" to "INTEGER PRIMARY KEY AUTOINCREMENT",
                     "firstName" to "STRING",
                     "lastName" to "STRING",
-                    "login" to "STRING",
+                    "login" to "STRING UNIQUE",
                     "password" to "STRING",
                     "role" to "INTEGER"
             )

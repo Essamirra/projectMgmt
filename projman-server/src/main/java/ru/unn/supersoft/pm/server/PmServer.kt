@@ -6,6 +6,7 @@ import io.grpc.Status
 import io.grpc.StatusRuntimeException
 import io.grpc.stub.StreamObserver
 import ru.unn.supersoft.pm.api.*
+import java.util.*
 import java.util.logging.Logger
 
 class PmServer {
@@ -71,15 +72,32 @@ class PmServer {
         }
     }
 
-    private class AuthImpl : AuthGrpc.AuthImplBase() {
+    private inner class AuthImpl : AuthGrpc.AuthImplBase() {
         override fun login(request: LoginRequest, responseObserver: StreamObserver<LoginResult>) {
-            responseObserver.onNext(LoginResult.newBuilder().setToken("Hello World!").build())
-            responseObserver.onCompleted()
+            try {
+                val userByLogin = db.getUserByLogin(request.login)
+                if (userByLogin == null || userByLogin.password != request.password) { // TODO: password hash
+                    responseObserver.onError(StatusRuntimeException(Status.UNAUTHENTICATED.withDescription("Invalid login or password")))
+                    return
+                }
+                val token = UUID.randomUUID().toString()
+                db.createSession(token, userByLogin.id) // TODO: handle collisions
+
+                responseObserver.onNext(LoginResult.newBuilder().setToken(token).build())
+                responseObserver.onCompleted()
+            } catch (e: Exception) {
+                responseObserver.onError(StatusRuntimeException(Status.UNAVAILABLE.withDescription(e.message)))
+            }
         }
 
         override fun logout(request: LogoutRequest, responseObserver: StreamObserver<LogoutResult>) {
-            responseObserver.onNext(LogoutResult.newBuilder().build())
-            responseObserver.onCompleted()
+            try {
+                db.removeSession(request.token)
+                responseObserver.onNext(LogoutResult.newBuilder().build())
+                responseObserver.onCompleted()
+            } catch (e: Exception) {
+                responseObserver.onError(StatusRuntimeException(Status.UNAVAILABLE.withDescription(e.message)))
+            }
         }
     }
 
