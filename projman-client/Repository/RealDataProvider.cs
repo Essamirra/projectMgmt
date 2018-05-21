@@ -26,24 +26,34 @@ namespace projman_client
 
         public void login(string login, string password)
         {
-            var loginResult = _authClient.login(new LoginRequest {Login = login, Password = password});
+            var loginResult = _authClient.login(new LoginRequest { Login = login, Password = password });
             // TODO: handle error
             _currentToken = loginResult.Token;
         }
 
         public void logout()
         {
-            var logoutResult = _authClient.logout(new LogoutRequest {Token = _currentToken});
+            var logoutResult = _authClient.logout(new LogoutRequest { Token = _currentToken });
             // TODO: handle error
             _currentToken = null;
         }
 
         public List<Project> getProjects()
         {
-            return new List<Project>();
+            return _projectsClient.getProjects(new GetProjectsRequest() { Token = _currentToken }).Projects
+                .Select(project => new Project {
+                    id = project.Id,
+                    closedWhen = new DateTime(project.ClosedWhen),
+                    description = project.Description,
+                    endDate = new DateTime(project.EndDate),
+                    isActive = project.Status == Projman.Server.Project.Types.Status.Open,
+                    name = project.Name,
+                    startDate = new DateTime(project.StartDate) }
+                )
+                .ToList();
         }
 
-        public Project getProject(string id)
+        public Project getProject(long id)
         {
             return null; // TODO
         }
@@ -53,18 +63,18 @@ namespace projman_client
             // TODO
         }
 
-        public void getProjectStatistics(string projectId)
+        public void getProjectStatistics(long projectId)
         {
             // TODO
         }
 
 
-        public List<Task> getTasks(string projectId)
+        public List<Task> getTasks(long projectId)
         {
             return null; // TODO
         }
 
-        public Task getTask(string id)
+        public Task getTask(long id)
         {
             return null; // TODO
         }
@@ -80,7 +90,7 @@ namespace projman_client
             return new List<User>();
         }
 
-        public User getUser(string id)
+        public User getUser(long id)
         {
             return new User();
         }

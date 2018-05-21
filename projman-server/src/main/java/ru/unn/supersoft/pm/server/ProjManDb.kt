@@ -208,6 +208,15 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
                 setString("password", "admin") // TODO hash password
                 setInt("role", User.Role.ADMIN.number)
             }
+
+            insert(TABLE_PROJECT, "name", "description", "startDate", "endDate", "closedWhen", "status") {
+                setString("name", "AAA")
+                setString("description", "BBB")
+                setLong("startDate", 100500)
+                setLong("endDate", 200400)
+                setLong("closedWhen", 500600)
+                setInt("status", Project.Status.OPEN_VALUE)
+            }
         }
     }
 

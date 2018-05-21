@@ -35,7 +35,7 @@ namespace projman_client
 
     public class Project
     {
-        public string id { get; set; } = "stub_id";
+        public long id { get; set; } = 1;
         public string name { get; set; } = "stub_name";
         public string description { get; set; } = "stub_description";
         public DateTime startDate { get; set; } = DateTime.Now;
@@ -55,7 +55,7 @@ namespace projman_client
     public class User
     {
         [DisplayName("Id"), ReadOnly(true)]
-        public string id { get; set; } = "stub_id";
+        public long id { get; set; } = 0;
         [DisplayName("Имя")]
         public string firstName { get; set; } = "stub_firstName";
         [DisplayName("Фамилия")]
@@ -71,9 +71,9 @@ namespace projman_client
     public class Task
     {
         [Browsable(false)]
-        public string projectId { get; set; }
+        public long projectId { get; set; }
         [Browsable(false)]
-        public string id { get; set; } = "stub_id";
+        public long id { get; set; } = 0;
         
         public string title { get; set; } = "stub_title";
         public string description { get; set; } = "stub_description";

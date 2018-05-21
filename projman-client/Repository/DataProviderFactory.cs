@@ -2,7 +2,7 @@
 {
     public class DataProviderFactory
     {
-        private static IDataProvider _provider = new FakeDataProvider();
+        private static IDataProvider _provider = new RealDataProvider();
 
         public static IDataProvider getDataProvider()
         {
