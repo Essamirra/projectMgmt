@@ -70,8 +70,8 @@ message SaveProjectResult {
 
 service Tasks {
     rpc getTasks (GetTasksRequest) returns (GetTasksResult);
-    rpc getTask (GetTaskRequest) returns (GetTaskResult);
     rpc saveTask (SaveTaskRequest) returns (SaveTaskResult);
+    rpc closeTask (CloseTaskRequest) returns (CloseTaskResult);
 }
 
 message Task {
@@ -97,6 +97,7 @@ message Task {
 
 message GetTasksRequest {
     string token = 1;
+    int64 projectId = 2;
 }
 message GetTasksResult {
     repeated Task tasks = 1;
@@ -117,10 +118,16 @@ message SaveTaskRequest {
 message SaveTaskResult {
 }
 
+message CloseTaskRequest {
+    string token = 1;
+    int64 taskId = 2;
+}
+message CloseTaskResult {
+}
+
 
 service Users {
     rpc getUsers (GetUsersRequest) returns (GetUsersResult);
-    rpc getUser (GetUserRequest) returns (GetUserResult);
     rpc saveUser (SaveUserRequest) returns (SaveUserResult);
 }
 

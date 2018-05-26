@@ -277,10 +277,10 @@ namespace Projman.Server {
 
     static readonly grpc::Marshaller<global::Projman.Server.GetTasksRequest> __Marshaller_GetTasksRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.GetTasksRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Projman.Server.GetTasksResult> __Marshaller_GetTasksResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.GetTasksResult.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Projman.Server.GetTaskRequest> __Marshaller_GetTaskRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.GetTaskRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Projman.Server.GetTaskResult> __Marshaller_GetTaskResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.GetTaskResult.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Projman.Server.SaveTaskRequest> __Marshaller_SaveTaskRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.SaveTaskRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Projman.Server.SaveTaskResult> __Marshaller_SaveTaskResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.SaveTaskResult.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Projman.Server.CloseTaskRequest> __Marshaller_CloseTaskRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.CloseTaskRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Projman.Server.CloseTaskResult> __Marshaller_CloseTaskResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.CloseTaskResult.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Projman.Server.GetTasksRequest, global::Projman.Server.GetTasksResult> __Method_getTasks = new grpc::Method<global::Projman.Server.GetTasksRequest, global::Projman.Server.GetTasksResult>(
         grpc::MethodType.Unary,
@@ -289,19 +289,19 @@ namespace Projman.Server {
         __Marshaller_GetTasksRequest,
         __Marshaller_GetTasksResult);
 
-    static readonly grpc::Method<global::Projman.Server.GetTaskRequest, global::Projman.Server.GetTaskResult> __Method_getTask = new grpc::Method<global::Projman.Server.GetTaskRequest, global::Projman.Server.GetTaskResult>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "getTask",
-        __Marshaller_GetTaskRequest,
-        __Marshaller_GetTaskResult);
-
     static readonly grpc::Method<global::Projman.Server.SaveTaskRequest, global::Projman.Server.SaveTaskResult> __Method_saveTask = new grpc::Method<global::Projman.Server.SaveTaskRequest, global::Projman.Server.SaveTaskResult>(
         grpc::MethodType.Unary,
         __ServiceName,
         "saveTask",
         __Marshaller_SaveTaskRequest,
         __Marshaller_SaveTaskResult);
+
+    static readonly grpc::Method<global::Projman.Server.CloseTaskRequest, global::Projman.Server.CloseTaskResult> __Method_closeTask = new grpc::Method<global::Projman.Server.CloseTaskRequest, global::Projman.Server.CloseTaskResult>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "closeTask",
+        __Marshaller_CloseTaskRequest,
+        __Marshaller_CloseTaskResult);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -317,12 +317,12 @@ namespace Projman.Server {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Projman.Server.GetTaskResult> getTask(global::Projman.Server.GetTaskRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Projman.Server.SaveTaskResult> saveTask(global::Projman.Server.SaveTaskRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Projman.Server.SaveTaskResult> saveTask(global::Projman.Server.SaveTaskRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Projman.Server.CloseTaskResult> closeTask(global::Projman.Server.CloseTaskRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -368,22 +368,6 @@ namespace Projman.Server {
       {
         return CallInvoker.AsyncUnaryCall(__Method_getTasks, null, options, request);
       }
-      public virtual global::Projman.Server.GetTaskResult getTask(global::Projman.Server.GetTaskRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return getTask(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Projman.Server.GetTaskResult getTask(global::Projman.Server.GetTaskRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_getTask, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::Projman.Server.GetTaskResult> getTaskAsync(global::Projman.Server.GetTaskRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return getTaskAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::Projman.Server.GetTaskResult> getTaskAsync(global::Projman.Server.GetTaskRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_getTask, null, options, request);
-      }
       public virtual global::Projman.Server.SaveTaskResult saveTask(global::Projman.Server.SaveTaskRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return saveTask(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -400,6 +384,22 @@ namespace Projman.Server {
       {
         return CallInvoker.AsyncUnaryCall(__Method_saveTask, null, options, request);
       }
+      public virtual global::Projman.Server.CloseTaskResult closeTask(global::Projman.Server.CloseTaskRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return closeTask(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Projman.Server.CloseTaskResult closeTask(global::Projman.Server.CloseTaskRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_closeTask, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Projman.Server.CloseTaskResult> closeTaskAsync(global::Projman.Server.CloseTaskRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return closeTaskAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Projman.Server.CloseTaskResult> closeTaskAsync(global::Projman.Server.CloseTaskRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_closeTask, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override TasksClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -413,8 +413,8 @@ namespace Projman.Server {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_getTasks, serviceImpl.getTasks)
-          .AddMethod(__Method_getTask, serviceImpl.getTask)
-          .AddMethod(__Method_saveTask, serviceImpl.saveTask).Build();
+          .AddMethod(__Method_saveTask, serviceImpl.saveTask)
+          .AddMethod(__Method_closeTask, serviceImpl.closeTask).Build();
     }
 
   }
@@ -424,8 +424,6 @@ namespace Projman.Server {
 
     static readonly grpc::Marshaller<global::Projman.Server.GetUsersRequest> __Marshaller_GetUsersRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.GetUsersRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Projman.Server.GetUsersResult> __Marshaller_GetUsersResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.GetUsersResult.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Projman.Server.GetUserRequest> __Marshaller_GetUserRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.GetUserRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Projman.Server.GetUserResult> __Marshaller_GetUserResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.GetUserResult.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Projman.Server.SaveUserRequest> __Marshaller_SaveUserRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.SaveUserRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Projman.Server.SaveUserResult> __Marshaller_SaveUserResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.SaveUserResult.Parser.ParseFrom);
 
@@ -435,13 +433,6 @@ namespace Projman.Server {
         "getUsers",
         __Marshaller_GetUsersRequest,
         __Marshaller_GetUsersResult);
-
-    static readonly grpc::Method<global::Projman.Server.GetUserRequest, global::Projman.Server.GetUserResult> __Method_getUser = new grpc::Method<global::Projman.Server.GetUserRequest, global::Projman.Server.GetUserResult>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "getUser",
-        __Marshaller_GetUserRequest,
-        __Marshaller_GetUserResult);
 
     static readonly grpc::Method<global::Projman.Server.SaveUserRequest, global::Projman.Server.SaveUserResult> __Method_saveUser = new grpc::Method<global::Projman.Server.SaveUserRequest, global::Projman.Server.SaveUserResult>(
         grpc::MethodType.Unary,
@@ -460,11 +451,6 @@ namespace Projman.Server {
     public abstract partial class UsersBase
     {
       public virtual global::System.Threading.Tasks.Task<global::Projman.Server.GetUsersResult> getUsers(global::Projman.Server.GetUsersRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Projman.Server.GetUserResult> getUser(global::Projman.Server.GetUserRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -515,22 +501,6 @@ namespace Projman.Server {
       {
         return CallInvoker.AsyncUnaryCall(__Method_getUsers, null, options, request);
       }
-      public virtual global::Projman.Server.GetUserResult getUser(global::Projman.Server.GetUserRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return getUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Projman.Server.GetUserResult getUser(global::Projman.Server.GetUserRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_getUser, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::Projman.Server.GetUserResult> getUserAsync(global::Projman.Server.GetUserRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return getUserAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::Projman.Server.GetUserResult> getUserAsync(global::Projman.Server.GetUserRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_getUser, null, options, request);
-      }
       public virtual global::Projman.Server.SaveUserResult saveUser(global::Projman.Server.SaveUserRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return saveUser(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -560,7 +530,6 @@ namespace Projman.Server {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_getUsers, serviceImpl.getUsers)
-          .AddMethod(__Method_getUser, serviceImpl.getUser)
           .AddMethod(__Method_saveUser, serviceImpl.saveUser).Build();
     }
 

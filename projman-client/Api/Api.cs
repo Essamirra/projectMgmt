@@ -44,35 +44,36 @@ namespace Projman.Server {
             "GAcgASgDEhEKCWNsb3NlRGF0ZRgIIAEoAxIRCglwcm9qZWN0SWQYCSABKAMS",
             "FwoPY3JlYXRlZEJ5VXNlcklkGAogASgDEhYKDmFzc2lnbmVlVXNlcklkGAsg",
             "ASgDEhwKBnN0YXR1cxgMIAEoDjIMLlRhc2suU3RhdHVzIi8KBlN0YXR1cxIL",
-            "CgdDUkVBVEVEEAASDAoIQVNTSUdORUQQARIKCgZDTE9TRUQQAiIgCg9HZXRU",
-            "YXNrc1JlcXVlc3QSDQoFdG9rZW4YASABKAkiJgoOR2V0VGFza3NSZXN1bHQS",
-            "FAoFdGFza3MYASADKAsyBS5UYXNrIisKDkdldFRhc2tSZXF1ZXN0Eg0KBXRv",
-            "a2VuGAEgASgJEgoKAmlkGAIgASgDIiQKDUdldFRhc2tSZXN1bHQSEwoEdGFz",
-            "axgBIAEoCzIFLlRhc2siNQoPU2F2ZVRhc2tSZXF1ZXN0Eg0KBXRva2VuGAEg",
-            "ASgJEhMKBHRhc2sYAiABKAsyBS5UYXNrIhAKDlNhdmVUYXNrUmVzdWx0IpwB",
-            "CgRVc2VyEgoKAmlkGAEgASgDEhEKCWZpcnN0TmFtZRgCIAEoCRIQCghsYXN0",
-            "TmFtZRgDIAEoCRINCgVsb2dpbhgEIAEoCRIQCghwYXNzd29yZBgFIAEoCRIY",
-            "CgRyb2xlGAYgASgOMgouVXNlci5Sb2xlIigKBFJvbGUSCAoEVVNFUhAAEgsK",
-            "B01BTkFHRVIQARIJCgVBRE1JThACIiAKD0dldFVzZXJzUmVxdWVzdBINCgV0",
-            "b2tlbhgBIAEoCSImCg5HZXRVc2Vyc1Jlc3VsdBIUCgV1c2VycxgBIAMoCzIF",
-            "LlVzZXIiKwoOR2V0VXNlclJlcXVlc3QSDQoFdG9rZW4YASABKAkSCgoCaWQY",
-            "AiABKAMiJAoNR2V0VXNlclJlc3VsdBITCgR1c2VyGAEgASgLMgUuVXNlciI1",
-            "Cg9TYXZlVXNlclJlcXVlc3QSDQoFdG9rZW4YASABKAkSEwoEdXNlchgCIAEo",
-            "CzIFLlVzZXIiEAoOU2F2ZVVzZXJSZXN1bHQyVQoEQXV0aBIkCgVsb2dpbhIN",
-            "LkxvZ2luUmVxdWVzdBoMLkxvZ2luUmVzdWx0EicKBmxvZ291dBIOLkxvZ291",
-            "dFJlcXVlc3QaDS5Mb2dvdXRSZXN1bHQyrwEKCFByb2plY3RzEjYKC2dldFBy",
-            "b2plY3RzEhMuR2V0UHJvamVjdHNSZXF1ZXN0GhIuR2V0UHJvamVjdHNSZXN1",
-            "bHQSMwoKZ2V0UHJvamVjdBISLkdldFByb2plY3RSZXF1ZXN0GhEuR2V0UHJv",
-            "amVjdFJlc3VsdBI2CgtzYXZlUHJvamVjdBITLlNhdmVQcm9qZWN0UmVxdWVz",
-            "dBoSLlNhdmVQcm9qZWN0UmVzdWx0MpEBCgVUYXNrcxItCghnZXRUYXNrcxIQ",
-            "LkdldFRhc2tzUmVxdWVzdBoPLkdldFRhc2tzUmVzdWx0EioKB2dldFRhc2sS",
-            "Dy5HZXRUYXNrUmVxdWVzdBoOLkdldFRhc2tSZXN1bHQSLQoIc2F2ZVRhc2sS",
-            "EC5TYXZlVGFza1JlcXVlc3QaDy5TYXZlVGFza1Jlc3VsdDKRAQoFVXNlcnMS",
-            "LQoIZ2V0VXNlcnMSEC5HZXRVc2Vyc1JlcXVlc3QaDy5HZXRVc2Vyc1Jlc3Vs",
-            "dBIqCgdnZXRVc2VyEg8uR2V0VXNlclJlcXVlc3QaDi5HZXRVc2VyUmVzdWx0",
-            "Ei0KCHNhdmVVc2VyEhAuU2F2ZVVzZXJSZXF1ZXN0Gg8uU2F2ZVVzZXJSZXN1",
-            "bHRCMwoXcnUudW5uLnN1cGVyc29mdC5wbS5hcGlCBVBtQXBpUAGqAg5Qcm9q",
-            "bWFuLlNlcnZlcmIGcHJvdG8z"));
+            "CgdDUkVBVEVEEAASDAoIQVNTSUdORUQQARIKCgZDTE9TRUQQAiIzCg9HZXRU",
+            "YXNrc1JlcXVlc3QSDQoFdG9rZW4YASABKAkSEQoJcHJvamVjdElkGAIgASgD",
+            "IiYKDkdldFRhc2tzUmVzdWx0EhQKBXRhc2tzGAEgAygLMgUuVGFzayIrCg5H",
+            "ZXRUYXNrUmVxdWVzdBINCgV0b2tlbhgBIAEoCRIKCgJpZBgCIAEoAyIkCg1H",
+            "ZXRUYXNrUmVzdWx0EhMKBHRhc2sYASABKAsyBS5UYXNrIjUKD1NhdmVUYXNr",
+            "UmVxdWVzdBINCgV0b2tlbhgBIAEoCRITCgR0YXNrGAIgASgLMgUuVGFzayIQ",
+            "Cg5TYXZlVGFza1Jlc3VsdCIxChBDbG9zZVRhc2tSZXF1ZXN0Eg0KBXRva2Vu",
+            "GAEgASgJEg4KBnRhc2tJZBgCIAEoAyIRCg9DbG9zZVRhc2tSZXN1bHQinAEK",
+            "BFVzZXISCgoCaWQYASABKAMSEQoJZmlyc3ROYW1lGAIgASgJEhAKCGxhc3RO",
+            "YW1lGAMgASgJEg0KBWxvZ2luGAQgASgJEhAKCHBhc3N3b3JkGAUgASgJEhgK",
+            "BHJvbGUYBiABKA4yCi5Vc2VyLlJvbGUiKAoEUm9sZRIICgRVU0VSEAASCwoH",
+            "TUFOQUdFUhABEgkKBUFETUlOEAIiIAoPR2V0VXNlcnNSZXF1ZXN0Eg0KBXRv",
+            "a2VuGAEgASgJIiYKDkdldFVzZXJzUmVzdWx0EhQKBXVzZXJzGAEgAygLMgUu",
+            "VXNlciIrCg5HZXRVc2VyUmVxdWVzdBINCgV0b2tlbhgBIAEoCRIKCgJpZBgC",
+            "IAEoAyIkCg1HZXRVc2VyUmVzdWx0EhMKBHVzZXIYASABKAsyBS5Vc2VyIjUK",
+            "D1NhdmVVc2VyUmVxdWVzdBINCgV0b2tlbhgBIAEoCRITCgR1c2VyGAIgASgL",
+            "MgUuVXNlciIQCg5TYXZlVXNlclJlc3VsdDJVCgRBdXRoEiQKBWxvZ2luEg0u",
+            "TG9naW5SZXF1ZXN0GgwuTG9naW5SZXN1bHQSJwoGbG9nb3V0Eg4uTG9nb3V0",
+            "UmVxdWVzdBoNLkxvZ291dFJlc3VsdDKvAQoIUHJvamVjdHMSNgoLZ2V0UHJv",
+            "amVjdHMSEy5HZXRQcm9qZWN0c1JlcXVlc3QaEi5HZXRQcm9qZWN0c1Jlc3Vs",
+            "dBIzCgpnZXRQcm9qZWN0EhIuR2V0UHJvamVjdFJlcXVlc3QaES5HZXRQcm9q",
+            "ZWN0UmVzdWx0EjYKC3NhdmVQcm9qZWN0EhMuU2F2ZVByb2plY3RSZXF1ZXN0",
+            "GhIuU2F2ZVByb2plY3RSZXN1bHQylwEKBVRhc2tzEi0KCGdldFRhc2tzEhAu",
+            "R2V0VGFza3NSZXF1ZXN0Gg8uR2V0VGFza3NSZXN1bHQSLQoIc2F2ZVRhc2sS",
+            "EC5TYXZlVGFza1JlcXVlc3QaDy5TYXZlVGFza1Jlc3VsdBIwCgljbG9zZVRh",
+            "c2sSES5DbG9zZVRhc2tSZXF1ZXN0GhAuQ2xvc2VUYXNrUmVzdWx0MmUKBVVz",
+            "ZXJzEi0KCGdldFVzZXJzEhAuR2V0VXNlcnNSZXF1ZXN0Gg8uR2V0VXNlcnNS",
+            "ZXN1bHQSLQoIc2F2ZVVzZXISEC5TYXZlVXNlclJlcXVlc3QaDy5TYXZlVXNl",
+            "clJlc3VsdEIzChdydS51bm4uc3VwZXJzb2Z0LnBtLmFwaUIFUG1BcGlQAaoC",
+            "DlByb2ptYW4uU2VydmVyYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -88,12 +89,14 @@ namespace Projman.Server {
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveProjectRequest), global::Projman.Server.SaveProjectRequest.Parser, new[]{ "Token", "Project" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveProjectResult), global::Projman.Server.SaveProjectResult.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.Task), global::Projman.Server.Task.Parser, new[]{ "Id", "Title", "Description", "CreatedDate", "StartDate", "EndDate", "AssignedDate", "CloseDate", "ProjectId", "CreatedByUserId", "AssigneeUserId", "Status" }, null, new[]{ typeof(global::Projman.Server.Task.Types.Status) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetTasksRequest), global::Projman.Server.GetTasksRequest.Parser, new[]{ "Token" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetTasksRequest), global::Projman.Server.GetTasksRequest.Parser, new[]{ "Token", "ProjectId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetTasksResult), global::Projman.Server.GetTasksResult.Parser, new[]{ "Tasks" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetTaskRequest), global::Projman.Server.GetTaskRequest.Parser, new[]{ "Token", "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetTaskResult), global::Projman.Server.GetTaskResult.Parser, new[]{ "Task" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveTaskRequest), global::Projman.Server.SaveTaskRequest.Parser, new[]{ "Token", "Task" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.SaveTaskResult), global::Projman.Server.SaveTaskResult.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.CloseTaskRequest), global::Projman.Server.CloseTaskRequest.Parser, new[]{ "Token", "TaskId" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.CloseTaskResult), global::Projman.Server.CloseTaskResult.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.User), global::Projman.Server.User.Parser, new[]{ "Id", "FirstName", "LastName", "Login", "Password", "Role" }, null, new[]{ typeof(global::Projman.Server.User.Types.Role) }, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetUsersRequest), global::Projman.Server.GetUsersRequest.Parser, new[]{ "Token" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.GetUsersResult), global::Projman.Server.GetUsersResult.Parser, new[]{ "Users" }, null, null, null),
@@ -2248,6 +2251,7 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GetTasksRequest(GetTasksRequest other) : this() {
       token_ = other.token_;
+      projectId_ = other.projectId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2267,6 +2271,17 @@ namespace Projman.Server {
       }
     }
 
+    /// <summary>Field number for the "projectId" field.</summary>
+    public const int ProjectIdFieldNumber = 2;
+    private long projectId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long ProjectId {
+      get { return projectId_; }
+      set {
+        projectId_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as GetTasksRequest);
@@ -2281,6 +2296,7 @@ namespace Projman.Server {
         return true;
       }
       if (Token != other.Token) return false;
+      if (ProjectId != other.ProjectId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2288,6 +2304,7 @@ namespace Projman.Server {
     public override int GetHashCode() {
       int hash = 1;
       if (Token.Length != 0) hash ^= Token.GetHashCode();
+      if (ProjectId != 0L) hash ^= ProjectId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2305,6 +2322,10 @@ namespace Projman.Server {
         output.WriteRawTag(10);
         output.WriteString(Token);
       }
+      if (ProjectId != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(ProjectId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2315,6 +2336,9 @@ namespace Projman.Server {
       int size = 0;
       if (Token.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
+      }
+      if (ProjectId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ProjectId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2330,6 +2354,9 @@ namespace Projman.Server {
       if (other.Token.Length != 0) {
         Token = other.Token;
       }
+      if (other.ProjectId != 0L) {
+        ProjectId = other.ProjectId;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2343,6 +2370,10 @@ namespace Projman.Server {
             break;
           case 10: {
             Token = input.ReadString();
+            break;
+          }
+          case 16: {
+            ProjectId = input.ReadInt64();
             break;
           }
         }
@@ -3028,6 +3059,264 @@ namespace Projman.Server {
 
   }
 
+  public sealed partial class CloseTaskRequest : pb::IMessage<CloseTaskRequest> {
+    private static readonly pb::MessageParser<CloseTaskRequest> _parser = new pb::MessageParser<CloseTaskRequest>(() => new CloseTaskRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CloseTaskRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[18]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CloseTaskRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CloseTaskRequest(CloseTaskRequest other) : this() {
+      token_ = other.token_;
+      taskId_ = other.taskId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CloseTaskRequest Clone() {
+      return new CloseTaskRequest(this);
+    }
+
+    /// <summary>Field number for the "token" field.</summary>
+    public const int TokenFieldNumber = 1;
+    private string token_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Token {
+      get { return token_; }
+      set {
+        token_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "taskId" field.</summary>
+    public const int TaskIdFieldNumber = 2;
+    private long taskId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long TaskId {
+      get { return taskId_; }
+      set {
+        taskId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CloseTaskRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CloseTaskRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Token != other.Token) return false;
+      if (TaskId != other.TaskId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Token.Length != 0) hash ^= Token.GetHashCode();
+      if (TaskId != 0L) hash ^= TaskId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Token.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Token);
+      }
+      if (TaskId != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(TaskId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Token.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
+      }
+      if (TaskId != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(TaskId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CloseTaskRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Token.Length != 0) {
+        Token = other.Token;
+      }
+      if (other.TaskId != 0L) {
+        TaskId = other.TaskId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Token = input.ReadString();
+            break;
+          }
+          case 16: {
+            TaskId = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class CloseTaskResult : pb::IMessage<CloseTaskResult> {
+    private static readonly pb::MessageParser<CloseTaskResult> _parser = new pb::MessageParser<CloseTaskResult>(() => new CloseTaskResult());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<CloseTaskResult> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[19]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CloseTaskResult() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CloseTaskResult(CloseTaskResult other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public CloseTaskResult Clone() {
+      return new CloseTaskResult(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as CloseTaskResult);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CloseTaskResult other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(CloseTaskResult other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    }
+
+  }
+
   public sealed partial class User : pb::IMessage<User> {
     private static readonly pb::MessageParser<User> _parser = new pb::MessageParser<User>(() => new User());
     private pb::UnknownFieldSet _unknownFields;
@@ -3036,7 +3325,7 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[18]; }
+      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3318,7 +3607,7 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[19]; }
+      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3447,7 +3736,7 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[20]; }
+      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3568,7 +3857,7 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[21]; }
+      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3725,7 +4014,7 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[22]; }
+      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3860,7 +4149,7 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[23]; }
+      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4023,7 +4312,7 @@ namespace Projman.Server {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[24]; }
+      get { return global::Projman.Server.ApiReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
