@@ -26,57 +26,58 @@ namespace Projman.Server {
           string.Concat(
             "Cidwcm9qbWFuLXNlcnZlci9zcmMvbWFpbi9wcm90by9hcGkucHJvdG8iLwoM",
             "TG9naW5SZXF1ZXN0Eg0KBWxvZ2luGAEgASgJEhAKCHBhc3N3b3JkGAIgASgJ",
-            "IhwKC0xvZ2luUmVzdWx0Eg0KBXRva2VuGAEgASgJIh4KDUxvZ291dFJlcXVl",
-            "c3QSDQoFdG9rZW4YASABKAkiDgoMTG9nb3V0UmVzdWx0IrEBCgdQcm9qZWN0",
-            "EgoKAmlkGAEgASgDEgwKBG5hbWUYAiABKAkSEwoLZGVzY3JpcHRpb24YAyAB",
-            "KAkSEQoJc3RhcnREYXRlGAQgASgDEg8KB2VuZERhdGUYBSABKAMSEgoKY2xv",
-            "c2VkV2hlbhgGIAEoAxIfCgZzdGF0dXMYByABKA4yDy5Qcm9qZWN0LlN0YXR1",
-            "cyIeCgZTdGF0dXMSCAoET1BFThAAEgoKBkNMT1NFRBABIiMKEkdldFByb2pl",
-            "Y3RzUmVxdWVzdBINCgV0b2tlbhgBIAEoCSIvChFHZXRQcm9qZWN0c1Jlc3Vs",
-            "dBIaCghwcm9qZWN0cxgBIAMoCzIILlByb2plY3QiLgoRR2V0UHJvamVjdFJl",
-            "cXVlc3QSDQoFdG9rZW4YASABKAkSCgoCaWQYAiABKAMiLQoQR2V0UHJvamVj",
-            "dFJlc3VsdBIZCgdwcm9qZWN0GAEgASgLMgguUHJvamVjdCI+ChJTYXZlUHJv",
-            "amVjdFJlcXVlc3QSDQoFdG9rZW4YASABKAkSGQoHcHJvamVjdBgCIAEoCzII",
-            "LlByb2plY3QiEwoRU2F2ZVByb2plY3RSZXN1bHQiqwIKBFRhc2sSCgoCaWQY",
-            "ASABKAMSDQoFdGl0bGUYAiABKAkSEwoLZGVzY3JpcHRpb24YAyABKAkSEwoL",
-            "Y3JlYXRlZERhdGUYBCABKAMSEQoJc3RhcnREYXRlGAUgASgDEg8KB2VuZERh",
-            "dGUYBiABKAMSFAoMYXNzaWduZWREYXRlGAcgASgDEhEKCWNsb3NlRGF0ZRgI",
-            "IAEoAxIRCglwcm9qZWN0SWQYCSABKAMSFwoPY3JlYXRlZEJ5VXNlcklkGAog",
-            "ASgDEhYKDmFzc2lnbmVlVXNlcklkGAsgASgDEhwKBnN0YXR1cxgMIAEoDjIM",
-            "LlRhc2suU3RhdHVzIi8KBlN0YXR1cxILCgdDUkVBVEVEEAASDAoIQVNTSUdO",
-            "RUQQARIKCgZDTE9TRUQQAiIgCg9HZXRUYXNrc1JlcXVlc3QSDQoFdG9rZW4Y",
-            "ASABKAkiJgoOR2V0VGFza3NSZXN1bHQSFAoFdGFza3MYASADKAsyBS5UYXNr",
-            "IisKDkdldFRhc2tSZXF1ZXN0Eg0KBXRva2VuGAEgASgJEgoKAmlkGAIgASgD",
-            "IiQKDUdldFRhc2tSZXN1bHQSEwoEdGFzaxgBIAEoCzIFLlRhc2siNQoPU2F2",
-            "ZVRhc2tSZXF1ZXN0Eg0KBXRva2VuGAEgASgJEhMKBHRhc2sYAiABKAsyBS5U",
-            "YXNrIhAKDlNhdmVUYXNrUmVzdWx0IpwBCgRVc2VyEgoKAmlkGAEgASgDEhEK",
-            "CWZpcnN0TmFtZRgCIAEoCRIQCghsYXN0TmFtZRgDIAEoCRINCgVsb2dpbhgE",
-            "IAEoCRIQCghwYXNzd29yZBgFIAEoCRIYCgRyb2xlGAYgASgOMgouVXNlci5S",
-            "b2xlIigKBFJvbGUSCAoEVVNFUhAAEgsKB01BTkFHRVIQARIJCgVBRE1JThAC",
-            "IiAKD0dldFVzZXJzUmVxdWVzdBINCgV0b2tlbhgBIAEoCSImCg5HZXRVc2Vy",
-            "c1Jlc3VsdBIUCgV1c2VycxgBIAMoCzIFLlVzZXIiKwoOR2V0VXNlclJlcXVl",
-            "c3QSDQoFdG9rZW4YASABKAkSCgoCaWQYAiABKAMiJAoNR2V0VXNlclJlc3Vs",
-            "dBITCgR1c2VyGAEgASgLMgUuVXNlciI1Cg9TYXZlVXNlclJlcXVlc3QSDQoF",
-            "dG9rZW4YASABKAkSEwoEdXNlchgCIAEoCzIFLlVzZXIiEAoOU2F2ZVVzZXJS",
-            "ZXN1bHQyVQoEQXV0aBIkCgVsb2dpbhINLkxvZ2luUmVxdWVzdBoMLkxvZ2lu",
-            "UmVzdWx0EicKBmxvZ291dBIOLkxvZ291dFJlcXVlc3QaDS5Mb2dvdXRSZXN1",
-            "bHQyrwEKCFByb2plY3RzEjYKC2dldFByb2plY3RzEhMuR2V0UHJvamVjdHNS",
-            "ZXF1ZXN0GhIuR2V0UHJvamVjdHNSZXN1bHQSMwoKZ2V0UHJvamVjdBISLkdl",
-            "dFByb2plY3RSZXF1ZXN0GhEuR2V0UHJvamVjdFJlc3VsdBI2CgtzYXZlUHJv",
-            "amVjdBITLlNhdmVQcm9qZWN0UmVxdWVzdBoSLlNhdmVQcm9qZWN0UmVzdWx0",
-            "MpEBCgVUYXNrcxItCghnZXRUYXNrcxIQLkdldFRhc2tzUmVxdWVzdBoPLkdl",
-            "dFRhc2tzUmVzdWx0EioKB2dldFRhc2sSDy5HZXRUYXNrUmVxdWVzdBoOLkdl",
-            "dFRhc2tSZXN1bHQSLQoIc2F2ZVRhc2sSEC5TYXZlVGFza1JlcXVlc3QaDy5T",
-            "YXZlVGFza1Jlc3VsdDKRAQoFVXNlcnMSLQoIZ2V0VXNlcnMSEC5HZXRVc2Vy",
-            "c1JlcXVlc3QaDy5HZXRVc2Vyc1Jlc3VsdBIqCgdnZXRVc2VyEg8uR2V0VXNl",
-            "clJlcXVlc3QaDi5HZXRVc2VyUmVzdWx0Ei0KCHNhdmVVc2VyEhAuU2F2ZVVz",
-            "ZXJSZXF1ZXN0Gg8uU2F2ZVVzZXJSZXN1bHRCMwoXcnUudW5uLnN1cGVyc29m",
-            "dC5wbS5hcGlCBVBtQXBpUAGqAg5Qcm9qbWFuLlNlcnZlcmIGcHJvdG8z"));
+            "IjEKC0xvZ2luUmVzdWx0Eg0KBXRva2VuGAEgASgJEhMKBHVzZXIYAiABKAsy",
+            "BS5Vc2VyIh4KDUxvZ291dFJlcXVlc3QSDQoFdG9rZW4YASABKAkiDgoMTG9n",
+            "b3V0UmVzdWx0IrEBCgdQcm9qZWN0EgoKAmlkGAEgASgDEgwKBG5hbWUYAiAB",
+            "KAkSEwoLZGVzY3JpcHRpb24YAyABKAkSEQoJc3RhcnREYXRlGAQgASgDEg8K",
+            "B2VuZERhdGUYBSABKAMSEgoKY2xvc2VkV2hlbhgGIAEoAxIfCgZzdGF0dXMY",
+            "ByABKA4yDy5Qcm9qZWN0LlN0YXR1cyIeCgZTdGF0dXMSCAoET1BFThAAEgoK",
+            "BkNMT1NFRBABIiMKEkdldFByb2plY3RzUmVxdWVzdBINCgV0b2tlbhgBIAEo",
+            "CSIvChFHZXRQcm9qZWN0c1Jlc3VsdBIaCghwcm9qZWN0cxgBIAMoCzIILlBy",
+            "b2plY3QiLgoRR2V0UHJvamVjdFJlcXVlc3QSDQoFdG9rZW4YASABKAkSCgoC",
+            "aWQYAiABKAMiLQoQR2V0UHJvamVjdFJlc3VsdBIZCgdwcm9qZWN0GAEgASgL",
+            "MgguUHJvamVjdCI+ChJTYXZlUHJvamVjdFJlcXVlc3QSDQoFdG9rZW4YASAB",
+            "KAkSGQoHcHJvamVjdBgCIAEoCzIILlByb2plY3QiEwoRU2F2ZVByb2plY3RS",
+            "ZXN1bHQiqwIKBFRhc2sSCgoCaWQYASABKAMSDQoFdGl0bGUYAiABKAkSEwoL",
+            "ZGVzY3JpcHRpb24YAyABKAkSEwoLY3JlYXRlZERhdGUYBCABKAMSEQoJc3Rh",
+            "cnREYXRlGAUgASgDEg8KB2VuZERhdGUYBiABKAMSFAoMYXNzaWduZWREYXRl",
+            "GAcgASgDEhEKCWNsb3NlRGF0ZRgIIAEoAxIRCglwcm9qZWN0SWQYCSABKAMS",
+            "FwoPY3JlYXRlZEJ5VXNlcklkGAogASgDEhYKDmFzc2lnbmVlVXNlcklkGAsg",
+            "ASgDEhwKBnN0YXR1cxgMIAEoDjIMLlRhc2suU3RhdHVzIi8KBlN0YXR1cxIL",
+            "CgdDUkVBVEVEEAASDAoIQVNTSUdORUQQARIKCgZDTE9TRUQQAiIgCg9HZXRU",
+            "YXNrc1JlcXVlc3QSDQoFdG9rZW4YASABKAkiJgoOR2V0VGFza3NSZXN1bHQS",
+            "FAoFdGFza3MYASADKAsyBS5UYXNrIisKDkdldFRhc2tSZXF1ZXN0Eg0KBXRv",
+            "a2VuGAEgASgJEgoKAmlkGAIgASgDIiQKDUdldFRhc2tSZXN1bHQSEwoEdGFz",
+            "axgBIAEoCzIFLlRhc2siNQoPU2F2ZVRhc2tSZXF1ZXN0Eg0KBXRva2VuGAEg",
+            "ASgJEhMKBHRhc2sYAiABKAsyBS5UYXNrIhAKDlNhdmVUYXNrUmVzdWx0IpwB",
+            "CgRVc2VyEgoKAmlkGAEgASgDEhEKCWZpcnN0TmFtZRgCIAEoCRIQCghsYXN0",
+            "TmFtZRgDIAEoCRINCgVsb2dpbhgEIAEoCRIQCghwYXNzd29yZBgFIAEoCRIY",
+            "CgRyb2xlGAYgASgOMgouVXNlci5Sb2xlIigKBFJvbGUSCAoEVVNFUhAAEgsK",
+            "B01BTkFHRVIQARIJCgVBRE1JThACIiAKD0dldFVzZXJzUmVxdWVzdBINCgV0",
+            "b2tlbhgBIAEoCSImCg5HZXRVc2Vyc1Jlc3VsdBIUCgV1c2VycxgBIAMoCzIF",
+            "LlVzZXIiKwoOR2V0VXNlclJlcXVlc3QSDQoFdG9rZW4YASABKAkSCgoCaWQY",
+            "AiABKAMiJAoNR2V0VXNlclJlc3VsdBITCgR1c2VyGAEgASgLMgUuVXNlciI1",
+            "Cg9TYXZlVXNlclJlcXVlc3QSDQoFdG9rZW4YASABKAkSEwoEdXNlchgCIAEo",
+            "CzIFLlVzZXIiEAoOU2F2ZVVzZXJSZXN1bHQyVQoEQXV0aBIkCgVsb2dpbhIN",
+            "LkxvZ2luUmVxdWVzdBoMLkxvZ2luUmVzdWx0EicKBmxvZ291dBIOLkxvZ291",
+            "dFJlcXVlc3QaDS5Mb2dvdXRSZXN1bHQyrwEKCFByb2plY3RzEjYKC2dldFBy",
+            "b2plY3RzEhMuR2V0UHJvamVjdHNSZXF1ZXN0GhIuR2V0UHJvamVjdHNSZXN1",
+            "bHQSMwoKZ2V0UHJvamVjdBISLkdldFByb2plY3RSZXF1ZXN0GhEuR2V0UHJv",
+            "amVjdFJlc3VsdBI2CgtzYXZlUHJvamVjdBITLlNhdmVQcm9qZWN0UmVxdWVz",
+            "dBoSLlNhdmVQcm9qZWN0UmVzdWx0MpEBCgVUYXNrcxItCghnZXRUYXNrcxIQ",
+            "LkdldFRhc2tzUmVxdWVzdBoPLkdldFRhc2tzUmVzdWx0EioKB2dldFRhc2sS",
+            "Dy5HZXRUYXNrUmVxdWVzdBoOLkdldFRhc2tSZXN1bHQSLQoIc2F2ZVRhc2sS",
+            "EC5TYXZlVGFza1JlcXVlc3QaDy5TYXZlVGFza1Jlc3VsdDKRAQoFVXNlcnMS",
+            "LQoIZ2V0VXNlcnMSEC5HZXRVc2Vyc1JlcXVlc3QaDy5HZXRVc2Vyc1Jlc3Vs",
+            "dBIqCgdnZXRVc2VyEg8uR2V0VXNlclJlcXVlc3QaDi5HZXRVc2VyUmVzdWx0",
+            "Ei0KCHNhdmVVc2VyEhAuU2F2ZVVzZXJSZXF1ZXN0Gg8uU2F2ZVVzZXJSZXN1",
+            "bHRCMwoXcnUudW5uLnN1cGVyc29mdC5wbS5hcGlCBVBtQXBpUAGqAg5Qcm9q",
+            "bWFuLlNlcnZlcmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.LoginRequest), global::Projman.Server.LoginRequest.Parser, new[]{ "Login", "Password" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.LoginResult), global::Projman.Server.LoginResult.Parser, new[]{ "Token" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.LoginResult), global::Projman.Server.LoginResult.Parser, new[]{ "Token", "User" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.LogoutRequest), global::Projman.Server.LogoutRequest.Parser, new[]{ "Token" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.LogoutResult), global::Projman.Server.LogoutResult.Parser, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Projman.Server.Project), global::Projman.Server.Project.Parser, new[]{ "Id", "Name", "Description", "StartDate", "EndDate", "ClosedWhen", "Status" }, null, new[]{ typeof(global::Projman.Server.Project.Types.Status) }, null),
@@ -289,6 +290,7 @@ namespace Projman.Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public LoginResult(LoginResult other) : this() {
       token_ = other.token_;
+      User = other.user_ != null ? other.User.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -308,6 +310,17 @@ namespace Projman.Server {
       }
     }
 
+    /// <summary>Field number for the "user" field.</summary>
+    public const int UserFieldNumber = 2;
+    private global::Projman.Server.User user_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Projman.Server.User User {
+      get { return user_; }
+      set {
+        user_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as LoginResult);
@@ -322,6 +335,7 @@ namespace Projman.Server {
         return true;
       }
       if (Token != other.Token) return false;
+      if (!object.Equals(User, other.User)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -329,6 +343,7 @@ namespace Projman.Server {
     public override int GetHashCode() {
       int hash = 1;
       if (Token.Length != 0) hash ^= Token.GetHashCode();
+      if (user_ != null) hash ^= User.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -346,6 +361,10 @@ namespace Projman.Server {
         output.WriteRawTag(10);
         output.WriteString(Token);
       }
+      if (user_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(User);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -356,6 +375,9 @@ namespace Projman.Server {
       int size = 0;
       if (Token.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
+      }
+      if (user_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(User);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -371,6 +393,12 @@ namespace Projman.Server {
       if (other.Token.Length != 0) {
         Token = other.Token;
       }
+      if (other.user_ != null) {
+        if (user_ == null) {
+          user_ = new global::Projman.Server.User();
+        }
+        User.MergeFrom(other.User);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -384,6 +412,13 @@ namespace Projman.Server {
             break;
           case 10: {
             Token = input.ReadString();
+            break;
+          }
+          case 18: {
+            if (user_ == null) {
+              user_ = new global::Projman.Server.User();
+            }
+            input.ReadMessage(user_);
             break;
           }
         }

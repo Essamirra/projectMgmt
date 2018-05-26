@@ -1,0 +1,1 @@
+packages/Grpc.Tools.1.11.x/tools/macosx_x64/protoc --csharp_out projman-client/Api --grpc_out projman-client/Api projman-server/src/main/proto/api.proto --plugin=protoc-gen-grpc=packages/Grpc.Tools.1.11.x/tools/macosx_x64/grpc_csharp_plugin

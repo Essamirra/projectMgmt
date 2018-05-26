@@ -83,7 +83,10 @@ class PmServer {
                 val token = UUID.randomUUID().toString()
                 db.createSession(token, userByLogin.id) // TODO: handle collisions
 
-                responseObserver.onNext(LoginResult.newBuilder().setToken(token).build())
+                responseObserver.onNext(LoginResult.newBuilder()
+                        .setToken(token)
+                        .setUser(userByLogin.toBuilder().clearPassword())
+                        .build())
                 responseObserver.onCompleted()
             } catch (e: Exception) {
                 responseObserver.onError(StatusRuntimeException(Status.UNAVAILABLE.withDescription(e.message)))
