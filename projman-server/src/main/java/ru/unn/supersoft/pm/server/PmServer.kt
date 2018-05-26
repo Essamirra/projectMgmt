@@ -50,26 +50,21 @@ class PmServer {
         server?.awaitTermination()
     }
 
-    private fun checkHasRole(token: String,
-                             roles: Set<User.Role>,
-                             onSuccess: (User) -> Unit,
-                             onError: (StatusRuntimeException) -> Unit) {
-        val userId = db.getUserIdForToken(token)
-        if (userId == 0L) {
+    private fun User?.checkHasRole(roles: Set<User.Role>,
+                                   onSuccess: (User) -> Unit,
+                                   onError: (StatusRuntimeException) -> Unit) {
+        if (this == null) {
             onError(StatusRuntimeException(Status.PERMISSION_DENIED))
-            return
-        }
-        val user = db.getUser(userId)
-        if (user == null) {
-            onError(StatusRuntimeException(Status.PERMISSION_DENIED))
-            return
-        }
-
-        if (roles.contains(user.role)) {
-            onSuccess(user)
+        } else if (roles.contains(role)) {
+            onSuccess(this)
         } else {
             onError(StatusRuntimeException(Status.PERMISSION_DENIED))
         }
+    }
+
+    private fun getUserByToken(token: String): User? {
+        val userId = db.getUserIdForToken(token)
+        return if (userId != 0L) db.getUser(userId) else null
     }
 
     private inner class AuthImpl : AuthGrpc.AuthImplBase() {
@@ -116,14 +111,18 @@ class PmServer {
 
         override fun getProject(request: GetProjectRequest, responseObserver: StreamObserver<GetProjectResult>) {
             try {
-                val project = db.getProject(request.id)
-                if (project != null) {
-                    responseObserver.onNext(GetProjectResult.newBuilder().setProject(project).build())
-                    responseObserver.onCompleted()
-                } else {
-                    responseObserver.onError(StatusRuntimeException(Status.NOT_FOUND
-                            .withDescription("Project with id = ${request.id} not found")))
-                }
+                getUserByToken(request.token).checkHasRole(setOf(User.Role.MANAGER, User.Role.ADMIN), {
+                    val project = db.getProject(request.id)
+                    if (project != null) {
+                        responseObserver.onNext(GetProjectResult.newBuilder().setProject(project).build())
+                        responseObserver.onCompleted()
+                    } else {
+                        responseObserver.onError(StatusRuntimeException(Status.NOT_FOUND
+                                .withDescription("Project with id = ${request.id} not found")))
+                    }
+                }, { e ->
+                    responseObserver.onError(e)
+                })
             } catch (e: Exception) {
                 responseObserver.onError(StatusRuntimeException(Status.INTERNAL.withDescription(e.message)))
             }
@@ -131,7 +130,7 @@ class PmServer {
 
         override fun saveProject(request: SaveProjectRequest, responseObserver: StreamObserver<SaveProjectResult>) {
             try {
-                checkHasRole(request.token, setOf(User.Role.MANAGER, User.Role.ADMIN), {
+                getUserByToken(request.token).checkHasRole(setOf(User.Role.MANAGER, User.Role.ADMIN), {
                     if (request.project.id == 0L) {
                         db.insertProject(request.project)
                     } else {
@@ -149,20 +148,60 @@ class PmServer {
 
     }
 
-    private class TasksImpl : TasksGrpc.TasksImplBase() {
+    private inner class TasksImpl : TasksGrpc.TasksImplBase() {
         override fun getTasks(request: GetTasksRequest, responseObserver: StreamObserver<GetTasksResult>) {
-            responseObserver.onNext(GetTasksResult.getDefaultInstance())
-            responseObserver.onCompleted()
+            try {
+                val user = getUserByToken(request.token)
+                when {
+                    user == null -> {
+                        responseObserver.onError(StatusRuntimeException(Status.PERMISSION_DENIED))
+                    }
+                    user.role == User.Role.USER -> {
+                        responseObserver.onNext(GetTasksResult.newBuilder().addAllTasks(db.getAssignedTasks(request.projectId, user.id)).build())
+                        responseObserver.onCompleted()
+                    }
+                    else -> {
+                        responseObserver.onNext(GetTasksResult.newBuilder().addAllTasks(db.getTasksInProject(request.projectId)).build())
+                        responseObserver.onCompleted()
+                    }
+                }
+            } catch (e: Exception) {
+                responseObserver.onError(StatusRuntimeException(Status.UNAVAILABLE.withDescription(e.message)))
+            }
         }
 
-        override fun getTask(request: GetTaskRequest, responseObserver: StreamObserver<GetTaskResult>) {
-            responseObserver.onNext(GetTaskResult.getDefaultInstance())
-            responseObserver.onCompleted()
+        override fun closeTask(request: CloseTaskRequest, responseObserver: StreamObserver<CloseTaskResult>) {
+            try {
+                getUserByToken(request.token)?.let {
+                    val task = db.getTask(request.taskId)?.toBuilder()?.apply {
+                        status = Task.Status.CLOSED
+                        closeDate = Date().time
+                    }?.build()
+
+                    if (task != null) {
+                        db.insertTask(task)
+                    }
+                    responseObserver.onNext(CloseTaskResult.getDefaultInstance())
+                    responseObserver.onCompleted()
+                } ?: responseObserver.onError(StatusRuntimeException(Status.PERMISSION_DENIED))
+
+            } catch (e: Exception) {
+                responseObserver.onError(StatusRuntimeException(Status.INTERNAL.withDescription(e.message)))
+            }
         }
 
         override fun saveTask(request: SaveTaskRequest, responseObserver: StreamObserver<SaveTaskResult>) {
-            responseObserver.onNext(SaveTaskResult.getDefaultInstance())
-            responseObserver.onCompleted()
+            try {
+                getUserByToken(request.token).checkHasRole(setOf(User.Role.MANAGER, User.Role.ADMIN), {
+                    db.insertTask(request.task)
+                    responseObserver.onNext(SaveTaskResult.getDefaultInstance())
+                    responseObserver.onCompleted()
+                }, { e ->
+                    responseObserver.onError(e)
+                })
+            } catch (e: Exception) {
+                responseObserver.onError(StatusRuntimeException(Status.INTERNAL.withDescription(e.message)))
+            }
         }
     }
 

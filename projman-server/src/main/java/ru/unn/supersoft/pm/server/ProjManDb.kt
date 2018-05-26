@@ -1,8 +1,8 @@
 package ru.unn.supersoft.pm.server
 
 import ru.unn.supersoft.pm.api.Project
+import ru.unn.supersoft.pm.api.Task
 import ru.unn.supersoft.pm.api.User
-import ru.unn.supersoft.pm.server.model.Session
 import ru.unn.supersoft.pm.server.util.NamedParameterPreparedStatement
 import ru.unn.supersoft.pm.server.util.NamedParameterPreparedStatement.createNamedParameterPreparedStatement
 import java.sql.Connection
@@ -38,6 +38,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         initTables()
     }
 
+    //region Projects
     fun getProject(id: Long): Project? {
         createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_PROJECT WHERE id = :id").use { statement ->
             statement.setLong("id", id)
@@ -85,7 +86,80 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
             setInt("status", project.status.number)
         }
     }
+    //endregion
 
+    //region Tasks
+    fun getTask(id: Long): Task? {
+        createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_TASK WHERE id = :id").use { statement ->
+            statement.setLong("id", id)
+            val resultSet = statement.executeQuery()
+
+            return if (resultSet.next()) {
+                parseTask(resultSet)
+            } else {
+                null
+            }
+        }
+    }
+
+    fun getTasks(): List<Task> {
+        connection.prepareStatement("SELECT * FROM $TABLE_TASK").use { statement ->
+            val resultSet = statement.executeQuery()
+            val result = mutableListOf<Task>()
+            while (resultSet.next()) {
+                result.add(parseTask(resultSet))
+            }
+            return result
+        }
+    }
+
+    fun getTasksInProject(projectId: Long): List<Task> {
+        createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_TASK WHERE projectId = :projectId").use { statement ->
+            statement.setLong("projectId", projectId)
+
+            val resultSet = statement.executeQuery()
+            val result = mutableListOf<Task>()
+            while (resultSet.next()) {
+                result.add(parseTask(resultSet))
+            }
+            return result
+        }
+    }
+
+    fun getAssignedTasks(projectId: Long, assignedTo: Long): List<Task> {
+        createNamedParameterPreparedStatement(connection,
+                "SELECT * FROM $TABLE_TASK WHERE projectId = :projectId AND assigneeUserId = :assignedTo AND status = ${Task.Status.ASSIGNED_VALUE}"
+        ).use { statement ->
+            statement.setLong("projectId", projectId)
+
+            val resultSet = statement.executeQuery()
+            val result = mutableListOf<Task>()
+            while (resultSet.next()) {
+                result.add(parseTask(resultSet))
+            }
+            return result
+        }
+    }
+
+    fun insertTask(task: Task) {
+        insert(TABLE_TASK, "id", "title", "description", "createdDate", "startDate", "endDate", "assignedDate", "closeDate", "projectId", "createdByUserId", "assigneeUserId", "status") {
+            setLong("id", task.id)
+            setString("title", task.title)
+            setString("description", task.description)
+            setLong("createdDate", task.createdDate)
+            setLong("startDate", task.startDate)
+            setLong("endDate", task.endDate)
+            setLong("assignedDate", task.assignedDate)
+            setLong("closeDate", task.closeDate)
+            setLong("projectId", task.projectId)
+            setLong("createdByUserId", task.createdByUserId)
+            setLong("assigneeUserId", task.assigneeUserId)
+            setInt("status", task.status.number)
+        }
+    }
+    //endregion
+
+    //region Sessions
     fun getUserIdForToken(token: String): Long {
         createNamedParameterPreparedStatement(connection, "SELECT userId FROM $TABLE_SESSION WHERE token = :token").use { statement ->
             statement.setString("token", token)
@@ -111,7 +185,9 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
             statement.execute()
         }
     }
+    //endregion
 
+    //region Users
     fun insertUser(user: User) {
         insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
             setString("firstName", user.firstName)
@@ -148,10 +224,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
             return if (resultSet.next()) parseUser(resultSet) else null
         }
     }
-
-    private fun parseSession(resultSet: ResultSet): Session {
-        return Session(resultSet.getInt("userId"), resultSet.getString("token"))
-    }
+    //endregion
 
     override fun close() {
         connection.close()
@@ -177,7 +250,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
                     "userId" to "INTEGER"
             )
 
-            createTable("Task",
+            createTable(TABLE_TASK,
                     "id" to "INTEGER PRIMARY KEY AUTOINCREMENT",
                     "title" to "STRING",
                     "description" to "STRING",
@@ -202,11 +275,25 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
             )
 
             insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
-                setString("firstName", "Admin")
-                setString("lastName", "Admin")
+                setString("firstName", "admin")
+                setString("lastName", "admin")
                 setString("login", "admin")
-                setString("password", "admin") // TODO hash password
-                setInt("role", User.Role.ADMIN.number)
+                setString("password", "admin")
+                setInt("role", User.Role.ADMIN_VALUE)
+            }
+            insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
+                setString("firstName", "manager")
+                setString("lastName", "manager")
+                setString("login", "manager")
+                setString("password", "manager")
+                setInt("role", User.Role.MANAGER_VALUE)
+            }
+            insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
+                setString("firstName", "worker")
+                setString("lastName", "worker")
+                setString("login", "worker")
+                setString("password", "worker")
+                setInt("role", User.Role.ADMIN_VALUE)
             }
 
             insert(TABLE_PROJECT, "name", "description", "startDate", "endDate", "closedWhen", "status") {
@@ -222,7 +309,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
 
     private fun insert(table: String, vararg fields: String, init: NamedParameterPreparedStatement.() -> Unit) {
         createNamedParameterPreparedStatement(connection,
-                "INSERT INTO $table (${fields.joinToString()}) VALUES (${fields.joinToString { ":$it" }})"
+                "INSERT OR REPLACE INTO $table (${fields.joinToString()}) VALUES (${fields.joinToString { ":$it" }})"
         ).use { statement ->
             init(statement)
             statement.executeUpdate()
@@ -249,6 +336,24 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
             status = Project.Status.forNumber(resultSet.getInt("status"))
         }.build()
     }
+
+    private fun parseTask(resultSet: ResultSet): Task {
+        return Task.newBuilder().apply {
+            id = resultSet.getLong("id")
+            title = resultSet.getString("title")
+            description = resultSet.getString("description")
+            createdDate = resultSet.getLong("createdDate")
+            startDate = resultSet.getLong("startDate")
+            endDate = resultSet.getLong("endDate")
+            assignedDate = resultSet.getLong("assignedDate")
+            closeDate = resultSet.getLong("closeDate")
+            projectId = resultSet.getLong("projectId")
+            createdByUserId = resultSet.getLong("createdByUserId")
+            assigneeUserId = resultSet.getLong("assigneeUserId")
+            status = Task.Status.forNumber(resultSet.getInt("status"))
+        }.build()
+    }
+
     private fun parseUser(resultSet: ResultSet): User {
         return User.newBuilder().apply {
             id = resultSet.getLong("id")
