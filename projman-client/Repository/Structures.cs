@@ -77,6 +77,8 @@ namespace projman_client
         
         public string title { get; set; } = "stub_title";
         public string description { get; set; } = "stub_description";
+        public DateTime StartDate { get; set; } = DateTime.Today;
+        public DateTime EndDate { get; set; } = DateTime.Parse("12/12/2018");
     }
 
     public class ProjectStatistics

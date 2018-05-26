@@ -16,8 +16,8 @@ namespace projman_client
         {
             var p1 = new Project();
             _projects.Add(p1.id, p1);
-            var p2 = new Project(){id = 1};
-            var p3 = new Project() { id =2 };
+            var p2 = new Project(){id = 2};
+            var p3 = new Project() { id =3 };
             _projects.Add(p2.id, p2);
             _projects.Add(p3.id, p3);
 

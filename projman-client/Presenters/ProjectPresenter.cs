@@ -38,5 +38,11 @@ namespace projman_client
 
         ProjectView view_;
         Project project_;
+
+        public void onStatisticsClick()
+        {
+            var tasks = DataProviderFactory.getDataProvider().getTasks(project_.id);
+            view_.navigateToStatistic(tasks);
+        }
     }
 }

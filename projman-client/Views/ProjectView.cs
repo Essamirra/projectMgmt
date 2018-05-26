@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using projman_client.Views;
 
 namespace projman_client
 {
@@ -67,5 +68,15 @@ namespace projman_client
 
 
         private ProjectPresenter presenter_;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            presenter_.onStatisticsClick();
+        }
+
+        public void navigateToStatistic(List<Task> project)
+        {
+            navigate(new StatisticsView(project));
+        }
     }
 }
