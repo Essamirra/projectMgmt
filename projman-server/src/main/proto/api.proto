@@ -128,7 +128,6 @@ message CloseTaskResult {
 
 service Users {
     rpc getUsers (GetUsersRequest) returns (GetUsersResult);
-    rpc getUser (GetUserRequest) returns (GetUserResult);
     rpc saveUser (SaveUserRequest) returns (SaveUserResult);
 }
 

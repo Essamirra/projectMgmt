@@ -69,9 +69,8 @@ namespace Projman.Server {
             "GhIuU2F2ZVByb2plY3RSZXN1bHQylwEKBVRhc2tzEi0KCGdldFRhc2tzEhAu",
             "R2V0VGFza3NSZXF1ZXN0Gg8uR2V0VGFza3NSZXN1bHQSLQoIc2F2ZVRhc2sS",
             "EC5TYXZlVGFza1JlcXVlc3QaDy5TYXZlVGFza1Jlc3VsdBIwCgljbG9zZVRh",
-            "c2sSES5DbG9zZVRhc2tSZXF1ZXN0GhAuQ2xvc2VUYXNrUmVzdWx0MpEBCgVV",
-            "c2VycxItCghnZXRVc2VycxIQLkdldFVzZXJzUmVxdWVzdBoPLkdldFVzZXJz",
-            "UmVzdWx0EioKB2dldFVzZXISDy5HZXRVc2VyUmVxdWVzdBoOLkdldFVzZXJS",
+            "c2sSES5DbG9zZVRhc2tSZXF1ZXN0GhAuQ2xvc2VUYXNrUmVzdWx0MmUKBVVz",
+            "ZXJzEi0KCGdldFVzZXJzEhAuR2V0VXNlcnNSZXF1ZXN0Gg8uR2V0VXNlcnNS",
             "ZXN1bHQSLQoIc2F2ZVVzZXISEC5TYXZlVXNlclJlcXVlc3QaDy5TYXZlVXNl",
             "clJlc3VsdEIzChdydS51bm4uc3VwZXJzb2Z0LnBtLmFwaUIFUG1BcGlQAaoC",
             "DlByb2ptYW4uU2VydmVyYgZwcm90bzM="));

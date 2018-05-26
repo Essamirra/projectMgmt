@@ -205,20 +205,32 @@ class PmServer {
         }
     }
 
-    private class UsersImpl : UsersGrpc.UsersImplBase() {
+    private inner class UsersImpl : UsersGrpc.UsersImplBase() {
         override fun getUsers(request: GetUsersRequest, responseObserver: StreamObserver<GetUsersResult>) {
-            responseObserver.onNext(GetUsersResult.getDefaultInstance())
-            responseObserver.onCompleted()
-        }
-
-        override fun getUser(request: GetUserRequest, responseObserver: StreamObserver<GetUserResult>) {
-            responseObserver.onNext(GetUserResult.getDefaultInstance())
-            responseObserver.onCompleted()
+            try {
+                getUserByToken(request.token).checkHasRole(setOf(User.Role.MANAGER, User.Role.ADMIN), {
+                    responseObserver.onNext(GetUsersResult.newBuilder().addAllUsers(db.getUsers()).build())
+                    responseObserver.onCompleted()
+                }, { e ->
+                    responseObserver.onError(e)
+                })
+            } catch (e: Exception) {
+                responseObserver.onError(StatusRuntimeException(Status.INTERNAL.withDescription(e.message)))
+            }
         }
 
         override fun saveUser(request: SaveUserRequest, responseObserver: StreamObserver<SaveUserResult>) {
-            responseObserver.onNext(SaveUserResult.getDefaultInstance())
-            responseObserver.onCompleted()
+            try {
+                getUserByToken(request.token).checkHasRole(setOf(User.Role.ADMIN), {
+                    db.insertUser(request.user)
+                    responseObserver.onNext(SaveUserResult.getDefaultInstance())
+                    responseObserver.onCompleted()
+                }, { e ->
+                    responseObserver.onError(e)
+                })
+            } catch (e: Exception) {
+                responseObserver.onError(StatusRuntimeException(Status.INTERNAL.withDescription(e.message)))
+            }
         }
     }
 }

@@ -209,6 +209,18 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
+
+    fun getUsers(): List<User> {
+        createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_USER").use { statement ->
+            val resultSet = statement.executeQuery()
+            val result = mutableListOf<User>()
+            while (resultSet.next()) {
+                result.add(parseUser(resultSet))
+            }
+            return result
+        }
+    }
+
     fun getUser(id: Long): User? {
         createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_USER WHERE id = :id").use { statement ->
             statement.setLong("id", id)
@@ -221,7 +233,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_USER WHERE login = :login").use { statement ->
             statement.setString("login", login)
             val resultSet = statement.executeQuery()
-            return if (resultSet.next()) parseUser(resultSet) else null
+            return if (resultSet.next()) parseUser(resultSet, withPassword = true) else null
         }
     }
     //endregion
@@ -354,7 +366,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }.build()
     }
 
-    private fun parseUser(resultSet: ResultSet): User {
+    private fun parseUser(resultSet: ResultSet, withPassword: Boolean = false): User {
         return User.newBuilder().apply {
             id = resultSet.getLong("id")
             firstName = resultSet.getString("firstName")
