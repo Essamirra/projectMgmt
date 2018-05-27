@@ -43,7 +43,7 @@ namespace projman_client
         public string description { get; set; } = "stub_description";
         public DateTime startDate { get; set; }
         public bool isActive { get; set; } = false;
-        [DisplayName("Id"), ReadOnly(true)]
+        [DisplayName("Дата закрытия"), ReadOnly(true)]
         public DateTime closedWhen { get; set; }
         public DateTime EndDate { get; set; }
 
@@ -76,6 +76,11 @@ namespace projman_client
         public string password { get; set; } = "stub_password";
         [DisplayName("Роль")]
         public Projman.Server.User.Types.Role role { get; set; } = Projman.Server.User.Types.Role.User;
+
+        public override string ToString()
+        {
+            return firstName + " " + lastName + " {id = " + id + "}";
+        }
     }
 
     public class Task
@@ -99,37 +104,37 @@ namespace projman_client
         public DateTime EndDate { get; set; } = DateTime.Parse("12/12/2018");
 
 
-        [DisplayName("Id"), ReadOnly(true)]
+        [DisplayName("Дата назначения"), ReadOnly(true)]
         public DateTime AssignedDate
         {
             get { return _assignedDate; }
             set { _assignedDate = value; }
         }
-        [DisplayName("Id"), ReadOnly(true)]
+        [DisplayName("Исполнитель"), ReadOnly(true)]
         public User AssignedUser
         {
             get { return _assignedUser; }
             set { _assignedUser = value; }
         }
-        [DisplayName("Id"), ReadOnly(true)]
+        [DisplayName("Создана"), ReadOnly(true)]
         public User CreatedByUser
         {
             get { return _createdByUser; }
             set { _createdByUser = value; }
         }
-        [DisplayName("Id"), ReadOnly(true)]
+        [DisplayName("Статус"), ReadOnly(true)]
         public Projman.Server.Task.Types.Status Status
         {
             get { return _status; }
             set { _status = value; }
         }
-        [DisplayName("Id"), ReadOnly(true)]
+        [DisplayName("Закрыта"), ReadOnly(true)]
         public DateTime CloseDate
         {
             get { return _closeDate; }
             set { _closeDate = value; }
         }
-        [DisplayName("Id"), ReadOnly(true)]
+        [DisplayName("Дата создания"), ReadOnly(true)]
         public DateTime CreatedDate
         {
             get { return _createdDate; }

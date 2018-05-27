@@ -96,6 +96,11 @@ namespace projman_client
         public void saveUser(User user)
         { }
 
+        public List<User> getUsersForAssign()
+        {
+            throw new NotImplementedException();
+        }
+
         public void createProject(Project project)
         {
             throw new NotImplementedException();
