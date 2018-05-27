@@ -10,7 +10,7 @@ namespace projman_client
     class FakeDataProvider : IDataProvider
     {
         private static readonly FakeDataProvider instance = new FakeDataProvider();
-        private Dictionary<long, Project> _projects = new Dictionary<long, Project>();
+        private Dictionary<long?, Project> _projects = new Dictionary<long?, Project>();
         private Dictionary<long, Task> _tasks = new Dictionary<long, Task>();
         public FakeDataProvider()
         {
@@ -60,7 +60,7 @@ namespace projman_client
 
 
 
-        public List<Task> getTasks(long projectId)
+        public List<Task> getTasks(long? projectId)
         {
             return _tasks.Values.Where(t => t.projectId == projectId).ToList();
         }
@@ -80,9 +80,9 @@ namespace projman_client
         public List<User> getUsers()
         {
             List<User> users = new List<User>();
-            users.Add(new User() {firstName = "ADMIN", id = 1, lastName = "Admin", login = "adm", password = "adm", role = Role.ADMIN});
-            users.Add(new User() { firstName = "mngr", id = 2, lastName = "nd", login = "mgr", password = "mgr", role = Role.MANAGER });
-            users.Add(new User() { firstName = "usr", id = 3, lastName = "usr", login = "usr", password = "usr", role = Role.USER });
+            users.Add(new User() {firstName = "ADMIN", id = 1, lastName = "Admin", login = "adm", password = "adm", role = Projman.Server.User.Types.Role.Admin});
+            users.Add(new User() { firstName = "mngr", id = 2, lastName = "nd", login = "mgr", password = "mgr", role = Projman.Server.User.Types.Role.Manager });
+            users.Add(new User() { firstName = "usr", id = 3, lastName = "usr", login = "usr", password = "usr", role = Projman.Server.User.Types.Role.User });
             users.Add(new User());
             users.Add(new User());
             return users;
@@ -95,5 +95,10 @@ namespace projman_client
 
         public void saveUser(User user)
         { }
+
+        public void createProject(Project project)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -15,8 +15,17 @@ namespace projman_client
 
         public void login(string login, string password)
         {
-           DataProviderFactory.getDataProvider().login(login, password);
-            view_.navigateToDashboard();
+            try
+            {
+                DataProviderFactory.getDataProvider().login(login, password);
+                view_.navigateToDashboard();
+            }
+            catch (Grpc.Core.RpcException e)
+            {
+                view_.showError("Can not login to server, please try again later");
+            }
+
+            
         }
 
         LoginView view_;

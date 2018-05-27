@@ -53,5 +53,17 @@ namespace projman_client
 
 
         private UsersListPresenter presenter_;
+
+        private void UsersListView_Load(object sender, EventArgs e)
+        {
+            presenter_.updateUsersList();
+        }
+
+        private void UsersListView_VisibleChanged(object sender, EventArgs e)
+        {
+            var me = sender as UsersListView;
+            if(me.Visible)
+                presenter_.updateUsersList();
+        }
     }
 }

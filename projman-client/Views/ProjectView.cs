@@ -35,7 +35,7 @@ namespace projman_client
             label_name.Text = project.name;
             label_description.Text = project.description;
             label_start_date.Text = project.startDate.ToString();
-            label_end_date.Text = project.endDate.ToString();
+            label_end_date.Text = project.EndDate.ToString();
 
             tasks_list.DataSource = tasks;
         }

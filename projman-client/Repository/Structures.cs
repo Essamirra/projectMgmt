@@ -28,6 +28,7 @@ namespace projman_client
         {
             WantBack?.Invoke(this, new EventArgs());
         }
+       
         public event EventHandler<BaseViewArgs> WantOpenView;
         public event EventHandler<EventArgs> WantBack;
     }
@@ -35,13 +36,21 @@ namespace projman_client
 
     public class Project
     {
-        public long id { get; set; } = 1;
+        private Projman.Server.Project.Types.Status _status;
+
+        public long? id { get; set; } = null;
         public string name { get; set; } = "stub_name";
         public string description { get; set; } = "stub_description";
         public DateTime startDate { get; set; } = DateTime.Now;
-        public DateTime endDate { get; set; } = DateTime.Now;
         public bool isActive { get; set; } = false;
         public DateTime closedWhen { get; set; } = DateTime.Now;
+        public DateTime EndDate { get; set; } = DateTime.Now;
+
+        public Projman.Server.Project.Types.Status Status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
     }
 
 
@@ -65,13 +74,13 @@ namespace projman_client
         [DisplayName("Пароль")]
         public string password { get; set; } = "stub_password";
         [DisplayName("Роль")]
-        public Role role { get; set; } = Role.USER;
+        public Projman.Server.User.Types.Role role { get; set; } = Projman.Server.User.Types.Role.User;
     }
 
     public class Task
     {
         [Browsable(false)]
-        public long projectId { get; set; }
+        public long? projectId { get; set; }
         [Browsable(false)]
         public long id { get; set; } = 0;
         

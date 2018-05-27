@@ -45,7 +45,7 @@ namespace projman_client
                     id = project.Id,
                     closedWhen = new DateTime(project.ClosedWhen),
                     description = project.Description,
-                    endDate = new DateTime(project.EndDate),
+                    EndDate = new DateTime(project.EndDate),
                     isActive = project.Status == Projman.Server.Project.Types.Status.Open,
                     name = project.Name,
                     startDate = new DateTime(project.StartDate) }
@@ -55,49 +55,106 @@ namespace projman_client
 
         public Project getProject(long id)
         {
-            return null; // TODO
+            throw new NotImplementedException("GET PROJECT");
         }
 
         public void saveProject(Project project)
         {
-            // TODO
+          _projectsClient.saveProject(new SaveProjectRequest()
+            {
+                Project = ConvertToServer(project),
+                Token = _currentToken
+            });
+          
         }
 
+        private Projman.Server.Project ConvertToServer(Project project)
+        {
+            Projman.Server.Project res = new Projman.Server.Project();
+            res.ClosedWhen = ConvertDateToUnix(project.closedWhen);
+            res.Description = project.description;
+            res.EndDate = ConvertDateToUnix(project.EndDate);
+            res.Id = project.id ?? 0;
+            res.Name = project.name;
+            res.Status = project.Status;
+            return res;
+        }
+
+        private int ConvertDateToUnix(DateTime time)
+        {
+           return (Int32)(time.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+        }
         public void getProjectStatistics(long projectId)
         {
-            // TODO
+            throw new NotImplementedException("GET PROJECT STATISTIC");
         }
 
 
-        public List<Task> getTasks(long projectId)
+        public List<Task> getTasks(long? projectId)
         {
-            return null; // TODO
+            throw new NotImplementedException("GET TASKS");
         }
 
         public Task getTask(long id)
         {
-            return null; // TODO
+            throw new NotImplementedException("GET TASK");
         }
 
         public void saveTask(Task task)
         {
-            // TODO
+            throw new NotImplementedException("SAVE TASK");
         }
 
 
         public List<User> getUsers()
         {
-            return new List<User>();
+            var res = _usersClient.getUsers(new GetUsersRequest()
+            {
+                Token = _currentToken
+            });
+            return res.Users.Select(convertToClient).ToList();
+          
+        }
+
+        private User convertToClient(Projman.Server.User user)
+        {
+           User u = new User();
+            u.id = user.Id;
+            u.firstName = user.FirstName;
+            u.lastName = user.LastName;
+            u.login = user.Login;
+            u.password = user.Password;
+            u.role = user.Role;
+            return u;
         }
 
         public User getUser(long id)
         {
-            return new User();
+            throw new NotImplementedException("GET USER");
         }
 
         public void saveUser(User user)
         {
-            // TODO
+            _usersClient.saveUser(new SaveUserRequest()
+            {
+                Token = _currentToken,
+                User = ConvertToServer(user)
+
+            });
+        }
+
+        private Projman.Server.User ConvertToServer(User user)
+        {
+            var u = new Projman.Server.User
+            {
+                FirstName = user.firstName,
+                LastName = user.lastName,
+                Id = user.id,
+                Login = user.login,
+                Password = user.password,
+                Role = user.role
+            };
+            return u;
         }
     }
 }

@@ -31,6 +31,7 @@ namespace projman_client.Views
             ganttChartView1.TasksTreeGrid.Columns.Add(ganttChartView1.StartMember, ganttChartView1.StartMember);
             ganttChartView1.TasksTreeGrid.Columns.Add(ganttChartView1.WorkMember, ganttChartView1.WorkMember);
             ganttChartView1.TasksTreeGrid.Columns.Add(ganttChartView1.CompletedWorkMember, ganttChartView1.CompletedWorkMember);
+            
             foreach (var task in project)
             {
 
@@ -38,16 +39,9 @@ namespace projman_client.Views
                     task.title, //name
                     DateTime.Now.AddDays(4), //start
                    // DateTime.MinValue, //finish is not used in standard (no binding) mode
-                    10, //work
-                    0, //completed work
-                    0, //percent completed is not used in standard (no binding) mode
-                    false, //is milestone is not used in standard (no binding) mode
-                    string.Empty, //predecessors
-                    string.Empty, //resources
-                    DateTime.Now.AddDays(4), //baseline (planned) start
-                    100, //baseline (planned) work
-                    1000 //baseline (planned) completed work)
-                );
+                    24, //work
+                    0 //completed work
+                    );
                 
                 Refresh();
             }

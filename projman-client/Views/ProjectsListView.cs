@@ -22,7 +22,8 @@ namespace projman_client
 
         public void navigateToProject(Project id)
         {
-           
+           if(id.id is null)
+               navigate(new EditProjectView(id));
             navigate(new ProjectView(id));
         }
 
@@ -47,7 +48,9 @@ namespace projman_client
             }
         }
 
-
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _presenter.OnProjectClick(new Project());
+        }
     }
 }
