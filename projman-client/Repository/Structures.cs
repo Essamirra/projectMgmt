@@ -39,14 +39,20 @@ namespace projman_client
         private Projman.Server.Project.Types.Status _status;
         [DisplayName("Id"), ReadOnly(true)]
         public long? id { get; set; } = null;
+        [DisplayName("Название")]
         public string name { get; set; } = "stub_name";
+        [DisplayName("Описание")]
         public string description { get; set; } = "stub_description";
+        [DisplayName("Начало")]
         public DateTime startDate { get; set; }
+        [DisplayName("Активна")]
         public bool isActive { get; set; } = false;
         [DisplayName("Дата закрытия"), ReadOnly(true)]
         public DateTime closedWhen { get; set; }
+        [DisplayName("Конец")]
         public DateTime EndDate { get; set; }
 
+        [DisplayName("Статус")]
         public Projman.Server.Project.Types.Status Status
         {
             get { return _status; }
