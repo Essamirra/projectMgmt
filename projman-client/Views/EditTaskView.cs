@@ -67,13 +67,13 @@ namespace projman_client
         private void HideSaveCancel()
         {
           
-            tableLayoutPanel1.RowStyles[2].Height = 0;
+            tableLayoutPanel1.RowStyles[3].Height = 0;
            
         }
 
         private void UnhideSaveCancel()
         {
-            tableLayoutPanel1.RowStyles[2].Height = 50;
+            tableLayoutPanel1.RowStyles[3].Height = 50;
            
         }
 
