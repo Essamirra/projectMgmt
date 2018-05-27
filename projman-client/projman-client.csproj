@@ -94,6 +94,12 @@
     <Compile Include="Presenters\EditUserPresenter.cs" />
     <Compile Include="Presenters\EditTaskPresenter.cs" />
     <Compile Include="Presenters\EditProjectPresenter.cs" />
+    <Compile Include="Views\dialogs\AssignUsersDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\dialogs\AssignUsersDialog.Designer.cs">
+      <DependentUpon>AssignUsersDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditUserView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Views\DashboardView.resx">
       <DependentUpon>DashboardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\dialogs\AssignUsersDialog.resx">
+      <DependentUpon>AssignUsersDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EditUserView.resx">
       <DependentUpon>EditUserView.cs</DependentUpon>

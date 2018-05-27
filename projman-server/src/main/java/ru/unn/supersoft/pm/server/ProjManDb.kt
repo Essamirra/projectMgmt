@@ -8,6 +8,7 @@ import ru.unn.supersoft.pm.server.util.NamedParameterPreparedStatement.createNam
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.ResultSet
+import java.sql.Types
 
 private const val TABLE_PROJECT = "Project"
 private val TABLE_PROJECT_FIELDS = mapOf(
@@ -65,19 +66,8 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
 
 
     fun insertProject(project: Project) {
-        insert(TABLE_PROJECT, "name", "description", "startDate", "endDate", "closedWhen", "status") {
-            setString("name", project.name)
-            setString("description", project.description)
-            setLong("startDate", project.startDate)
-            setLong("endDate", project.endDate)
-            setLong("closedWhen", project.closedWhen)
-            setInt("status", project.status.number)
-        }
-    }
-
-    fun updateProject(project: Project) {
-        update(TABLE_PROJECT, "id = :id", "name", "description", "startDate", "endDate", "closedWhen", "status") {
-            setString("id", project.id.toString())
+        insert(TABLE_PROJECT, "id", "name", "description", "startDate", "endDate", "closedWhen", "status") {
+            if (project.id > 0) setLong("id", project.id) else setNull("id", Types.NULL)
             setString("name", project.name)
             setString("description", project.description)
             setLong("startDate", project.startDate)
@@ -143,7 +133,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
 
     fun insertTask(task: Task) {
         insert(TABLE_TASK, "id", "title", "description", "createdDate", "startDate", "endDate", "assignedDate", "closeDate", "projectId", "createdByUserId", "assigneeUserId", "status") {
-            setLong("id", task.id)
+            if (task.id > 0) setLong("id", task.id) else setNull("id", Types.NULL)
             setString("title", task.title)
             setString("description", task.description)
             setLong("createdDate", task.createdDate)
@@ -189,7 +179,8 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
 
     //region Users
     fun insertUser(user: User) {
-        insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
+        insert(TABLE_USER, "id", "firstName", "lastName", "login", "password", "role") {
+            if (user.id > 0) setLong("id", user.id) else setNull("id", Types.NULL)
             setString("firstName", user.firstName)
             setString("lastName", user.lastName)
             setString("login", user.login)
@@ -197,18 +188,6 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
             setInt("role", user.role.number)
         }
     }
-
-    fun updateUser(user: User) {
-        update(TABLE_USER, "id = :id", "firstName", "lastName", "login", "password", "role") {
-            setLong("id", user.id)
-            setString("firstName", user.firstName)
-            setString("lastName", user.lastName)
-            setString("login", user.login)
-            setString("password", user.password)
-            setInt("role", user.role.number)
-        }
-    }
-
 
     fun getUsers(): List<User> {
         createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_USER").use { statement ->

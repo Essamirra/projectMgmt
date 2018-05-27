@@ -34,6 +34,8 @@
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this._discardButton = new System.Windows.Forms.Button();
             this._saveButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,16 +46,19 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.01005F));
             this.tableLayoutPanel1.Controls.Add(this._editButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.propertyGrid1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this._discardButton, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this._saveButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.propertyGrid1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this._discardButton, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this._saveButton, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.button2, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.08392F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.91608F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.26384F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.63518F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.10098F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(398, 328);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -64,7 +69,7 @@
             this._editButton.Location = new System.Drawing.Point(10, 10);
             this._editButton.Margin = new System.Windows.Forms.Padding(10);
             this._editButton.Name = "_editButton";
-            this._editButton.Size = new System.Drawing.Size(170, 26);
+            this._editButton.Size = new System.Drawing.Size(170, 27);
             this._editButton.TabIndex = 0;
             this._editButton.Text = "Редактирование";
             this._editButton.UseVisualStyleBackColor = true;
@@ -78,7 +83,7 @@
             this.label1.Location = new System.Drawing.Point(195, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 36);
+            this.label1.Size = new System.Drawing.Size(198, 37);
             this.label1.TabIndex = 1;
             this.label1.Text = "Имя задачи";
             // 
@@ -86,18 +91,18 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.propertyGrid1, 2);
             this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGrid1.Location = new System.Drawing.Point(3, 49);
+            this.propertyGrid1.Location = new System.Drawing.Point(3, 92);
             this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(392, 234);
+            this.propertyGrid1.Size = new System.Drawing.Size(392, 177);
             this.propertyGrid1.TabIndex = 2;
             // 
             // _discardButton
             // 
             this._discardButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._discardButton.Location = new System.Drawing.Point(200, 296);
+            this._discardButton.Location = new System.Drawing.Point(200, 282);
             this._discardButton.Margin = new System.Windows.Forms.Padding(10);
             this._discardButton.Name = "_discardButton";
-            this._discardButton.Size = new System.Drawing.Size(188, 22);
+            this._discardButton.Size = new System.Drawing.Size(188, 36);
             this._discardButton.TabIndex = 3;
             this._discardButton.Text = "Отменить";
             this._discardButton.UseVisualStyleBackColor = true;
@@ -106,14 +111,38 @@
             // _saveButton
             // 
             this._saveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._saveButton.Location = new System.Drawing.Point(10, 296);
+            this._saveButton.Location = new System.Drawing.Point(10, 282);
             this._saveButton.Margin = new System.Windows.Forms.Padding(10);
             this._saveButton.Name = "_saveButton";
-            this._saveButton.Size = new System.Drawing.Size(170, 22);
+            this._saveButton.Size = new System.Drawing.Size(170, 36);
             this._saveButton.TabIndex = 4;
             this._saveButton.Text = "Сохранить";
             this._saveButton.UseVisualStyleBackColor = true;
             this._saveButton.Click += new System.EventHandler(this._saveButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Location = new System.Drawing.Point(10, 57);
+            this.button1.Margin = new System.Windows.Forms.Padding(10);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 22);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Назначить задачу";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Location = new System.Drawing.Point(200, 57);
+            this.button2.Margin = new System.Windows.Forms.Padding(10);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(188, 22);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Закрыть задачу";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // EditTaskView
             // 
@@ -136,5 +165,7 @@
         private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.Button _discardButton;
         private System.Windows.Forms.Button _saveButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

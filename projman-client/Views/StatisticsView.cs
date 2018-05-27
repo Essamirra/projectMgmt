@@ -37,9 +37,9 @@ namespace projman_client.Views
 
                 ganttChartView1.TasksTreeGrid.Rows.Add(
                     task.title, //name
-                    DateTime.Now.AddDays(4), //start
+                  task.StartDate, //start
                    // DateTime.MinValue, //finish is not used in standard (no binding) mode
-                    24, //work
+                    (task.EndDate-task.StartDate).Days*8, //work
                     0 //completed work
                     );
                 

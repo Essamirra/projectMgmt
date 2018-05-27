@@ -131,11 +131,7 @@ class PmServer {
         override fun saveProject(request: SaveProjectRequest, responseObserver: StreamObserver<SaveProjectResult>) {
             try {
                 getUserByToken(request.token).checkHasRole(setOf(User.Role.MANAGER, User.Role.ADMIN), {
-                    if (request.project.id == 0L) {
-                        db.insertProject(request.project)
-                    } else {
-                        db.updateProject(request.project)
-                    }
+                    db.insertProject(request.project)
                     responseObserver.onNext(SaveProjectResult.getDefaultInstance())
                     responseObserver.onCompleted()
                 }, { e ->

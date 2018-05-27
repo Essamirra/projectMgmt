@@ -147,19 +147,21 @@ namespace projman_client
 
         private Projman.Server.Task ConvertToServer(Task task)
         {
-            Projman.Server.Task t = new Projman.Server.Task();
-            t.AssignedDate = ConvertDate(task.AssignedDate);
-            t.AssigneeUserId = task.AssignedUser?.id ?? 0;
-            t.CloseDate = ConvertDate(task.CloseDate);
-            t.CreatedByUserId = task.CreatedByUser?.id ?? _currentUser.id;
-            t.CreatedDate = ConvertDate(task.CreatedDate);
-            t.Description = task.description;
-            t.ProjectId = task.projectId.Value;
-            t.Status = task.Status;
-            t.Title = task.title;
-            t.Id = task.id;
-            t.StartDate = ConvertDate(task.StartDate);
-            t.EndDate = ConvertDate(task.EndDate);
+            Projman.Server.Task t = new Projman.Server.Task
+            {
+                AssignedDate = ConvertDate(task.AssignedDate),
+                AssigneeUserId = task.AssignedUser?.id ?? 0,
+                CloseDate = ConvertDate(task.CloseDate),
+                CreatedByUserId = task.CreatedByUser?.id ?? _currentUser.id,
+                CreatedDate = ConvertDate(task.CreatedDate),
+                Description = task.description,
+                ProjectId = task.projectId.Value,
+                Status = task.Status,
+                Title = task.title,
+                Id = task.id,
+                StartDate = ConvertDate(task.StartDate),
+                EndDate = ConvertDate(task.EndDate)
+            };
             return t;
         }
 
@@ -181,13 +183,15 @@ namespace projman_client
 
         private User ConvertToClient(Projman.Server.User user)
         {
-           User u = new User();
-            u.id = user.Id;
-            u.firstName = user.FirstName;
-            u.lastName = user.LastName;
-            u.login = user.Login;
-            u.password = user.Password;
-            u.role = user.Role;
+            User u = new User
+            {
+                id = user.Id,
+                firstName = user.FirstName,
+                lastName = user.LastName,
+                login = user.Login,
+                password = user.Password,
+                role = user.Role
+            };
             return u;
         }
 
@@ -206,9 +210,9 @@ namespace projman_client
             });
         }
 
-        public User getCurrentUser()
+        public List<User> getUsersForAssign()
         {
-            return _currentUser;
+            return getUsers().Where(s => s.role == Projman.Server.User.Types.Role.User).ToList();
         }
 
         private Projman.Server.User ConvertToServer(User user)
