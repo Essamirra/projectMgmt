@@ -28,6 +28,11 @@ namespace projman_client
             navigate(new UsersListView());
         }
 
+        public void HideUsers()
+        {
+            users_button.Visible = false;
+        }
+
         private void projects_button_Click(object sender, EventArgs e)
         {
             presenter_.onProjectsListClick();

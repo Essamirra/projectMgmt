@@ -22,7 +22,7 @@ namespace projman_client
 
         public void navigateToProject(Project id)
         {
-           if(id.id is null)
+           if (id.id == null)
                navigate(new EditProjectView(id));
             navigate(new ProjectView(id));
         }

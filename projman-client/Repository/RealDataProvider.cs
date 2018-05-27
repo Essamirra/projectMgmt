@@ -206,6 +206,11 @@ namespace projman_client
             });
         }
 
+        public User getCurrentUser()
+        {
+            return _currentUser;
+        }
+
         private Projman.Server.User ConvertToServer(User user)
         {
             var u = new Projman.Server.User

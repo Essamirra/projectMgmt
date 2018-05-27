@@ -93,6 +93,11 @@ namespace projman_client
             return new User();
         }
 
+        public User getCurrentUser()
+        {
+            return new User();
+        }
+
         public void saveUser(User user)
         { }
 

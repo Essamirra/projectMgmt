@@ -11,6 +11,11 @@ namespace projman_client
         public DashboardPresenter(DashboardView view)
         {
             view_ = view;
+            var user = DataProviderFactory.getDataProvider().getCurrentUser();
+            if (user.role != Projman.Server.User.Types.Role.Admin)
+            {
+                view_.HideUsers();
+            }
         }
 
         public void onProjectsListClick()
