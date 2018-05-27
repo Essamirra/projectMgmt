@@ -215,6 +215,11 @@ namespace projman_client
             return getUsers().Where(s => s.role == Projman.Server.User.Types.Role.User).ToList();
         }
 
+        public User getCurrentUser()
+        {
+            return _currentUser;
+        }
+
         private Projman.Server.User ConvertToServer(User user)
         {
             var u = new Projman.Server.User
