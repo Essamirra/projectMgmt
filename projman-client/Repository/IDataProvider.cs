@@ -19,6 +19,7 @@ namespace projman_client
             void saveUser(User user);
 
             List<User> getUsersForAssign();
-        }
+            User getCurrentUser();
+    }
 
 }
