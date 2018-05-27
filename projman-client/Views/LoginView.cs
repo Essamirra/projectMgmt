@@ -16,6 +16,8 @@ namespace projman_client
         {
             InitializeComponent();
             presenter_ = new LoginPresenter(this);
+            var parentForm = this.ParentForm;
+            if (parentForm != null) parentForm.AcceptButton = login_button;
         }
 
         public void navigateToDashboard()

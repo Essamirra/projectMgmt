@@ -12,10 +12,15 @@ namespace projman_client
         private IDataProvider _provider = DataProviderFactory.getDataProvider();
         private IEditTaskView _view;
 
-        public EditTaskPresenter(IEditTaskView view, Task task)
+        public EditTaskPresenter(IEditTaskView view, Task task, bool editMode)
         {
             _view = view;
+            if(editMode)
             view.ShowTask(task);
+            else
+            {
+                view.ShowTaskInEditMode(task);
+            }
         }
 
         public void OnEditTaskClick(Task task)
@@ -32,6 +37,7 @@ namespace projman_client
         public void OnDiscardClick(Task task)
         {
             _view.ShowTask(task);
+           
         }
     }
 }

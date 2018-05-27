@@ -78,5 +78,10 @@ namespace projman_client
         {
             navigate(new StatisticsView(project));
         }
+
+        private void ProjectView_VisibleChanged(object sender, EventArgs e)
+        {
+            presenter_.updateTasks();
+        }
     }
 }

@@ -21,7 +21,11 @@ namespace projman_client
 
         public void onNewTaskClick()
         {
-            view_.navigateToEditTask(new Task());
+            view_.navigateToEditTask(new Task()
+            {
+                projectId = project_.id
+
+            });
         }
 
         public void onEditProjectClick()

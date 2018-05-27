@@ -41,10 +41,10 @@ namespace projman_client
         public long? id { get; set; } = null;
         public string name { get; set; } = "stub_name";
         public string description { get; set; } = "stub_description";
-        public DateTime startDate { get; set; } = DateTime.Now;
+        public DateTime startDate { get; set; }
         public bool isActive { get; set; } = false;
-        public DateTime closedWhen { get; set; } = DateTime.Now;
-        public DateTime EndDate { get; set; } = DateTime.Now;
+        public DateTime closedWhen { get; set; }
+        public DateTime EndDate { get; set; }
 
         public Projman.Server.Project.Types.Status Status
         {
@@ -79,6 +79,14 @@ namespace projman_client
 
     public class Task
     {
+        
+        private DateTime _assignedDate;
+        private User _assignedUser;
+        private User _createdByUser;
+        private Projman.Server.Task.Types.Status _status;
+        private DateTime _closeDate;
+        private DateTime _createdDate;
+
         [Browsable(false)]
         public long? projectId { get; set; }
         [Browsable(false)]
@@ -88,6 +96,44 @@ namespace projman_client
         public string description { get; set; } = "stub_description";
         public DateTime StartDate { get; set; } = DateTime.Today;
         public DateTime EndDate { get; set; } = DateTime.Parse("12/12/2018");
+
+       
+
+        public DateTime AssignedDate
+        {
+            get { return _assignedDate; }
+            set { _assignedDate = value; }
+        }
+
+        public User AssignedUser
+        {
+            get { return _assignedUser; }
+            set { _assignedUser = value; }
+        }
+
+        public User CreatedByUser
+        {
+            get { return _createdByUser; }
+            set { _createdByUser = value; }
+        }
+
+        public Projman.Server.Task.Types.Status Status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
+
+        public DateTime CloseDate
+        {
+            get { return _closeDate; }
+            set { _closeDate = value; }
+        }
+
+        public DateTime CreatedDate
+        {
+            get { return _createdDate; }
+            set { _createdDate = value; }
+        }
     }
 
     public class ProjectStatistics

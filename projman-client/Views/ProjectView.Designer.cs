@@ -319,6 +319,7 @@
             this.Controls.Add(this.label_name);
             this.Name = "ProjectView";
             this.Size = new System.Drawing.Size(600, 400);
+            this.VisibleChanged += new System.EventHandler(this.ProjectView_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.tasks_list)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

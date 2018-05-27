@@ -18,10 +18,11 @@ namespace projman_client
         private Task _copiedTask;
         
       
-        public EditTaskView(Task task)
+        public EditTaskView(Task task, bool editMode = false)
         {
             InitializeComponent();
-            _presenter = new EditTaskPresenter(this, task);
+            _presenter = new EditTaskPresenter(this, task, editMode);
+
         }
 
         public void ShowTask(Task task)
@@ -48,7 +49,7 @@ namespace projman_client
 
         private Task CreateCopy(Task task)
         {
-            return  new Task() { description =  task.description, id = task.id, title = task.title};
+            return  new Task() { description =  task.description, id = task.id, title = task.title, projectId = task.projectId, AssignedUser = task.AssignedUser, StartDate =  task.StartDate, Status = task.Status, AssignedDate = task.AssignedDate, CreatedDate =  task.CreatedDate, EndDate =  task.EndDate, CloseDate =  task.CloseDate, CreatedByUser = task.CreatedByUser};
         }
 
         private void HideSaveCancel()
