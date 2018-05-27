@@ -60,14 +60,6 @@ namespace projman_client
         }
     }
 
-
-    public enum Role
-    {
-        ADMIN,
-        MANAGER,
-        USER
-    }
-
     public class User
     {
         [DisplayName("Id"), ReadOnly(true)]
@@ -103,10 +95,14 @@ namespace projman_client
         public long? projectId { get; set; }
         [ReadOnly(true)]
         public long id { get; set; } = 0;
-        
+
+        [DisplayName("Имя")]
         public string title { get; set; } = "stub_title";
+        [DisplayName("Описание")]
         public string description { get; set; } = "stub_description";
+        [DisplayName("Начало")]
         public DateTime StartDate { get; set; } = DateTime.Today;
+        [DisplayName("Конец")]
         public DateTime EndDate { get; set; } = DateTime.Parse("12/12/2018");
 
 
