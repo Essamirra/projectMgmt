@@ -151,20 +151,25 @@ class PmServer {
     private inner class TasksImpl : TasksGrpc.TasksImplBase() {
         override fun getTasks(request: GetTasksRequest, responseObserver: StreamObserver<GetTasksResult>) {
             try {
-                val user = getUserByToken(request.token)
-                when {
-                    user == null -> {
-                        responseObserver.onError(StatusRuntimeException(Status.PERMISSION_DENIED))
-                    }
-                    user.role == User.Role.USER -> {
-                        responseObserver.onNext(GetTasksResult.newBuilder().addAllTasks(db.getAssignedTasks(request.projectId, user.id)).build())
-                        responseObserver.onCompleted()
-                    }
-                    else -> {
-                        responseObserver.onNext(GetTasksResult.newBuilder().addAllTasks(db.getTasksInProject(request.projectId)).build())
-                        responseObserver.onCompleted()
-                    }
-                }
+                getUserByToken(request.token).checkHasRole(setOf(User.Role.ADMIN, User.Role.MANAGER), {
+                    responseObserver.onNext(GetTasksResult.newBuilder().addAllTasks(db.getTasksInProject(request.projectId)).build())
+                    responseObserver.onCompleted()
+                }, { e ->
+                    responseObserver.onError(e)
+                })
+            } catch (e: Exception) {
+                responseObserver.onError(StatusRuntimeException(Status.UNAVAILABLE.withDescription(e.message)))
+            }
+        }
+
+        override fun getMyTasks(request: GetMyTasksRequest, responseObserver: StreamObserver<GetTasksResult>) {
+            try {
+                getUserByToken(request.token).checkHasRole(setOf(User.Role.USER), { user ->
+                    responseObserver.onNext(GetTasksResult.newBuilder().addAllTasks(db.getAssignedTasks(user.id)).build())
+                    responseObserver.onCompleted()
+                }, { e ->
+                    responseObserver.onError(e)
+                })
             } catch (e: Exception) {
                 responseObserver.onError(StatusRuntimeException(Status.UNAVAILABLE.withDescription(e.message)))
             }
@@ -184,7 +189,6 @@ class PmServer {
                     responseObserver.onNext(CloseTaskResult.getDefaultInstance())
                     responseObserver.onCompleted()
                 } ?: responseObserver.onError(StatusRuntimeException(Status.PERMISSION_DENIED))
-
             } catch (e: Exception) {
                 responseObserver.onError(StatusRuntimeException(Status.INTERNAL.withDescription(e.message)))
             }

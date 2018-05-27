@@ -126,11 +126,11 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
-    fun getAssignedTasks(projectId: Long, assignedTo: Long): List<Task> {
+    fun getAssignedTasks(assignedTo: Long): List<Task> {
         createNamedParameterPreparedStatement(connection,
-                "SELECT * FROM $TABLE_TASK WHERE projectId = :projectId AND assigneeUserId = :assignedTo AND status = ${Task.Status.ASSIGNED_VALUE}"
+                "SELECT * FROM $TABLE_TASK WHERE assigneeUserId = :assignedTo AND status = ${Task.Status.ASSIGNED_VALUE}"
         ).use { statement ->
-            statement.setLong("projectId", projectId)
+            statement.setLong("assignedTo", assignedTo)
 
             val resultSet = statement.executeQuery()
             val result = mutableListOf<Task>()

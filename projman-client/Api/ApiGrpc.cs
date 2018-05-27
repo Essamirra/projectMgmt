@@ -277,6 +277,7 @@ namespace Projman.Server {
 
     static readonly grpc::Marshaller<global::Projman.Server.GetTasksRequest> __Marshaller_GetTasksRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.GetTasksRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Projman.Server.GetTasksResult> __Marshaller_GetTasksResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.GetTasksResult.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Projman.Server.GetMyTasksRequest> __Marshaller_GetMyTasksRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.GetMyTasksRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Projman.Server.SaveTaskRequest> __Marshaller_SaveTaskRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.SaveTaskRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Projman.Server.SaveTaskResult> __Marshaller_SaveTaskResult = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.SaveTaskResult.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Projman.Server.CloseTaskRequest> __Marshaller_CloseTaskRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Projman.Server.CloseTaskRequest.Parser.ParseFrom);
@@ -287,6 +288,13 @@ namespace Projman.Server {
         __ServiceName,
         "getTasks",
         __Marshaller_GetTasksRequest,
+        __Marshaller_GetTasksResult);
+
+    static readonly grpc::Method<global::Projman.Server.GetMyTasksRequest, global::Projman.Server.GetTasksResult> __Method_getMyTasks = new grpc::Method<global::Projman.Server.GetMyTasksRequest, global::Projman.Server.GetTasksResult>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "getMyTasks",
+        __Marshaller_GetMyTasksRequest,
         __Marshaller_GetTasksResult);
 
     static readonly grpc::Method<global::Projman.Server.SaveTaskRequest, global::Projman.Server.SaveTaskResult> __Method_saveTask = new grpc::Method<global::Projman.Server.SaveTaskRequest, global::Projman.Server.SaveTaskResult>(
@@ -313,6 +321,11 @@ namespace Projman.Server {
     public abstract partial class TasksBase
     {
       public virtual global::System.Threading.Tasks.Task<global::Projman.Server.GetTasksResult> getTasks(global::Projman.Server.GetTasksRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Projman.Server.GetTasksResult> getMyTasks(global::Projman.Server.GetMyTasksRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -368,6 +381,22 @@ namespace Projman.Server {
       {
         return CallInvoker.AsyncUnaryCall(__Method_getTasks, null, options, request);
       }
+      public virtual global::Projman.Server.GetTasksResult getMyTasks(global::Projman.Server.GetMyTasksRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return getMyTasks(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Projman.Server.GetTasksResult getMyTasks(global::Projman.Server.GetMyTasksRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_getMyTasks, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Projman.Server.GetTasksResult> getMyTasksAsync(global::Projman.Server.GetMyTasksRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return getMyTasksAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Projman.Server.GetTasksResult> getMyTasksAsync(global::Projman.Server.GetMyTasksRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_getMyTasks, null, options, request);
+      }
       public virtual global::Projman.Server.SaveTaskResult saveTask(global::Projman.Server.SaveTaskRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return saveTask(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -413,6 +442,7 @@ namespace Projman.Server {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_getTasks, serviceImpl.getTasks)
+          .AddMethod(__Method_getMyTasks, serviceImpl.getMyTasks)
           .AddMethod(__Method_saveTask, serviceImpl.saveTask)
           .AddMethod(__Method_closeTask, serviceImpl.closeTask).Build();
     }
