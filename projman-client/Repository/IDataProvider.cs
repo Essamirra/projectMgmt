@@ -20,6 +20,8 @@ namespace projman_client
 
             List<User> getUsersForAssign();
             User getCurrentUser();
-    }
+            List<Task> GetCurrentUserTasks();
+            void CloseTask(Task originalTask);
+        }
 
 }

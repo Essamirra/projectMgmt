@@ -16,8 +16,8 @@ namespace projman_client
         public EditTaskPresenter(IEditTaskView view, Task task, bool editMode)
         {
             _view = view;
-            if(editMode)
-            view.ShowTask(task);
+            if(!editMode)
+            view.ShowTask(task, _provider.getCurrentUser().role != Projman.Server.User.Types.Role.User, _provider.getCurrentUser().role != Projman.Server.User.Types.Role.User);
             else
             {
                 view.ShowTaskInEditMode(task);
@@ -32,12 +32,12 @@ namespace projman_client
         public void OnSaveClick(Task task)
         {
             _provider.saveTask(task);
-            _view.ShowTask(task);
+            _view.ShowTask(task, _provider.getCurrentUser().role != Projman.Server.User.Types.Role.User, _provider.getCurrentUser().role != Projman.Server.User.Types.Role.User);
         }
 
         public void OnDiscardClick(Task task)
         {
-            _view.ShowTask(task);
+            _view.ShowTask(task, _provider.getCurrentUser().role != Projman.Server.User.Types.Role.User, _provider.getCurrentUser().role != Projman.Server.User.Types.Role.User);
            
         }
 
@@ -52,14 +52,14 @@ namespace projman_client
             task.Status = Projman.Server.Task.Types.Status.Assigned;
             task.AssignedDate = DateTime.Now;
             _provider.saveTask(task);
-            _view.ShowTask(task);
+            _view.ShowTask(task, _provider.getCurrentUser().role != Projman.Server.User.Types.Role.User, _provider.getCurrentUser().role != Projman.Server.User.Types.Role.User);
         }
 
         public void OnCloseClick(Task originalTask)
         {
-            originalTask.Status = Projman.Server.Task.Types.Status.Closed;
-            _provider.saveTask(originalTask);
-            _view.ShowTask(originalTask);
+           
+            _provider.CloseTask(originalTask);
+            _view.GoBack();
         }
     }
 }

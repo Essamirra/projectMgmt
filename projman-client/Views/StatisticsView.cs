@@ -20,6 +20,7 @@ namespace projman_client.Views
             InitializeComponent();
             ganttChartView1.StartMember = "Start";
             ganttChartView1.WorkMember = "Work";
+            
             ganttChartView1.CompletedWorkMember = "CompletedWork";
             ganttChartView1.PredecessorsMember = "Predecessors";
             ganttChartView1.ResourcesMember = "Resources";
@@ -31,7 +32,8 @@ namespace projman_client.Views
             ganttChartView1.TasksTreeGrid.Columns.Add(ganttChartView1.StartMember, ganttChartView1.StartMember);
             ganttChartView1.TasksTreeGrid.Columns.Add(ganttChartView1.WorkMember, ganttChartView1.WorkMember);
             ganttChartView1.TasksTreeGrid.Columns.Add(ganttChartView1.CompletedWorkMember, ganttChartView1.CompletedWorkMember);
-            
+            ganttChartView1.TasksTreeGrid.Columns.Add(ganttChartView1.CompletedWorkMember, ganttChartView1.CompletedWorkMember);
+            ganttChartView1.Schedule = new Schedule(new DaytimeInterval[] {new DaytimeInterval(0, 24)}, new Dictionary<DayOfWeek, DaytimeInterval[]>(), new Dictionary<DateTime, DaytimeInterval[]>());
             foreach (var task in project)
             {
 
@@ -39,8 +41,8 @@ namespace projman_client.Views
                     task.title, //name
                   task.StartDate, //start
                    // DateTime.MinValue, //finish is not used in standard (no binding) mode
-                    (task.EndDate-task.StartDate).Days*8, //work
-                    0 //completed work
+                    (task.EndDate-task.StartDate).TotalHours, //work
+                    24//completed work
                     );
                 
                 Refresh();

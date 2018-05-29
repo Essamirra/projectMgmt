@@ -208,7 +208,7 @@ class PmServer {
     private inner class UsersImpl : UsersGrpc.UsersImplBase() {
         override fun getUsers(request: GetUsersRequest, responseObserver: StreamObserver<GetUsersResult>) {
             try {
-                getUserByToken(request.token).checkHasRole(setOf(User.Role.MANAGER, User.Role.ADMIN), {
+                getUserByToken(request.token).checkHasRole(setOf(User.Role.MANAGER, User.Role.ADMIN, User.Role.USER), {
                     responseObserver.onNext(GetUsersResult.newBuilder().addAllUsers(db.getUsers()).build())
                     responseObserver.onCompleted()
                 }, { e ->

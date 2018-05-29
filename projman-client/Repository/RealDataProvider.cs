@@ -48,12 +48,12 @@ namespace projman_client
             return _projectsClient.getProjects(new GetProjectsRequest() { Token = _currentToken }).Projects
                 .Select(project => new Project {
                     id = project.Id,
-                    closedWhen = CheckDate(project.ClosedWhen),
+                    closedWhen = ConvertFromUnix(project.ClosedWhen),
                     description = project.Description,
-                    EndDate = CheckDate(project.EndDate),
+                    EndDate = ConvertFromUnix(project.EndDate),
                     isActive = project.Status == Projman.Server.Project.Types.Status.Open,
                     name = project.Name,
-                    startDate = CheckDate(project.StartDate) }
+                    startDate = ConvertFromUnix(project.StartDate) }
                 )
                 .ToList();
         }
@@ -85,9 +85,10 @@ namespace projman_client
             return res;
         }
 
-        private int ConvertDateToUnix(DateTime time)
+        private long ConvertDateToUnix(DateTime time)
         {
-           return (Int32)(time.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            
+           return (long)(time.Subtract(new DateTime(1970, 1, 1))).TotalMilliseconds;
         }
         public void getProjectStatistics(long projectId)
         {
@@ -106,35 +107,35 @@ namespace projman_client
             return res.Tasks.Select(ConvertToClient).ToList();
         }
 
+        public Task getTask(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         private Task ConvertToClient(Projman.Server.Task task)
         {
             var t = new Task();
             t.id = task.Id;
-            t.EndDate = CheckDate(task.EndDate);
-            t.StartDate = CheckDate(task.StartDate);
+            t.EndDate = ConvertFromUnix(task.EndDate);
+            t.StartDate = ConvertFromUnix(task.StartDate);
             t.projectId = task.ProjectId;
             t.description = task.Description;
             t.title = task.Title;
             t.AssignedUser = getUser(task.AssigneeUserId);
-            t.AssignedDate = CheckDate(task.AssignedDate);
+            t.AssignedDate = ConvertFromUnix(task.AssignedDate);
             t.CreatedByUser = getUser(task.CreatedByUserId);
             t.Status = task.Status;
-            t.CloseDate = CheckDate(task.CloseDate);
-            t.CreatedDate = CheckDate(task.CreatedDate);
+            t.CloseDate = ConvertFromUnix(task.CloseDate);
+            t.CreatedDate = ConvertFromUnix(task.CreatedDate);
             return t;
         }
 
-        private DateTime CheckDate(long taskCreatedDate)
+        private DateTime ConvertFromUnix(long taskCreatedDate)
         {
-            return taskCreatedDate <= ConvertDateToUnix(DateTime.MinValue)
-                ? DateTime.MinValue
-                : new DateTime(taskCreatedDate);
+            return (new DateTime(1970, 1, 1)).AddMilliseconds(taskCreatedDate);
         }
 
-        public Task getTask(long id)
-        {
-            throw new NotImplementedException("GET TASK");
-        }
+        
 
         public void saveTask(Task task)
         {
@@ -218,6 +219,22 @@ namespace projman_client
         public User getCurrentUser()
         {
             return _currentUser;
+        }
+
+        public List<Task> GetCurrentUserTasks()
+        {
+            return _tasksClient.getMyTasks(new GetMyTasksRequest() {Token = _currentToken}).Tasks
+                .Select(ConvertToClient).ToList();
+        }
+
+        public void CloseTask(Task originalTask)
+        {
+            _tasksClient.closeTask(new CloseTaskRequest()
+            {
+                TaskId = originalTask.id,
+                Token = _currentToken
+
+            });
         }
 
         private Projman.Server.User ConvertToServer(User user)

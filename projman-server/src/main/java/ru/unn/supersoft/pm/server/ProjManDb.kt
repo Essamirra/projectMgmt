@@ -284,7 +284,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
                 setString("lastName", "worker")
                 setString("login", "worker")
                 setString("password", "worker")
-                setInt("role", User.Role.ADMIN_VALUE)
+                setInt("role", User.Role.USER_VALUE)
             }
 
             insert(TABLE_PROJECT, "name", "description", "startDate", "endDate", "closedWhen", "status") {

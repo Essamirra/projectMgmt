@@ -98,6 +98,16 @@ namespace projman_client
             return new User();
         }
 
+        public List<Task> GetCurrentUserTasks()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CloseTask(Task originalTask)
+        {
+            throw new NotImplementedException();
+        }
+
         public void saveUser(User user)
         { }
 

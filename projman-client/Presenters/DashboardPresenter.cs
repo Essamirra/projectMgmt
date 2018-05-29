@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using projman_client.Views;
 
 namespace projman_client
 {
@@ -50,7 +51,7 @@ namespace projman_client
             }
             else if (navigate_[i] == TASKS)
             {
-                view_.Navigate(new EditTaskView(new Task()));
+                view_.Navigate(new ViewAssignedTasks());
             }
         }
 

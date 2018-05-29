@@ -26,12 +26,15 @@ namespace projman_client
 
         }
 
-        public void ShowTask(Task task)
+        public void ShowTask(Task task, bool isEditEnabled, bool isAssignEnabled)
         {
             propertyGrid1.SelectedObject = task;
             propertyGrid1.Enabled = false;
             _originalTask = task;
             HideSaveCancel();
+            _editButton.Visible = isEditEnabled;
+            button1.Visible = isAssignEnabled;
+
             Refresh();
             
 
@@ -57,6 +60,11 @@ namespace projman_client
                     _presenter.OnAsigneeChoosen(dialog.ChosedUser, _originalTask);
 
             }
+        }
+
+        public void GoBack()
+        {
+            back();
         }
 
         private Task CreateCopy(Task task)
@@ -102,7 +110,7 @@ namespace projman_client
         private void button2_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Закрыть задачу?", "Закрытие", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.OK)
+            if (dialogResult == DialogResult.Yes)
                 _presenter.OnCloseClick(_originalTask);
 
         }
