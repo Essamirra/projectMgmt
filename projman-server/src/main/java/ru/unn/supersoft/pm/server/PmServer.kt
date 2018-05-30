@@ -23,12 +23,12 @@ class PmServer {
 
     private var server: Server? = null
 
-    val db = ProjManDb(true)
+    val db : Database = ProjManDb(true)
 
     private fun start() {
         val port = 50051
         server = ServerBuilder.forPort(port)
-                .addService(AuthImpl())
+                .addService(AuthService(db))
                 .addService(ProjectsImpl())
                 .addService(TasksImpl())
                 .addService(UsersImpl())
@@ -65,38 +65,6 @@ class PmServer {
     private fun getUserByToken(token: String): User? {
         val userId = db.getUserIdForToken(token)
         return if (userId != 0L) db.getUser(userId) else null
-    }
-
-    private inner class AuthImpl : AuthGrpc.AuthImplBase() {
-        override fun login(request: LoginRequest, responseObserver: StreamObserver<LoginResult>) {
-            try {
-                val userByLogin = db.getUserByLogin(request.login)
-                if (userByLogin == null || userByLogin.password != request.password) { // TODO: password hash
-                    responseObserver.onError(StatusRuntimeException(Status.UNAUTHENTICATED.withDescription("Invalid login or password")))
-                    return
-                }
-                val token = UUID.randomUUID().toString()
-                db.createSession(token, userByLogin.id) // TODO: handle collisions
-
-                responseObserver.onNext(LoginResult.newBuilder()
-                        .setToken(token)
-                        .setUser(userByLogin.toBuilder().clearPassword())
-                        .build())
-                responseObserver.onCompleted()
-            } catch (e: Exception) {
-                responseObserver.onError(StatusRuntimeException(Status.UNAVAILABLE.withDescription(e.message)))
-            }
-        }
-
-        override fun logout(request: LogoutRequest, responseObserver: StreamObserver<LogoutResult>) {
-            try {
-                db.removeSession(request.token)
-                responseObserver.onNext(LogoutResult.newBuilder().build())
-                responseObserver.onCompleted()
-            } catch (e: Exception) {
-                responseObserver.onError(StatusRuntimeException(Status.UNAVAILABLE.withDescription(e.message)))
-            }
-        }
     }
 
     private inner class ProjectsImpl : ProjectsGrpc.ProjectsImplBase() {

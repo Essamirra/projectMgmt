@@ -11,20 +11,11 @@ import java.sql.ResultSet
 import java.sql.Types
 
 private const val TABLE_PROJECT = "Project"
-private val TABLE_PROJECT_FIELDS = mapOf(
-        "id" to "INTEGER PRIMARY KEY AUTOINCREMENT",
-        "name" to "STRING",
-        "description" to "STRING",
-        "startDate" to "INTEGER",
-        "endDate" to "INTEGER",
-        "closedWhen" to "INTEGER",
-        "status" to "INTEGER"
-)
 private const val TABLE_TASK = "Task"
 private const val TABLE_USER = "User"
 private const val TABLE_SESSION = "Session"
 
-class ProjManDb(inMemory: Boolean) : AutoCloseable {
+class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
     private val connection: Connection
 
     init {
@@ -40,7 +31,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
     }
 
     //region Projects
-    fun getProject(id: Long): Project? {
+    override fun getProject(id: Long): Project? {
         createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_PROJECT WHERE id = :id").use { statement ->
             statement.setLong("id", id)
             val resultSet = statement.executeQuery()
@@ -53,7 +44,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
-    fun getProjects(): List<Project> {
+    override fun getProjects(): List<Project> {
         connection.prepareStatement("SELECT * FROM $TABLE_PROJECT").use { statement ->
             val resultSet = statement.executeQuery()
             val result = mutableListOf<Project>()
@@ -65,7 +56,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
     }
 
 
-    fun insertProject(project: Project) {
+    override fun insertProject(project: Project) {
         insert(TABLE_PROJECT, "id", "name", "description", "startDate", "endDate", "closedWhen", "status") {
             if (project.id > 0) setLong("id", project.id) else setNull("id", Types.NULL)
             setString("name", project.name)
@@ -79,7 +70,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
     //endregion
 
     //region Tasks
-    fun getTask(id: Long): Task? {
+    override fun getTask(id: Long): Task? {
         createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_TASK WHERE id = :id").use { statement ->
             statement.setLong("id", id)
             val resultSet = statement.executeQuery()
@@ -92,7 +83,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
-    fun getTasks(): List<Task> {
+    override fun getTasks(): List<Task> {
         connection.prepareStatement("SELECT * FROM $TABLE_TASK").use { statement ->
             val resultSet = statement.executeQuery()
             val result = mutableListOf<Task>()
@@ -103,7 +94,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
-    fun getTasksInProject(projectId: Long): List<Task> {
+    override fun getTasksInProject(projectId: Long): List<Task> {
         createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_TASK WHERE projectId = :projectId").use { statement ->
             statement.setLong("projectId", projectId)
 
@@ -116,7 +107,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
-    fun getAssignedTasks(assignedTo: Long): List<Task> {
+    override fun getAssignedTasks(assignedTo: Long): List<Task> {
         createNamedParameterPreparedStatement(connection,
                 "SELECT * FROM $TABLE_TASK WHERE assigneeUserId = :assignedTo AND status = ${Task.Status.ASSIGNED_VALUE}"
         ).use { statement ->
@@ -131,7 +122,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
-    fun insertTask(task: Task) {
+    override fun insertTask(task: Task) {
         insert(TABLE_TASK, "id", "title", "description", "createdDate", "startDate", "endDate", "assignedDate", "closeDate", "projectId", "createdByUserId", "assigneeUserId", "status") {
             if (task.id > 0) setLong("id", task.id) else setNull("id", Types.NULL)
             setString("title", task.title)
@@ -150,7 +141,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
     //endregion
 
     //region Sessions
-    fun getUserIdForToken(token: String): Long {
+    override fun getUserIdForToken(token: String): Long {
         createNamedParameterPreparedStatement(connection, "SELECT userId FROM $TABLE_SESSION WHERE token = :token").use { statement ->
             statement.setString("token", token)
             val resultSet = statement.executeQuery()
@@ -163,14 +154,14 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
-    fun createSession(token: String, userId: Long) {
+    override fun createSession(token: String, userId: Long) {
         insert(TABLE_SESSION, "token", "userId") {
             setString("token", token)
             setLong("userId", userId)
         }
     }
 
-    fun removeSession(token: String) {
+    override fun removeSession(token: String) {
         createNamedParameterPreparedStatement(connection, "DELETE FROM $TABLE_SESSION WHERE token = :token").use { statement ->
             statement.execute()
         }
@@ -178,7 +169,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
     //endregion
 
     //region Users
-    fun insertUser(user: User) {
+    override fun insertUser(user: User) {
         insert(TABLE_USER, "id", "firstName", "lastName", "login", "password", "role") {
             if (user.id > 0) setLong("id", user.id) else setNull("id", Types.NULL)
             setString("firstName", user.firstName)
@@ -189,7 +180,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
-    fun getUsers(): List<User> {
+    override fun getUsers(): List<User> {
         createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_USER").use { statement ->
             val resultSet = statement.executeQuery()
             val result = mutableListOf<User>()
@@ -200,7 +191,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
-    fun getUser(id: Long): User? {
+    override fun getUser(id: Long): User? {
         createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_USER WHERE id = :id").use { statement ->
             statement.setLong("id", id)
             val resultSet = statement.executeQuery()
@@ -208,7 +199,7 @@ class ProjManDb(inMemory: Boolean) : AutoCloseable {
         }
     }
 
-    fun getUserByLogin(login: String): User? {
+    override fun getUserByLogin(login: String): User? {
         createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_USER WHERE login = :login").use { statement ->
             statement.setString("login", login)
             val resultSet = statement.executeQuery()
