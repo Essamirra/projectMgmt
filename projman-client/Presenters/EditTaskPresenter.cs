@@ -31,6 +31,12 @@ namespace projman_client
 
         public void OnSaveClick(Task task)
         {
+            if (task.id == 0)
+            {
+                task.CreatedByUser = _provider.getCurrentUser();
+                task.CreatedDate = DateTime.Now;
+            }
+
             _provider.saveTask(task);
             _view.ShowTask(task, _provider.getCurrentUser().role != Projman.Server.User.Types.Role.User, _provider.getCurrentUser().role != Projman.Server.User.Types.Role.User);
         }
@@ -57,7 +63,6 @@ namespace projman_client
 
         public void OnCloseClick(Task originalTask)
         {
-           
             _provider.CloseTask(originalTask);
             _view.GoBack();
         }

@@ -36,14 +36,14 @@
             this.stack_view.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stack_view.Location = new System.Drawing.Point(0, 0);
             this.stack_view.Name = "stack_view";
-            this.stack_view.Size = new System.Drawing.Size(684, 361);
+            this.stack_view.Size = new System.Drawing.Size(1067, 591);
             this.stack_view.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 361);
+            this.ClientSize = new System.Drawing.Size(1067, 591);
             this.Controls.Add(this.stack_view);
             this.MinimumSize = new System.Drawing.Size(700, 400);
             this.Name = "MainForm";

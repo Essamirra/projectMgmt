@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label_name = new System.Windows.Forms.Label();
             this.label_title_description = new System.Windows.Forms.Label();
             this.label_description = new System.Windows.Forms.Label();
@@ -38,18 +38,6 @@
             this.label_start_date = new System.Windows.Forms.Label();
             this.label_end_date = new System.Windows.Forms.Label();
             this.tasks_list = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assignedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.closeDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.projectId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assigneeUserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label_tasks = new System.Windows.Forms.Label();
             this.edit_project_button = new System.Windows.Forms.Button();
             this.add_task_button = new System.Windows.Forms.Button();
@@ -64,7 +52,7 @@
             this.label_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_name.Location = new System.Drawing.Point(3, 0);
             this.label_name.Name = "label_name";
-            this.label_name.Size = new System.Drawing.Size(594, 39);
+            this.label_name.Size = new System.Drawing.Size(1131, 39);
             this.label_name.TabIndex = 0;
             this.label_name.Text = "Title";
             this.label_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,36 +121,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tasks_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tasks_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tasks_list.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.tasks_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tasks_list.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.title,
-            this.description,
-            this.createdDate,
-            this.startDate,
-            this.assignedDate,
-            this.closeDate,
-            this.duration,
-            this.projectId,
-            this.createdByUserId,
-            this.assigneeUserId,
-            this.status});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tasks_list.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tasks_list.DefaultCellStyle = dataGridViewCellStyle4;
             this.tasks_list.Location = new System.Drawing.Point(0, 158);
             this.tasks_list.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.tasks_list.MultiSelect = false;
@@ -170,94 +145,10 @@
             this.tasks_list.ReadOnly = true;
             this.tasks_list.RowHeadersVisible = false;
             this.tasks_list.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tasks_list.Size = new System.Drawing.Size(600, 242);
+            this.tasks_list.Size = new System.Drawing.Size(1137, 344);
             this.tasks_list.TabIndex = 7;
             this.tasks_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tasks_list_CellClick);
             this.tasks_list.SelectionChanged += new System.EventHandler(this.tasks_list_SelectionChanged);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // title
-            // 
-            this.title.DataPropertyName = "title";
-            this.title.HeaderText = "Имя";
-            this.title.Name = "title";
-            this.title.ReadOnly = true;
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.HeaderText = "Описание";
-            this.description.Name = "description";
-            this.description.ReadOnly = true;
-            // 
-            // createdDate
-            // 
-            this.createdDate.DataPropertyName = "createdDate";
-            this.createdDate.HeaderText = "Создана";
-            this.createdDate.Name = "createdDate";
-            this.createdDate.ReadOnly = true;
-            // 
-            // startDate
-            // 
-            this.startDate.DataPropertyName = "startDate";
-            this.startDate.HeaderText = "Старт";
-            this.startDate.Name = "startDate";
-            this.startDate.ReadOnly = true;
-            // 
-            // assignedDate
-            // 
-            this.assignedDate.DataPropertyName = "assignedDate";
-            this.assignedDate.HeaderText = "Принята";
-            this.assignedDate.Name = "assignedDate";
-            this.assignedDate.ReadOnly = true;
-            // 
-            // closeDate
-            // 
-            this.closeDate.DataPropertyName = "closeDate";
-            this.closeDate.HeaderText = "Закрыта";
-            this.closeDate.Name = "closeDate";
-            this.closeDate.ReadOnly = true;
-            // 
-            // duration
-            // 
-            this.duration.DataPropertyName = "duration";
-            this.duration.HeaderText = "Продолжительность";
-            this.duration.Name = "duration";
-            this.duration.ReadOnly = true;
-            // 
-            // projectId
-            // 
-            this.projectId.DataPropertyName = "projectId";
-            this.projectId.HeaderText = "Id проекта";
-            this.projectId.Name = "projectId";
-            this.projectId.ReadOnly = true;
-            // 
-            // createdByUserId
-            // 
-            this.createdByUserId.DataPropertyName = "createdByUserId";
-            this.createdByUserId.HeaderText = "Создатель";
-            this.createdByUserId.Name = "createdByUserId";
-            this.createdByUserId.ReadOnly = true;
-            // 
-            // assigneeUserId
-            // 
-            this.assigneeUserId.DataPropertyName = "assigneeUserId";
-            this.assigneeUserId.HeaderText = "Приниматель";
-            this.assigneeUserId.Name = "assigneeUserId";
-            this.assigneeUserId.ReadOnly = true;
-            // 
-            // status
-            // 
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "Статус";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
             // 
             // label_tasks
             // 
@@ -266,7 +157,7 @@
             this.label_tasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_tasks.Location = new System.Drawing.Point(143, 128);
             this.label_tasks.Name = "label_tasks";
-            this.label_tasks.Size = new System.Drawing.Size(454, 23);
+            this.label_tasks.Size = new System.Drawing.Size(991, 23);
             this.label_tasks.TabIndex = 8;
             this.label_tasks.Text = "Список задач";
             this.label_tasks.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -293,7 +184,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(507, 11);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(1040, 11);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 45);
             this.button1.TabIndex = 11;
@@ -318,7 +210,7 @@
             this.Controls.Add(this.label_title_description);
             this.Controls.Add(this.label_name);
             this.Name = "ProjectView";
-            this.Size = new System.Drawing.Size(600, 400);
+            this.Size = new System.Drawing.Size(1137, 502);
             this.VisibleChanged += new System.EventHandler(this.ProjectView_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.tasks_list)).EndInit();
             this.ResumeLayout(false);
@@ -337,18 +229,6 @@
         private System.Windows.Forms.Label label_end_date;
         private System.Windows.Forms.DataGridView tasks_list;
         private System.Windows.Forms.Label label_tasks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn assignedDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn closeDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn duration;
-        private System.Windows.Forms.DataGridViewTextBoxColumn projectId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdByUserId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn assigneeUserId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.Button edit_project_button;
         private System.Windows.Forms.Button add_task_button;
         private System.Windows.Forms.Button button1;

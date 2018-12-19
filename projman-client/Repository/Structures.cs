@@ -38,7 +38,7 @@ namespace projman_client
     {
         private Projman.Server.Project.Types.Status _status;
         [DisplayName("Id"), ReadOnly(true)]
-        public long? id { get; set; } = null;
+        public long? id { get; set; } = 0;
         [DisplayName("Название")]
         public string name { get; set; } = "stub_name";
         [DisplayName("Описание")]
@@ -97,14 +97,13 @@ namespace projman_client
         public long id { get; set; } = 0;
 
         [DisplayName("Имя")]
-        public string title { get; set; } = "stub_title";
+        public string title { get; set; } = "имя";
         [DisplayName("Описание")]
-        public string description { get; set; } = "stub_description";
+        public string description { get; set; } = "описание";
         [DisplayName("Начало")]
-        public DateTime StartDate { get; set; } = DateTime.Today;
+        public DateTime StartDate { get; set; }
         [DisplayName("Конец")]
-        public DateTime EndDate { get; set; } = DateTime.Parse("12/12/2018");
-
+        public DateTime EndDate { get; set; }
 
         [DisplayName("Дата назначения"), ReadOnly(true)]
         public DateTime AssignedDate
@@ -118,7 +117,7 @@ namespace projman_client
             get { return _assignedUser; }
             set { _assignedUser = value; }
         }
-        [DisplayName("Создана"), ReadOnly(true)]
+        [DisplayName("Создана кем"), ReadOnly(true)]
         public User CreatedByUser
         {
             get { return _createdByUser; }
@@ -130,7 +129,7 @@ namespace projman_client
             get { return _status; }
             set { _status = value; }
         }
-        [DisplayName("Закрыта"), ReadOnly(true)]
+        [DisplayName("Закрыта когда"), ReadOnly(true)]
         public DateTime CloseDate
         {
             get { return _closeDate; }
