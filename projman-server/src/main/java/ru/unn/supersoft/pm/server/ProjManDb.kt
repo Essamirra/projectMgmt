@@ -10,20 +10,21 @@ import java.sql.DriverManager
 import java.sql.ResultSet
 import java.sql.Types
 
-private const val TABLE_PROJECT = "Project"
-private const val TABLE_TASK = "Task"
-private const val TABLE_USER = "User"
-private const val TABLE_SESSION = "Session"
+private const val TABLE_PROJECT = "project"
+private const val TABLE_TASK = "task"
+private const val TABLE_USER = "humans"
+private const val TABLE_SESSION = "session"
 
 class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
     private val connection: Connection
 
     init {
         // Check for sqlite loaded
-        Class.forName("org.sqlite.JDBC")
 
+        Class.forName("org.postgresql.Driver")
+        val address = "fake"
         // Connect
-        val connectionUrl = if (inMemory) "jdbc:sqlite::memory:" else "jdbc:sqlite:main.db"
+        val connectionUrl = if (inMemory) "jdbc:sqlite::memory:" else address
         connection = DriverManager.getConnection(connectionUrl)
 
         // Create tables if not exists
@@ -215,83 +216,87 @@ class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
     private fun initTables() {
         connection.createStatement().use { statement ->
             fun createTable(name: String, vararg fields: Pair<String, String>) {
-                statement.execute("CREATE TABLE IF NOT EXISTS $name (${fields.joinToString { it.first + " " + it.second }})")
+                val s = "CREATE TABLE IF NOT EXISTS $name (${fields.joinToString { it.first + " " + it.second }})"
+                println(s)
+                statement.execute(s)
             }
 
             createTable(TABLE_PROJECT,
-                    "id" to "INTEGER PRIMARY KEY AUTOINCREMENT",
-                    "name" to "STRING",
-                    "description" to "STRING",
+                    "id" to "SERIAL PRIMARY KEY",
+                    "name" to "TEXT",
+                    "description" to "TEXT",
                     "startDate" to "INTEGER",
                     "endDate" to "INTEGER",
                     "closedWhen" to "INTEGER",
                     "status" to "INTEGER"
             )
             createTable(TABLE_SESSION,
-                    "token" to "STRING PRIMARY KEY",
+                    "token" to "SERIAL PRIMARY KEY",
                     "userId" to "INTEGER"
             )
 
             createTable(TABLE_TASK,
-                    "id" to "INTEGER PRIMARY KEY AUTOINCREMENT",
-                    "title" to "STRING",
-                    "description" to "STRING",
+                    "id" to "SERIAL PRIMARY KEY",
+                    "title" to "TEXT",
+                    "description" to "TEXT",
                     "createdDate" to "INTEGER",
                     "startDate" to "INTEGER",
                     "endDate" to "INTEGER",
                     "assignedDate" to "INTEGER",
                     "closeDate" to "INTEGER",
-                    "projectId" to "STRING",
-                    "createdByUserId" to "STRING",
-                    "assigneeUserId" to "STRING",
+                    "projectId" to "TEXT",
+                    "createdByUserId" to "TEXT",
+                    "assigneeUserId" to "TEXT",
                     "status" to "INTEGER"
             )
 
             createTable(TABLE_USER,
-                    "id" to "INTEGER PRIMARY KEY AUTOINCREMENT",
-                    "firstName" to "STRING",
-                    "lastName" to "STRING",
-                    "login" to "STRING UNIQUE",
-                    "password" to "STRING",
+                    "id" to "SERIAL PRIMARY KEY",
+                    "firstName" to "TEXT",
+                    "lastName" to "TEXT",
+                    "login" to "TEXT UNIQUE",
+                    "password" to "TEXT",
                     "role" to "INTEGER"
             )
 
-            insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
-                setString("firstName", "admin")
-                setString("lastName", "admin")
-                setString("login", "admin")
-                setString("password", "admin")
-                setInt("role", User.Role.ADMIN_VALUE)
-            }
-            insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
-                setString("firstName", "manager")
-                setString("lastName", "manager")
-                setString("login", "manager")
-                setString("password", "manager")
-                setInt("role", User.Role.MANAGER_VALUE)
-            }
-            insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
-                setString("firstName", "worker")
-                setString("lastName", "worker")
-                setString("login", "worker")
-                setString("password", "worker")
-                setInt("role", User.Role.USER_VALUE)
-            }
-
-            insert(TABLE_PROJECT, "name", "description", "startDate", "endDate", "closedWhen", "status") {
-                setString("name", "AAA")
-                setString("description", "BBB")
-                setLong("startDate", 100500)
-                setLong("endDate", 200400)
-                setLong("closedWhen", 500600)
-                setInt("status", Project.Status.OPEN_VALUE)
-            }
+//            insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
+//                setString("firstName", "admin")
+//                setString("lastName", "admin")
+//                setString("login", "admin")
+//                setString("password", "admin")
+//                setInt("role", User.Role.ADMIN_VALUE)
+//            }
+//            insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
+//                setString("firstName", "manager")
+//                setString("lastName", "manager")
+//                setString("login", "manager")
+//                setString("password", "manager")
+//                setInt("role", User.Role.MANAGER_VALUE)
+//            }
+//            insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
+//                setString("firstName", "worker")
+//                setString("lastName", "worker")
+//                setString("login", "worker")
+//                setString("password", "worker")
+//                setInt("role", User.Role.USER_VALUE)
+//            }
+//
+//            insert(TABLE_PROJECT, "name", "description", "startDate", "endDate", "closedWhen", "status") {
+//                setString("name", "AAA")
+//                setString("description", "BBB")
+//                setLong("startDate", 100500)
+//                setLong("endDate", 200400)
+//                setLong("closedWhen", 500600)
+//                setInt("status", Project.Status.OPEN_VALUE)
+//            }
         }
     }
 
     private fun insert(table: String, vararg fields: String, init: NamedParameterPreparedStatement.() -> Unit) {
+        val s = "INSERT INTO $table (${fields.joinToString()}) VALUES (${fields.joinToString { ":$it" }})"
+        println(s)
         createNamedParameterPreparedStatement(connection,
-                "INSERT OR REPLACE INTO $table (${fields.joinToString()}) VALUES (${fields.joinToString { ":$it" }})"
+                s
         ).use { statement ->
             init(statement)
             statement.executeUpdate()

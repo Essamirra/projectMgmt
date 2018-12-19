@@ -23,7 +23,7 @@ class PmServer {
 
     private var server: Server? = null
 
-    val db : Database = ProjManDb(true)
+    val db : Database = ProjManDb(false)
 
     private fun start() {
         val port = 50051
