@@ -16,13 +16,51 @@ private const val TABLE_USER = "humans"
 private const val TABLE_SESSION = "session"
 
 class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
+    override fun saveProject(project: Project) {
+        update(TABLE_PROJECT, "id = :id", "name", "description", "startDate", "endDate", "closedWhen", "status") {
+            setLong("id", project.id)
+            setString("name", project.name)
+            setString("description", project.description)
+            setLong("startDate", project.startDate)
+            setLong("endDate", project.endDate)
+            setLong("closedWhen", project.closedWhen)
+            setInt("status", project.status.number)
+        }
+    }
+
+    override fun saveTask(task: Task) {
+        update(TABLE_TASK, "id = :id", "title", "description", "createdDate", "startDate", "endDate", "assignedDate", "closeDate", "projectId", "createdByUserId", "assigneeUserId", "status") {
+            setLong("id", task.id)
+            setString("title", task.title)
+            setString("description", task.description)
+            setLong("createdDate", task.createdDate)
+            setLong("startDate", task.startDate)
+            setLong("endDate", task.endDate)
+            setLong("assignedDate", task.assignedDate)
+            setLong("closeDate", task.closeDate)
+            setLong("projectId", task.projectId)
+            setLong("createdByUserId", task.createdByUserId)
+            setLong("assigneeUserId", task.assigneeUserId)
+            setInt("status", task.status.number)
+        }
+    }
+
+    override fun saveUser(user: User) {
+        update(TABLE_USER, "id = :id", "firstName", "lastName", "login", "password", "role") {
+            setLong("id", user.id)
+            setString("firstName", user.firstName)
+            setString("lastName", user.lastName)
+            setString("login", user.login)
+            setString("password", user.password)
+            setInt("role", user.role.number)
+        }
+    }
+
     private val connection: Connection
 
     init {
-        // Check for sqlite loaded
-
         Class.forName("org.postgresql.Driver")
-        val address = "fake"
+        val address = "jdbc:postgresql://ec2-46-137-94-97.eu-west-1.compute.amazonaws.com:5432/d6jqq8cufl0h2b?user=sgwtaqesqzfaew&password=2c3d5f7d04014a3e7edb93124aa4a2ce4d1bfdf8fdfea572c40f4a5fc57ac3af"
         // Connect
         val connectionUrl = if (inMemory) "jdbc:sqlite::memory:" else address
         connection = DriverManager.getConnection(connectionUrl)
@@ -58,8 +96,9 @@ class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
 
 
     override fun insertProject(project: Project) {
+        if (project.id > 0)
         insert(TABLE_PROJECT, "id", "name", "description", "startDate", "endDate", "closedWhen", "status") {
-            if (project.id > 0) setLong("id", project.id) else setNull("id", Types.NULL)
+             setLong("id", project.id)
             setString("name", project.name)
             setString("description", project.description)
             setLong("startDate", project.startDate)
@@ -67,6 +106,16 @@ class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
             setLong("closedWhen", project.closedWhen)
             setInt("status", project.status.number)
         }
+        else
+            insert(TABLE_PROJECT, "name", "description", "startDate", "endDate", "closedWhen", "status") {
+                setString("name", project.name)
+                setString("description", project.description)
+                setLong("startDate", project.startDate)
+                setLong("endDate", project.endDate)
+                setLong("closedWhen", project.closedWhen)
+                setInt("status", project.status.number)
+            }
+
     }
     //endregion
 
@@ -96,7 +145,7 @@ class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
     }
 
     override fun getTasksInProject(projectId: Long): List<Task> {
-        createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_TASK WHERE projectId = :projectId").use { statement ->
+        createNamedParameterPreparedStatement(connection, "SELECT * FROM $TABLE_TASK WHERE projectId = cast(:projectId as varchar)").use { statement ->
             statement.setLong("projectId", projectId)
 
             val resultSet = statement.executeQuery()
@@ -110,7 +159,7 @@ class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
 
     override fun getAssignedTasks(assignedTo: Long): List<Task> {
         createNamedParameterPreparedStatement(connection,
-                "SELECT * FROM $TABLE_TASK WHERE assigneeUserId = :assignedTo AND status = ${Task.Status.ASSIGNED_VALUE}"
+                "SELECT * FROM $TABLE_TASK WHERE assigneeUserId = cast (:assignedTo as varchar) AND status = ${Task.Status.ASSIGNED_VALUE}"
         ).use { statement ->
             statement.setLong("assignedTo", assignedTo)
 
@@ -124,8 +173,9 @@ class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
     }
 
     override fun insertTask(task: Task) {
+        if (task.id > 0)
         insert(TABLE_TASK, "id", "title", "description", "createdDate", "startDate", "endDate", "assignedDate", "closeDate", "projectId", "createdByUserId", "assigneeUserId", "status") {
-            if (task.id > 0) setLong("id", task.id) else setNull("id", Types.NULL)
+            setLong("id", task.id)
             setString("title", task.title)
             setString("description", task.description)
             setLong("createdDate", task.createdDate)
@@ -138,6 +188,21 @@ class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
             setLong("assigneeUserId", task.assigneeUserId)
             setInt("status", task.status.number)
         }
+        else
+            insert(TABLE_TASK, "title", "description", "createdDate", "startDate", "endDate", "assignedDate", "closeDate", "projectId", "createdByUserId", "assigneeUserId", "status") {
+
+                setString("title", task.title)
+                setString("description", task.description)
+                setLong("createdDate", task.createdDate)
+                setLong("startDate", task.startDate)
+                setLong("endDate", task.endDate)
+                setLong("assignedDate", task.assignedDate)
+                setLong("closeDate", task.closeDate)
+                setLong("projectId", task.projectId)
+                setLong("createdByUserId", task.createdByUserId)
+                setLong("assigneeUserId", task.assigneeUserId)
+                setInt("status", task.status.number)
+            }
     }
     //endregion
 
@@ -171,14 +236,23 @@ class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
 
     //region Users
     override fun insertUser(user: User) {
+        if (user.id > 0)
         insert(TABLE_USER, "id", "firstName", "lastName", "login", "password", "role") {
-            if (user.id > 0) setLong("id", user.id) else setNull("id", Types.NULL)
+            setLong("id", user.id)
             setString("firstName", user.firstName)
             setString("lastName", user.lastName)
             setString("login", user.login)
             setString("password", user.password)
             setInt("role", user.role.number)
         }
+        else
+            insert(TABLE_USER, "firstName", "lastName", "login", "password", "role") {
+                setString("firstName", user.firstName)
+                setString("lastName", user.lastName)
+                setString("login", user.login)
+                setString("password", user.password)
+                setInt("role", user.role.number)
+            }
     }
 
     override fun getUsers(): List<User> {
@@ -304,10 +378,12 @@ class ProjManDb(inMemory: Boolean) : Database, AutoCloseable {
     }
 
     private fun update(table: String, where: String, vararg fields: String, init: NamedParameterPreparedStatement.() -> Unit) {
+        val s = "UPDATE $table SET ${fields.joinToString { "$it = :$it" }} WHERE $where"
         createNamedParameterPreparedStatement(connection,
-                "UPDATE $table SET (${fields.joinToString { "$it = :$it" }}) WHERE $where"
+                s
         ).use { statement ->
             init(statement)
+            System.out.println(statement);
             statement.executeUpdate()
         }
     }

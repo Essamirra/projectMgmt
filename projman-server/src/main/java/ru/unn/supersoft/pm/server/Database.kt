@@ -10,6 +10,7 @@ interface Database {
 
     fun getProjects(): List<Project>
     fun insertProject(project: Project)
+    fun saveProject(project: Project)
     //region Tasks
     fun getTask(id: Long): Task?
 
@@ -17,6 +18,7 @@ interface Database {
     fun getTasksInProject(projectId: Long): List<Task>
     fun getAssignedTasks(assignedTo: Long): List<Task>
     fun insertTask(task: Task)
+    fun saveTask(task: Task)
     //region Sessions
     fun getUserIdForToken(token: String): Long
 
@@ -24,6 +26,7 @@ interface Database {
     fun removeSession(token: String)
     //region Users
     fun insertUser(user: User)
+    fun saveUser(user: User)
 
     fun getUsers(): List<User>
     fun getUser(id: Long): User?

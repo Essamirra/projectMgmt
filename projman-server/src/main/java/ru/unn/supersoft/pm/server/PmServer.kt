@@ -99,7 +99,10 @@ class PmServer {
         override fun saveProject(request: SaveProjectRequest, responseObserver: StreamObserver<SaveProjectResult>) {
             try {
                 getUserByToken(request.token).checkHasRole(setOf(User.Role.MANAGER, User.Role.ADMIN), {
-                    db.insertProject(request.project)
+                    if(request.project.id > 0)
+                        db.saveProject(request.project)
+                    else
+                        db.insertProject(request.project)
                     responseObserver.onNext(SaveProjectResult.getDefaultInstance())
                     responseObserver.onCompleted()
                 }, { e ->
@@ -148,7 +151,7 @@ class PmServer {
                     }?.build()
 
                     if (task != null) {
-                        db.insertTask(task)
+                        db.saveTask(task)
                     }
                     responseObserver.onNext(CloseTaskResult.getDefaultInstance())
                     responseObserver.onCompleted()
@@ -161,7 +164,10 @@ class PmServer {
         override fun saveTask(request: SaveTaskRequest, responseObserver: StreamObserver<SaveTaskResult>) {
             try {
                 getUserByToken(request.token).checkHasRole(setOf(User.Role.MANAGER, User.Role.ADMIN), {
-                    db.insertTask(request.task)
+                    if(request.task.id > 0)
+                        db.saveTask(request.task)
+                    else
+                        db.insertTask(request.task)
                     responseObserver.onNext(SaveTaskResult.getDefaultInstance())
                     responseObserver.onCompleted()
                 }, { e ->
@@ -190,7 +196,10 @@ class PmServer {
         override fun saveUser(request: SaveUserRequest, responseObserver: StreamObserver<SaveUserResult>) {
             try {
                 getUserByToken(request.token).checkHasRole(setOf(User.Role.ADMIN), {
-                    db.insertUser(request.user)
+                    if(request.user.id > 0)
+                        db.saveUser(request.user)
+                    else
+                        db.insertUser(request.user)
                     responseObserver.onNext(SaveUserResult.getDefaultInstance())
                     responseObserver.onCompleted()
                 }, { e ->
